@@ -5,6 +5,7 @@ examples/config/*
 ### Intellij ###
 .idea/
 /out/
+/*/out.map
 
 ### Intellij Patch ###
 *.iml
@@ -22,3 +23,28 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+
+# Android Studio
+.idea
+.gradle
+local.properties
+/*/out
+/*/*/build
+build
+/*/*/production
+*.iws
+*.ipr
+*~
+*.swp
+
+# Other KMM secific
+captures
+.externalNativeBuild
+.cxx
+xcuserdata
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
