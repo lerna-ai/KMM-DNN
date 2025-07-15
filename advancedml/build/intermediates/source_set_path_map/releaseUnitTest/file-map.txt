@@ -1,0 +1,14 @@
+com.kotlinnlp.simplednn.test.advancedml-core-1.5.0-0 C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\res
+com.kotlinnlp.simplednn.test.advancedml-work-runtime-ktx-2.8.1-1 C:\Users\miltos\.gradle\caches\transforms-3\2364b72377afa96c9f13554a5cde40b3\transformed\work-runtime-ktx-2.8.1\res
+com.kotlinnlp.simplednn.test.advancedml-sqlite-framework-2.3.0-2 C:\Users\miltos\.gradle\caches\transforms-3\2b7857c37a77ce07c3819f29c4e5ee1b\transformed\sqlite-framework-2.3.0\res
+com.kotlinnlp.simplednn.test.advancedml-work-runtime-2.8.1-3 C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\res
+com.kotlinnlp.simplednn.test.advancedml-core-1.6.0-4 C:\Users\miltos\.gradle\caches\transforms-3\9ea3841619254b35021ea6985806dbe9\transformed\core-1.6.0\res
+com.kotlinnlp.simplednn.test.advancedml-startup-runtime-1.0.0-5 C:\Users\miltos\.gradle\caches\transforms-3\a20219bdb42ae929103c0ae6594f5c15\transformed\startup-runtime-1.0.0\res
+com.kotlinnlp.simplednn.test.advancedml-sqlite-2.3.0-6 C:\Users\miltos\.gradle\caches\transforms-3\d0e35a21bf9d17bc9b1a4686d1b97e45\transformed\sqlite-2.3.0\res
+com.kotlinnlp.simplednn.test.advancedml-annotation-experimental-1.1.0-7 C:\Users\miltos\.gradle\caches\transforms-3\e5c9ebc67da229e056359b6725999ee2\transformed\annotation-experimental-1.1.0\res
+com.kotlinnlp.simplednn.test.advancedml-room-runtime-2.5.0-8 C:\Users\miltos\.gradle\caches\transforms-3\fcccb621aac699dd2cc46f3f49967a4f\transformed\room-runtime-2.5.0\res
+com.kotlinnlp.simplednn.test.advancedml-test-9 C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\generated\res\resValues\test\release
+com.kotlinnlp.simplednn.test.advancedml-mergeReleaseUnitTestResources-10 C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\incremental\releaseUnitTest\mergeReleaseUnitTestResources\merged.dir
+com.kotlinnlp.simplednn.test.advancedml-mergeReleaseUnitTestResources-11 C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\incremental\releaseUnitTest\mergeReleaseUnitTestResources\stripped.dir
+com.kotlinnlp.simplednn.test.advancedml-merged_res-12 C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\merged_res\releaseUnitTest
+com.kotlinnlp.simplednn.test.advancedml-packaged_res-13 C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\packaged_res\release

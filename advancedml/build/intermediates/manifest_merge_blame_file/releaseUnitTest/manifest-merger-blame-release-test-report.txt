@@ -1,0 +1,302 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.kotlinnlp.simplednn.test" >
+4
+5    <uses-sdk
+5-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:5:5-74
+6        android:minSdkVersion="23"
+6-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:5:15-41
+7        android:targetSdkVersion="23" />
+7-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:5:42-71
+8
+9    <instrumentation
+9-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:11:5-13:78
+10        android:name="android.test.InstrumentationTestRunner"
+10-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:11:22-75
+11        android:label="Tests for com.kotlinnlp.simplednn.test"
+11-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:13:22-76
+12        android:targetPackage="com.kotlinnlp.simplednn.test" />
+12-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:12:22-74
+13
+14    <uses-permission android:name="android.permission.REORDER_TASKS" />
+14-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:24:5-72
+14-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:24:22-69
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:23:5-68
+15-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:23:22-65
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:5-79
+16-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:22-76
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+17-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:25:5-81
+17-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:25:22-78
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+18-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:26:5-77
+18-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:26:22-74
+19
+20    <application
+20-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:7:5-9:19
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.6.0] C:\Users\miltos\.gradle\caches\transforms-3\9ea3841619254b35021ea6985806dbe9\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+22        android:debuggable="true" >
+22-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:7:18-43
+23        <uses-library android:name="android.test.runner" />
+23-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:8:9-60
+23-->C:\dev\lerna\oss\SimpleDNN-fork-test\advancedml\build\intermediates\tmp\manifest\test\release\tempFile1ProcessTestManifest8994836741632086324.xml:8:23-57
+24
+25        <activity
+25-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:27:9-34:20
+26            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+26-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:28:13-99
+27            android:exported="true"
+27-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:29:13-36
+28            android:theme="@style/WhiteBackgroundTheme" >
+28-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:30:13-56
+29            <intent-filter android:priority="-100" >
+29-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:13-33:29
+29-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:28-51
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:17-77
+30-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:27-74
+31            </intent-filter>
+32        </activity>
+33        <activity
+33-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:35:9-42:20
+34            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+34-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:36:13-95
+35            android:exported="true"
+35-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:37:13-36
+36            android:theme="@style/WhiteBackgroundTheme" >
+36-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:38:13-56
+37            <intent-filter android:priority="-100" >
+37-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:13-33:29
+37-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:28-51
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:17-77
+38-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:43:9-50:20
+42            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+42-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:44:13-103
+43            android:exported="true"
+43-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:45:13-36
+44            android:theme="@style/WhiteBackgroundDialogTheme" >
+44-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:46:13-62
+45            <intent-filter android:priority="-100" >
+45-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:13-33:29
+45-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:31:28-51
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:17-77
+46-->[androidx.test:core:1.5.0] C:\Users\miltos\.gradle\caches\transforms-3\14e6f8f0b1d0cec79e70760d66e2acc0\transformed\core-1.5.0\AndroidManifest.xml:32:27-74
+47            </intent-filter>
+48        </activity>
+49
+50        <provider
+50-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:29:9-37:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:30:13-67
+52            android:authorities="com.kotlinnlp.simplednn.test.androidx-startup"
+52-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:31:13-68
+53            android:exported="false" >
+53-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:32:13-37
+54            <meta-data
+54-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:34:13-36:52
+55                android:name="androidx.work.WorkManagerInitializer"
+55-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:35:17-68
+56                android:value="androidx.startup" />
+56-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:36:17-49
+57        </provider>
+58
+59        <service
+59-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:39:9-45:35
+60            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+60-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:40:13-88
+61            android:directBootAware="false"
+61-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:41:13-44
+62            android:enabled="@bool/enable_system_alarm_service_default"
+62-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:42:13-72
+63            android:exported="false" />
+63-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:43:13-37
+64        <service
+64-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:46:9-52:35
+65            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+65-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:47:13-84
+66            android:directBootAware="false"
+66-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:48:13-44
+67            android:enabled="@bool/enable_system_job_service_default"
+67-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:49:13-70
+68            android:exported="true"
+68-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:50:13-36
+69            android:permission="android.permission.BIND_JOB_SERVICE" />
+69-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:51:13-69
+70        <service
+70-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:53:9-59:35
+71            android:name="androidx.work.impl.foreground.SystemForegroundService"
+71-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:54:13-81
+72            android:directBootAware="false"
+72-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:55:13-44
+73            android:enabled="@bool/enable_system_foreground_service_default"
+73-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:56:13-77
+74            android:exported="false" />
+74-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:57:13-37
+75
+76        <receiver
+76-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:61:9-66:35
+77            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+77-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:62:13-88
+78            android:directBootAware="false"
+78-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:63:13-44
+79            android:enabled="true"
+79-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:64:13-35
+80            android:exported="false" />
+80-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:65:13-37
+81        <receiver
+81-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:67:9-77:20
+82            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+82-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:68:13-106
+83            android:directBootAware="false"
+83-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:69:13-44
+84            android:enabled="false"
+84-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:70:13-36
+85            android:exported="false" >
+85-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:71:13-37
+86            <intent-filter>
+86-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:73:13-76:29
+87                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+87-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:74:17-87
+87-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:74:25-84
+88                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+88-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:75:17-90
+88-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:75:25-87
+89            </intent-filter>
+90        </receiver>
+91        <receiver
+91-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:78:9-88:20
+92            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+92-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:79:13-104
+93            android:directBootAware="false"
+93-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:80:13-44
+94            android:enabled="false"
+94-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:81:13-36
+95            android:exported="false" >
+95-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:82:13-37
+96            <intent-filter>
+96-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:84:13-87:29
+97                <action android:name="android.intent.action.BATTERY_OKAY" />
+97-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:85:17-77
+97-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:85:25-74
+98                <action android:name="android.intent.action.BATTERY_LOW" />
+98-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:86:17-76
+98-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:86:25-73
+99            </intent-filter>
+100        </receiver>
+101        <receiver
+101-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:89:9-99:20
+102            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+102-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:90:13-104
+103            android:directBootAware="false"
+103-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:91:13-44
+104            android:enabled="false"
+104-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:92:13-36
+105            android:exported="false" >
+105-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:93:13-37
+106            <intent-filter>
+106-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:95:13-98:29
+107                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+107-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:96:17-83
+107-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:96:25-80
+108                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+108-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:97:17-82
+108-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:97:25-79
+109            </intent-filter>
+110        </receiver>
+111        <receiver
+111-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:100:9-109:20
+112            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+112-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:101:13-103
+113            android:directBootAware="false"
+113-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:102:13-44
+114            android:enabled="false"
+114-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:103:13-36
+115            android:exported="false" >
+115-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:104:13-37
+116            <intent-filter>
+116-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:106:13-108:29
+117                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+117-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:107:17-79
+117-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:107:25-76
+118            </intent-filter>
+119        </receiver>
+120        <receiver
+120-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:110:9-121:20
+121            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+121-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:111:13-88
+122            android:directBootAware="false"
+122-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:112:13-44
+123            android:enabled="false"
+123-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:113:13-36
+124            android:exported="false" >
+124-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:114:13-37
+125            <intent-filter>
+125-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:116:13-120:29
+126                <action android:name="android.intent.action.BOOT_COMPLETED" />
+126-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:117:17-79
+126-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:117:25-76
+127                <action android:name="android.intent.action.TIME_SET" />
+127-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:118:17-73
+127-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:118:25-70
+128                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+128-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:119:17-81
+128-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:119:25-78
+129            </intent-filter>
+130        </receiver>
+131        <receiver
+131-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:122:9-131:20
+132            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+132-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:123:13-99
+133            android:directBootAware="false"
+133-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:124:13-44
+134            android:enabled="@bool/enable_system_alarm_service_default"
+134-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:125:13-72
+135            android:exported="false" >
+135-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:126:13-37
+136            <intent-filter>
+136-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:128:13-130:29
+137                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+137-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:129:17-98
+137-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:129:25-95
+138            </intent-filter>
+139        </receiver>
+140        <receiver
+140-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:132:9-142:20
+141            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+141-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:133:13-78
+142            android:directBootAware="false"
+142-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:134:13-44
+143            android:enabled="true"
+143-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:135:13-35
+144            android:exported="true"
+144-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:136:13-36
+145            android:permission="android.permission.DUMP" >
+145-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:137:13-57
+146            <intent-filter>
+146-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:139:13-141:29
+147                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+147-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:140:17-88
+147-->[androidx.work:work-runtime:2.8.1] C:\Users\miltos\.gradle\caches\transforms-3\3f8d6fa1ee164e060072695518daeb50\transformed\work-runtime-2.8.1\AndroidManifest.xml:140:25-85
+148            </intent-filter>
+149        </receiver>
+150
+151        <service
+151-->[androidx.room:room-runtime:2.5.0] C:\Users\miltos\.gradle\caches\transforms-3\fcccb621aac699dd2cc46f3f49967a4f\transformed\room-runtime-2.5.0\AndroidManifest.xml:24:9-28:63
+152            android:name="androidx.room.MultiInstanceInvalidationService"
+152-->[androidx.room:room-runtime:2.5.0] C:\Users\miltos\.gradle\caches\transforms-3\fcccb621aac699dd2cc46f3f49967a4f\transformed\room-runtime-2.5.0\AndroidManifest.xml:25:13-74
+153            android:directBootAware="true"
+153-->[androidx.room:room-runtime:2.5.0] C:\Users\miltos\.gradle\caches\transforms-3\fcccb621aac699dd2cc46f3f49967a4f\transformed\room-runtime-2.5.0\AndroidManifest.xml:26:13-43
+154            android:exported="false" />
+154-->[androidx.room:room-runtime:2.5.0] C:\Users\miltos\.gradle\caches\transforms-3\fcccb621aac699dd2cc46f3f49967a4f\transformed\room-runtime-2.5.0\AndroidManifest.xml:27:13-37
+155    </application>
+156
+157</manifest>

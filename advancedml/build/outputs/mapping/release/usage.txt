@@ -1,0 +1,559 @@
+com.kotlinnlp.simplednn.core.arrays.ParamsArray$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.arrays.ParamsArray:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap$$serializer:
+    private final kotlinx.serialization.KSerializer getTypeSerial0()
+com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap:
+    private static final long serialVersionUID
+    private static synthetic void getDropoutRandomGenerator$annotations()
+com.kotlinnlp.simplednn.core.embeddings.LernaEmbeddingsMap$$serializer:
+    private final kotlinx.serialization.KSerializer getTypeSerial0()
+com.kotlinnlp.simplednn.core.embeddings.LernaEmbeddingsMap$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.embeddings.LernaEmbeddingsMap:
+    private static final long serialVersionUID
+    private static synthetic void getDropoutRandomGenerator$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.ActivationFunction$Companion:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.CeLU$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.CeLU:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.ELU$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.ELU:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.GeLU:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.HardSigmoid:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.HardTanh:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.LeakyRELU$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.LeakyRELU:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.ReLU:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.ScalarActivationFunction$Companion:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.SeLU$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.SeLU:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.Sigmoid:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Softmax$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Softmax:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.SoftmaxBase$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.SoftmaxBase:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.Softplus$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Softplus:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.Softshrink$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Softshrink:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.activations.Softsign:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Tanh:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Threshold$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.activations.Threshold:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.initializers.ConstantInitializer$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.initializers.ConstantInitializer:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.initializers.RandomInitializer$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.initializers.RandomInitializer:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.losses.SoftmaxCrossEntropyCalculator:
+    private static final float EPS
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.BaseRandom$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.BaseRandom:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.FixedRangeRandom$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.FixedRangeRandom:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.GaussianDistributedRandom$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.randomgenerators.GaussianDistributedRandom:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.functionalities.updatemethods.UpdaterSupportStructure$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.functionalities.updatemethods.UpdaterSupportStructure:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.LayerInterface$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.LayerInterface:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.LayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.LayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.StackedLayersParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.StackedLayersParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.helpers.RelevanceUtils:
+    private static final float relevanceEps
+com.kotlinnlp.simplednn.core.layers.models.LinearParams$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.LinearParams:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.autoassociative.NewRecirculationLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.autoassociative.NewRecirculationLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.feedforward.batchnorm.BatchNormForwardHelper:
+    private static final float EPS
+com.kotlinnlp.simplednn.core.layers.models.feedforward.batchnorm.BatchNormLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.feedforward.batchnorm.BatchNormLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.feedforward.highway.HighwayLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.feedforward.highway.HighwayLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.feedforward.norm.NormLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.feedforward.norm.NormLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.feedforward.simple.FeedforwardLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.feedforward.simple.FeedforwardLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.feedforward.squareddistance.SquaredDistanceLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.feedforward.squareddistance.SquaredDistanceLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.affine.AffineLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.affine.AffineLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.avg.AvgLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.avg.AvgLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.biaffine.BiaffineLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.biaffine.BiaffineLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.concat.ConcatLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.concat.ConcatLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.concatff.ConcatFFLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.concatff.ConcatFFLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.cosinesimilarity.CosineLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.cosinesimilarity.CosineLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.distance.DistanceLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.distance.DistanceLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.product.ProductLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.product.ProductLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.sub.SubLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.sub.SubLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.merge.sum.SumLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.merge.sum.SumLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLinearParams$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLinearParams:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.cfn.CFNLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.cfn.CFNLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.deltarnn.DeltaRNNLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.deltarnn.DeltaRNNLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.gru.GRULayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.gru.GRULayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.indrnn.IndRNNLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.indrnn.IndRNNLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.lstm.LSTMLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.lstm.LSTMLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ltm.LTMLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ltm.LTMLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ran.RANLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ran.RANLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.simple.SimpleRecurrentLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.simple.SimpleRecurrentLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.layers.models.recurrent.tpr.TPRLayerParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.tpr.TPRLayerParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.NNSequence$NNState:
+    public synthetic void <init>(com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.NNSequence,com.kotlinnlp.simplednn.core.layers.RecurrentStackedLayers,com.kotlinnlp.simplednn.core.layers.StackedLayersParameters,int,kotlin.jvm.internal.DefaultConstructorMarker)
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor:
+    static synthetic void addNewState$default(com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor,boolean,int,java.lang.Object)
+    static synthetic com.kotlinnlp.simplednn.simplemath.ndarray.NDArray getInputRelevance$default(com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor,int,boolean,int,java.lang.Object)
+com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetwork:
+    static synthetic java.util.List backwardAttentionLayer$default(com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetwork,com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray,boolean,int,java.lang.Object)
+com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.han.HAN$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.han.HAN:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.han.HANParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.han.HANParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.multihead.MultiHeadAttention$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.multihead.MultiHeadAttention:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.multihead.MultiHeadAttentionParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.multihead.MultiHeadAttentionParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkModel$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkModel:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNConfig$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNConfig:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.birnn.deepbirnn.DeepBiRNN$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.birnn.deepbirnn.DeepBiRNN:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.birnn.deepbirnn.DeepBiRNNParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.birnn.deepbirnn.DeepBiRNNParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.multitasknetwork.MultiTaskNetworkConfig$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.multitasknetwork.MultiTaskNetworkConfig:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.multitasknetwork.MultiTaskNetworkModel$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.multitasknetwork.MultiTaskNetworkModel:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTBaseImportHelper:
+    private final java.util.Map expandAttentionParams(java.util.Map,int)
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTModel$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTModel:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTParameters$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTParameters:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTTrainer$EncodedTerm:
+    public final java.lang.String getForm()
+com.kotlinnlp.simplednn.simplemath.ndarray.Shape$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.Shape:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$IndexedFloatValue:
+    public final int component1()
+    public final float component2()
+    public final com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$IndexedFloatValue copy(int,float)
+    public static synthetic com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$IndexedFloatValue copy$default(com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$IndexedFloatValue,int,float,int,java.lang.Object)
+    public final float getValue()
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArrayFactory:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray$Companion:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArrayFactory:
+    private static final long serialVersionUID
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.utils.DictionarySet$Factory:
+    private static synthetic void getSerialVersionUID$annotations()
+com.kotlinnlp.utils.DictionarySet:
+    private static final long serialVersionUID
+com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap:
+    private final boolean mustBeDropped(float)
+com.kotlinnlp.simplednn.core.embeddings.LernaEmbeddingsMap:
+    private final boolean mustBeDropped(float)
+com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer:
+    private final long seed
+com.kotlinnlp.simplednn.core.functionalities.losses.AugmentedMSECalculator:
+    private final float calculateRegularization()
+com.kotlinnlp.simplednn.core.functionalities.losses.NegativeLogProbability$sumExp$2:
+    public static java.lang.Float invoke()
+com.kotlinnlp.simplednn.core.functionalities.updatemethods.UpdaterSupportStructure$Companion$1:
+    public static kotlinx.serialization.KSerializer invoke()
+com.kotlinnlp.simplednn.core.functionalities.updatemethods.nesterovmomentum.NesterovMomentumStructure$vTmp$2:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray invoke()
+com.kotlinnlp.simplednn.core.layers.LayerParameters$Companion$1:
+    public static kotlinx.serialization.KSerializer invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.AttentionLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionBackwardHelper$assignAttentionGradients$attentionErrors$1:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionBackwardHelper$assignAttentionGradients$attentionInnerErrors$1:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionBackwardHelper$execBackward$outputErrors$1:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayer$buildDropoutMasks$1$activeIndices$1:
+    public static kotlin.Pair invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayer$buildDropoutMasks$1$activeIndices$2:
+    public static java.lang.Boolean invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayer$buildDropoutMasks$1$activeIndices$3:
+    public static java.lang.Integer invoke()
+com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.autoassociative.NewRecirculationLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.feedforward.batchnorm.BatchNormLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.feedforward.highway.HighwayLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.feedforward.highway.HighwayLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.feedforward.norm.NormLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.feedforward.simple.FeedforwardLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.feedforward.squareddistance.SquaredDistanceLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.affine.AffineLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.avg.AvgLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.biaffine.BiaffineLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.concat.ConcatLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.concatff.ConcatFFLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.cosinesimilarity.CosineLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.distance.DistanceLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.product.ProductLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.sub.SubLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.merge.sum.SumLayer:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.cfn.CFNLayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.cfn.CFNLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.deltarnn.DeltaRNNForwardHelper:
+    private final com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray calculatePartition()
+com.kotlinnlp.simplednn.core.layers.models.recurrent.deltarnn.DeltaRNNLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.gru.GRULayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.gru.GRULayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.indrnn.IndRNNLayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.indrnn.IndRNNLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.lstm.LSTMLayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.lstm.LSTMLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ltm.LTMLayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.layers.models.recurrent.ran.RANLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.simple.SimpleRecurrentLayerParameters:
+    private final boolean sparseInput
+com.kotlinnlp.simplednn.core.layers.models.recurrent.tpr.TPRLayer:
+    private final com.kotlinnlp.simplednn.core.layers.models.recurrent.GatedRecurrentRelevanceHelper relevanceHelper
+com.kotlinnlp.simplednn.core.neuralprocessor.batchfeedforward.BatchFeedforwardProcessor:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.ParamsErrorsCollector paramsErrorsCollector
+    private final void processorBackward(com.kotlinnlp.simplednn.core.neuralprocessor.feedforward.FeedforwardNeuralProcessor,com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray)
+    private final void reset()
+com.kotlinnlp.simplednn.core.neuralprocessor.embeddingsprocessor.EmbeddingsProcessor$errorsAccumulator$2:
+    public static com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.embeddingsprocessor.EmbeddingsProcessor:
+    private final int id
+    private final boolean propagateToInput
+com.kotlinnlp.simplednn.core.neuralprocessor.embeddingsprocessor.EmbeddingsProcessorWithContext$contextErrorsAccumulator$2:
+    public static com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.embeddingsprocessor.LernaEmbeddingsProcessor$errorsAccumulator$2:
+    public static com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.embeddingsprocessor.LernaEmbeddingsProcessor:
+    private final int id
+    private final boolean propagateToInput
+com.kotlinnlp.simplednn.core.neuralprocessor.feedforward.FeedforwardNeuralProcessor$contributions$2:
+    public static com.kotlinnlp.simplednn.core.layers.StackedLayersParameters invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.feedforward.FeedforwardNeuralProcessor:
+    private final com.kotlinnlp.simplednn.core.layers.helpers.ParamsErrorsCollector paramsErrorsCollector
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.NNSequence$NNState:
+    public final synthetic com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.NNSequence this$0
+    public static com.kotlinnlp.simplednn.core.layers.StackedLayersParameters getContributions()
+    public static com.kotlinnlp.simplednn.core.layers.RecurrentStackedLayers getLayers()
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor$paramsErrorsAccumulator$2:
+    public static com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor$ranImportanceHelper$2:
+    public static com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RANImportanceHelper invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor$zeroErrors$2:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray invoke()
+com.kotlinnlp.simplednn.core.neuralprocessor.recurrent.RecurrentNeuralProcessor:
+    private final void addNewState(boolean)
+    private final void reset()
+com.kotlinnlp.simplednn.deeplearning.attention.han.HANEncoder:
+    private final java.lang.Float mePropK
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkModel:
+    private final int mergeOutputSize
+com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.PointerNetworkProcessor$backwardHelper$2:
+    public static com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork.BackwardHelper invoke()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERT$getPositionalEncoding$1:
+    public static com.kotlinnlp.simplednn.core.arrays.ParamsArray invoke()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTBaseImportHelper$countLayers$1:
+    public static kotlin.text.MatchResult invoke()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTBaseImportHelper$countLayers$2:
+    public static java.lang.Integer invoke()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTLayer:
+    private final java.util.List backwardNorm(java.util.List,com.kotlinnlp.simplednn.core.neuralprocessor.batchfeedforward.BatchFeedforwardProcessor)
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTTrainer$EncodedTerm:
+    public static com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray getEncoding()
+    public static int getIndex()
+    public static java.lang.String getMaskedForm()
+    public static java.lang.String getRandomForm()
+    public static boolean isMasked()
+    public static void setEncoding()
+com.kotlinnlp.simplednn.deeplearning.transformers.BERTTrainer:
+    private final boolean optimizeEmbeddings
+com.kotlinnlp.simplednn.helpers.Evaluator:
+    private final boolean verbose
+com.kotlinnlp.simplednn.helpers.Trainer$ShuffledExamplesIterator:
+    public final synthetic com.kotlinnlp.simplednn.helpers.Trainer this$0
+com.kotlinnlp.simplednn.simplemath.SimpleMathKt:
+    private static final float negShannonEntropy(float)
+com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayMask$NDArrayMaskIterator:
+    public static kotlin.Pair next()
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$IndexedFloatValue:
+    public static int getIndex()
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray$isOneHotEncoder$1:
+    public static java.lang.Boolean invoke()
+com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray:
+    private final com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray assignSum(com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray)
+com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray:
+    private final int compareArrays(int,int)
+    private final void sortValues()
+    private final void swapArrays(int,int)
+com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray$LinearIndicesIterator:
+    private final java.util.Iterator rowsIterator
+com.kotlinnlp.utils.AbstractBiMap$BiMapSet:
+    public static int getSize()
+com.kotlinnlp.utils.AbstractBiMap$entries$2$1:
+    public static java.lang.Object invoke()
+com.kotlinnlp.utils.AbstractBiMap$entries$2$2:
+    public static java.util.Map$Entry invoke()
+com.kotlinnlp.utils.AbstractBiMap$entries$2:
+    public static com.kotlinnlp.utils.AbstractBiMap$BiMapSet invoke()
+com.kotlinnlp.utils.AbstractBiMap$inverse$2:
+    public static com.kotlinnlp.utils.AbstractBiMap$inverse$2$1 invoke()
+com.kotlinnlp.utils.AbstractBiMap$keys$2:
+    public static com.kotlinnlp.utils.AbstractBiMap$BiMapSet invoke()
+com.kotlinnlp.utils.BaseExtensionsKt$forEachGroup$1:
+    public static void invoke()
+com.kotlinnlp.utils.ShuffledIndices$InnerIterator:
+    public static java.lang.Integer next()
+com.kotlinnlp.utils.Timer:
+    private long startTime
+com.kotlinnlp.utils.WordPieceTokenizer$basicTokenize$1:
+    public static kotlin.sequences.Sequence invoke()
+com.kotlinnlp.utils.WordPieceTokenizer$piecesToWords$1$1:
+    public static java.lang.String invoke()
+com.kotlinnlp.utils.WordPieceTokenizer$tokenize$1:
+    public static kotlin.sequences.Sequence invoke()
+com.kotlinnlp.utils.stats.MetricCounter$f1Score$1:
+    public static java.lang.Float invoke()
+com.kotlinnlp.utils.stats.MetricCounter$precision$1:
+    public static java.lang.Float invoke()
+com.kotlinnlp.utils.stats.MetricCounter$recall$1:
+    public static java.lang.Float invoke()
+com.kotlinnlp.utils.stats.MetricCounter:
+    private static float ifNaN(float,kotlin.jvm.functions.Function0)

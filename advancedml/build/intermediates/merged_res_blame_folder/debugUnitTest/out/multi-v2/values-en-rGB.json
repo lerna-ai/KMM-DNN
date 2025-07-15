@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.kotlinnlp.simplednn.test.advancedml-mergeDebugUnitTestResources-10:/values-en-rGB/values-en-rGB.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\miltos\\.gradle\\caches\\transforms-3\\9ea3841619254b35021ea6985806dbe9\\transformed\\core-1.6.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
