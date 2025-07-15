@@ -15,9 +15,7 @@ import com.kotlinnlp.simplednn.core.layers.models.merge.concatff.ConcatFFLayerPa
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.utils.DictionarySet
-import com.kotlinnlp.utils.getLinesCount
-import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
-import java.io.File
+
 
 /**
  * Import the parameters of a [BERTModel] from a file of named matrices.
@@ -90,38 +88,38 @@ object BERTBaseImportHelper {
    *
    * @return the parameters associated by name
    */
-  fun readParams(filename: String, numOfHeads: Int): Map<String, DenseNDArray> {
-
-    val progress = ProgressIndicatorBar(total = getLinesCount(filename))
-    val paramsMap: MutableMap<String, DenseNDArray> = mutableMapOf()
-
-    var firstLine = true
-    var paramName = ""
-    val values: MutableList<DoubleArray> = mutableListOf()
-
-    File(filename).forEachLine { line ->
-
-      progress.tick()
-
-      when {
-
-        firstLine -> {
-          firstLine = false
-          paramName = line.trim()
-          values.clear()
-        }
-
-        line.isBlank() -> {
-          firstLine = true
-          paramsMap[paramName] = DenseNDArrayFactory.arrayOf(values)
-        }
-
-        else -> values.add(line.split("\t").map { it.toDouble() }.toTypedArray().toDoubleArray())
-      }
-    }
-
-    return expandAttentionParams(params = paramsMap, numOfHeads = numOfHeads)
-  }
+//  fun readParams(filename: String, numOfHeads: Int): Map<String, DenseNDArray> {
+//
+//    val progress = ProgressIndicatorBar(total = getLinesCount(filename))
+//    val paramsMap: MutableMap<String, DenseNDArray> = mutableMapOf()
+//
+//    var firstLine = true
+//    var paramName = ""
+//    val values: MutableList<DoubleArray> = mutableListOf()
+//
+//    File(filename).forEachLine { line ->
+//
+//      progress.tick()
+//
+//      when {
+//
+//        firstLine -> {
+//          firstLine = false
+//          paramName = line.trim()
+//          values.clear()
+//        }
+//
+//        line.isBlank() -> {
+//          firstLine = true
+//          paramsMap[paramName] = DenseNDArrayFactory.arrayOf(values)
+//        }
+//
+//        else -> values.add(line.split("\t").map { it.toDouble() }.toTypedArray().toDoubleArray())
+//      }
+//    }
+//
+//    return expandAttentionParams(params = paramsMap, numOfHeads = numOfHeads)
+//  }
 
   /**
    * Expand the parameters map read from file splitting horizontally the multi-head attention parameters by a given

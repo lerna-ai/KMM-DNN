@@ -128,7 +128,7 @@ internal class ScaledDotAttentionLayer(
 
       val activeIndices: List<Int> = this.inputArrays.indices
         .asSequence()
-        .map { it to Random.nextInt() }
+        .map { it to Random.nextDouble() }
         .filter { it.second >= this.attentionDropout }
         .map { it.first }
         .toList()

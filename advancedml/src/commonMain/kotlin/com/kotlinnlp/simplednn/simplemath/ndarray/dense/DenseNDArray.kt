@@ -251,7 +251,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   override fun assignValues(a: NDArray<*>): DenseNDArray {
 
     require(this.shape == a.shape ||
-            (this.isVector && a.isVector && this.length == a.length))
+      (this.isVector && a.isVector && this.length == a.length))
 
     when(a) {
       is DenseNDArray -> this.assignValues(a)
@@ -724,10 +724,10 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
         }
       b.columns == 1 -> // n-dim array (dot) column vector
         //for (j in b.activeIndicesByRow.keys) {
-        for (i in 0 until a.rows) {
-          this.storage[i,0] = b.activeIndicesByRow.keys.sumOf { a[i, it] }
-        }
-      // }
+          for (i in 0 until a.rows) {
+            this.storage[i,0] = b.activeIndicesByRow.keys.sumOf { a[i, it] }
+          }
+       // }
       else -> // n-dim array (dot) n-dim array
         TODO("not implemented")
     }
@@ -808,8 +808,8 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   private fun prod(a: DenseNDArray): DenseNDArray {
     require(a.shape == this.shape ||
-            (a.columns == 1 && a.rows == this.rows) ||
-            (a.isVector && this.isVector && a.length == this.length)) { "Arrays with not compatible size" }
+      (a.columns == 1 && a.rows == this.rows) ||
+      (a.isVector && this.isVector && a.length == this.length)) { "Arrays with not compatible size" }
 
     if (a.shape == this.shape)
       return DenseNDArray(this.storage.times(a.storage))

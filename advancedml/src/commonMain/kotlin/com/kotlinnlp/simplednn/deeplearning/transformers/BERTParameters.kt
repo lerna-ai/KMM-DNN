@@ -15,7 +15,6 @@ import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.neuralnetwork.preset.FeedforwardNeuralNetwork
 import com.kotlinnlp.simplednn.deeplearning.attention.multihead.MultiHeadAttentionParameters
-import java.io.Serializable
 
 /**
  * The BERT parameters.
@@ -36,7 +35,7 @@ class BERTParameters(
   val numOfHeads: Int,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 

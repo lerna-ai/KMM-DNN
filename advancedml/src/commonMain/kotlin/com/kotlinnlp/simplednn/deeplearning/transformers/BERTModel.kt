@@ -16,11 +16,8 @@ import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.utils.DictionarySet
-import com.kotlinnlp.utils.Serializer
 import com.kotlinnlp.utils.removeFrom
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+
 
 /**
  * The BERT model.
@@ -48,7 +45,7 @@ class BERTModel(
   numOfLayers: Int,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   /**
    * Functional token.
@@ -91,7 +88,7 @@ class BERTModel(
      *
      * @return the [BERTModel] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): BERTModel = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): BERTModel = Serializer.deserialize(inputStream)
   }
 
   /**
@@ -179,7 +176,7 @@ class BERTModel(
    *
    * @param outputStream the [OutputStream] in which to write this serialized [BERTModel]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 
   /**
    * Reduce the layers of this model to a given size, starting from the last.

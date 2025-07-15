@@ -23,8 +23,8 @@ import kotlin.random.Random
  *                            (default = true)
  */
 @kotlinx.serialization.Serializable
-open class EmbeddingsMap<T>(
-  //val num_features: Int,
+open class LernaEmbeddingsMap<T>(
+  val num_features: Int,
   val size: Int,
   private val initializer: Initializer? = GlorotInitializer(),
   private val pseudoRandomDropout: Boolean = true
@@ -39,16 +39,16 @@ open class EmbeddingsMap<T>(
     private const val serialVersionUID: Long = 1L
 
     /**
-     * Read an [EmbeddingsMap] (serialized) from an input stream and decode it.
+     * Read an [LernaEmbeddingsMap] (serialized) from an input stream and decode it.
      *
-     * @param inputStream the [InputStream] from which to read the serialized [EmbeddingsMap]
+     * @param inputStream the [InputStream] from which to read the serialized [LernaEmbeddingsMap]
      *
-     * @return the [EmbeddingsMap] read from [inputStream] and decoded
+     * @return the [LernaEmbeddingsMap] read from [inputStream] and decoded
      */
 //    fun <T>load(inputStream: InputStream): EmbeddingsMap<T> = Serializer.deserialize(inputStream)
 
     /**
-     * Load an [EmbeddingsMap] with [String] keys from file.
+     * Load an [LernaEmbeddingsMap] with [String] keys from file.
      *
      * The file must contain one header line and N following data lines:
      *   - The header line must contain the number N of data lines and the size S of the vectors (the same for all),
@@ -56,11 +56,11 @@ open class EmbeddingsMap<T>(
      *   - Each data line must contain the key, followed by S double numbers, each separated by a space.
      *
      * @param filename the input filename
-     * @param pseudoRandomDropout the pseudoRandomDropout that is propagated to the [EmbeddingsMap] constructor
+     * @param pseudoRandomDropout the pseudoRandomDropout that is propagated to the [LernaEmbeddingsMap] constructor
      * @param initializer the initializer of the values of the other embeddings (zeros if null, default: Glorot)
      * @param verbose a Boolean indicating whether to enable the verbose mode (default = true)
      *
-     * @return an [EmbeddingsMap] of [String]s loaded from the given file
+     * @return an [LernaEmbeddingsMap] of [String]s loaded from the given file
      */
 //    fun load(filename: String,
 //             pseudoRandomDropout: Boolean = true,
@@ -144,14 +144,14 @@ open class EmbeddingsMap<T>(
 //    }
 
     /**
-     * Load an [EmbeddingsMap] with [String] keys from the given [elements] set.
+     * Load an [LernaEmbeddingsMap] with [String] keys from the given [elements] set.
      *
      * @param elements the set of elements from which to create the embedding map
      * @param size the size of each embedding
-     * @param pseudoRandomDropout the pseudoRandomDropout that is propagated to the [EmbeddingsMap] constructor
+     * @param pseudoRandomDropout the pseudoRandomDropout that is propagated to the [LernaEmbeddingsMap] constructor
      * @param initializer the initializer of the values of the other embeddings (zeros if null, default: Glorot)
      *
-     * @return an [EmbeddingsMap] of [String]s
+     * @return an [LernaEmbeddingsMap] of [String]s
      */
 //    fun fromSet(elements: Set<String>,
 //                size: Int,
@@ -191,11 +191,11 @@ open class EmbeddingsMap<T>(
 //    }
   }
   fun load_init() {
-    for (key in 0 until this.size) {this.embeddings[key] = this.buildEmbedding()}
+    for (key in 0 until this.num_features) {this.embeddings[key] = this.buildEmbedding()}
   }
 
   /**
-   * The number of embeddings in this [EmbeddingsMap] (excluding the [unknownEmbedding] and the [nullEmbedding]).
+   * The number of embeddings in this [LernaEmbeddingsMap] (excluding the [unknownEmbedding] and the [nullEmbedding]).
    */
   val count: Int get() = this.embeddings.size
 
@@ -227,9 +227,9 @@ open class EmbeddingsMap<T>(
   private val dropoutRandomGenerator = if (this.pseudoRandomDropout) Random(743) else Random(Random.nextInt())
 
   /**
-   * Serialize this [EmbeddingsMap] and write it to an output stream.
+   * Serialize this [LernaEmbeddingsMap] and write it to an output stream.
    *
-   * @param outputStream the [OutputStream] in which to write this serialized [EmbeddingsMap]
+   * @param outputStream the [OutputStream] in which to write this serialized [LernaEmbeddingsMap]
    */
 //  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 

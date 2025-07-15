@@ -19,10 +19,9 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.utils.Shuffler
 import com.kotlinnlp.utils.Timer
 import com.kotlinnlp.utils.WordPieceTokenizer
-import java.io.File
-import java.io.FileOutputStream
-import java.util.*
+import com.soywiz.korio.lang.format
 import kotlin.math.floor
+import kotlin.random.Random
 
 /**
  * The trainer of a [BERT] model.
@@ -129,7 +128,7 @@ class BERTTrainer(
 
       val elementId: Int = floor(formRandom.nextDouble() * this@BERTTrainer.model.vocabulary.size).toInt()
 
-      return this@BERTTrainer.model.vocabulary.getElement(elementId)!!
+      return this@BERTTrainer.model.vocabulary.getElement(elementId).toString()
     }
   }
 
@@ -220,7 +219,7 @@ class BERTTrainer(
    * Dump the model to file.
    */
   override fun dumpModel() {
-    this.model.dump(FileOutputStream(File(this.modelFilename)))
+  //  this.model.dump(FileOutputStream(File(this.modelFilename)))
   }
 
   /**

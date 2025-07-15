@@ -24,11 +24,11 @@ open class EmbeddingsProcessor<T>(
   private val embeddingsMap: EmbeddingsMap<T>,
   private val dropout: Double = 0.0
 ) : NeuralProcessor<
-  List<T>, // InputType
-  List<DenseNDArray>, // OutputType
-  List<DenseNDArray>, // ErrorsType
-  NeuralProcessor.NoInputErrors // InputErrorsType
-  > {
+        List<T>, // InputType
+        List<DenseNDArray>, // OutputType
+        List<DenseNDArray>, // ErrorsType
+        NeuralProcessor.NoInputErrors // InputErrorsType
+        > {
 
   /**
    * Whether to propagate the errors to the input during the backward (not supported)
@@ -45,6 +45,9 @@ open class EmbeddingsProcessor<T>(
    */
   private var usedEmbeddings = listOf<ParamsArray>()
 
+  private var embeddingGradients = mutableListOf<Double>()
+
+  private var numMultiHotEmbeddings: Int = 0
   /**
    * List of embeddings errors resulting from the last backward.
    */
@@ -65,27 +68,67 @@ open class EmbeddingsProcessor<T>(
    * @return the embeddings vectors associated to the given keys
    */
   override fun forward(input: List<T>): List<DenseNDArray> {
+    this.usedEmbeddings = input.map { this.embeddingsMap.get(it as Int, this.dropout) }
+    return this.usedEmbeddings.map { it.values }
+  }
 
-    this.usedEmbeddings = input.map { this.embeddingsMap.get(it, this.dropout) }
+  fun forward(categoricalFeature: MutableList<Int>, numericalFeature: MutableMap<Int, Double>, multiHotFeature: MutableMap<Int, Int>): List<DenseNDArray>
+  {
+    val categoricalEmbedding = categoricalFeature.map {this.embeddingsMap.get(it, this.dropout).values }
+    val numericalEmbedding = mutableListOf<DenseNDArray>()
+    numericalFeature.forEach { (key, value) -> numericalEmbedding.add(this.embeddingsMap.get(key, this.dropout).values.prod(value)) }
 
-    return this.usedEmbeddings.map { it.values } // TODO: copy?
+    // total possible values of a multi-hot feature, doesn't matter if they are present in the current example or not
+    val totalMultiHot = multiHotFeature.size.toDouble()
+
+    val multiHotEmbedding = mutableListOf<DenseNDArray>()
+    multiHotFeature.forEach { (key, value) -> if (value !=0) {multiHotEmbedding.add(this.embeddingsMap.get(key, this.dropout).values)} }
+
+    val multiHot = multiHotEmbedding.reduce{ acc, dense_array -> acc.assignSum(dense_array) }
+    multiHot.assignDiv(totalMultiHot)
+
+    val embedding = categoricalEmbedding + numericalEmbedding + mutableListOf(multiHot)
+    val usedKeys = categoricalFeature + numericalFeature.keys + multiHotFeature.filterValues{ it != 0 }.keys
+
+    // values of multi-hot feature which are 1 in current example, i.e contribute to the embedding
+    this.numMultiHotEmbeddings = multiHotFeature.values.filter { it != 0 }.size
+
+    this.usedEmbeddings = usedKeys.map{this.embeddingsMap.get(it, this.dropout)}
+
+    categoricalFeature.forEach { this.embeddingGradients.add(1.0) }
+    numericalFeature.forEach { (key, value) -> this.embeddingGradients.add(value) }
+    multiHotFeature.forEach { (key, value) -> if (value != 0) {this.embeddingGradients.add(1.0/totalMultiHot) } }
+
+//        println("gradients are ${this.embeddingGradients}")
+//        println("used embeddings are:")
+//        this.usedEmbeddings.forEach{ println(it.values) }
+
+    return embedding
   }
 
   /**
-   * Accumulate errors into the last given embeddings.
+   * Accumulate errors into the last given embeddings
    *
    * @param outputErrors the errors of the last given embeddings
    */
   override fun backward(outputErrors: List<DenseNDArray>) {
 
-    require(outputErrors.size == this.usedEmbeddings.size) {
+    // repeat last error for each categorical feature upto n times, get n from class variable
+
+    val embeddingErrors = mutableListOf<DenseNDArray>()
+    embeddingErrors.addAll(outputErrors)
+    (0 until this.numMultiHotEmbeddings - 1).forEach { embeddingErrors.add(outputErrors.last()) }
+
+    val gradient = embeddingErrors.mapIndexed{index, error -> error.prod(this.embeddingGradients[index])}
+
+    require(gradient.size == this.usedEmbeddings.size) {
       "Number of errors (%d) does not reflect the number of used embeddings (%d)".format(
-        outputErrors.size, this.usedEmbeddings.size)
+        gradient.size, this.usedEmbeddings.size)
     }
 
     this.errorsAccumulator.clear()
 
-    this.usedEmbeddings.zip(outputErrors).forEach { (embedding, errors) ->
+    this.usedEmbeddings.zip(gradient).forEach { (embedding, errors) ->
       this.errorsAccumulator.accumulate(embedding, errors)
     }
   }
