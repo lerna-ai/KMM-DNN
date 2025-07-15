@@ -12,7 +12,7 @@ import com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap
 import com.kotlinnlp.simplednn.core.neuralprocessor.NeuralProcessor
 import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * The neural processor that manages embeddings in a map.

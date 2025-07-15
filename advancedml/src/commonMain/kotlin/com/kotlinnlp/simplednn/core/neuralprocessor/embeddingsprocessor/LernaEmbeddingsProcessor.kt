@@ -12,8 +12,7 @@ import com.kotlinnlp.simplednn.core.embeddings.LernaEmbeddingsMap
 import com.kotlinnlp.simplednn.core.neuralprocessor.NeuralProcessor
 import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.assert
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * The neural processor that manages embeddings in a map.
@@ -155,8 +154,8 @@ open class LernaEmbeddingsProcessor<T>(
     val usedKeys = (categoricalFeature ?: emptyList()) + (numericalFeature?.keys ?: emptyList()) + (multiHotFeatures?.flatMap { it.filterValues { it != 0 }.keys }
       ?: emptyList())
 
-    assert(this.usedEmbeddings.size == usedKeys.size) {
-      "Number of used embeddings (${this.usedEmbeddings.size}) does not match the number of used keys (${usedKeys.size})"
+    if(this.usedEmbeddings.size != usedKeys.size) {
+      throw AssertionError("Number of used embeddings (${this.usedEmbeddings.size}) does not match the number of used keys (${usedKeys.size})")
     }
 
     categoricalFeature?.forEach { this.embeddingGradients.add(1.0f) }

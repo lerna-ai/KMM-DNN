@@ -7,7 +7,7 @@
 
 package com.kotlinnlp.utils
 
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * A timer to track the elapsed time.

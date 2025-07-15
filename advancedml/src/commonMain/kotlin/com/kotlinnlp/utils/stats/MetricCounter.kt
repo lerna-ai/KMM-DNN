@@ -7,7 +7,7 @@
 
 package com.kotlinnlp.utils.stats
 
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * The counter of a metric, that accumulates true and false results, positive and negative.

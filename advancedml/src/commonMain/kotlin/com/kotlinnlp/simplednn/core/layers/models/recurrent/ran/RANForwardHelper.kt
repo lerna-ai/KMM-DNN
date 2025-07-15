@@ -13,7 +13,6 @@ import com.kotlinnlp.simplednn.core.layers.models.LinearParams
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLinearParams
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
@@ -177,8 +176,8 @@ internal class RANForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
    */
   private fun forwardGates(contributions: RANLayerParameters, bInG: DenseNDArray, bForG: DenseNDArray) {
 
-    assert (this.layer.inputArray.values is DenseNDArray) {
-      "Forwarding with contributions requires the input to be dense."
+    if (this.layer.inputArray.values !is DenseNDArray) {
+      throw AssertionError("Forwarding with contributions requires the input to be dense.")
     }
 
     val x = this.layer.inputArray.values as DenseNDArray

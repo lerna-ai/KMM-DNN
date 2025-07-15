@@ -11,7 +11,7 @@ import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.format
+import korlibs.util.format
 import kotlinx.serialization.Contextual
 import org.jetbrains.kotlinx.multik.ndarray.data.D2Array
 import kotlin.random.Random

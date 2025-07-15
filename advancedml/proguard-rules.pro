@@ -33,6 +33,4 @@
     native <methods>;
 }
 
-
-
 -dontwarn java.lang.invoke.StringConcatFactory

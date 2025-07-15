@@ -15,7 +15,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN
-import korlibs.io.lang.format
+import korlibs.util.format
 import kotlin.math.roundToInt
 
 /**

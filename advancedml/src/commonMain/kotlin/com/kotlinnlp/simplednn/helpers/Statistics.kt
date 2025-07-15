@@ -8,7 +8,7 @@
 package com.kotlinnlp.simplednn.helpers
 
 import com.kotlinnlp.utils.stats.MetricCounter
-import korlibs.io.lang.format
+import korlibs.util.format
 import kotlin.properties.Delegates
 
 /**

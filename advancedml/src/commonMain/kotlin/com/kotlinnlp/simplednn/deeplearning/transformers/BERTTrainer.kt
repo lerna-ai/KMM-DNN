@@ -19,7 +19,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.utils.Shuffler
 import com.kotlinnlp.utils.Timer
 import com.kotlinnlp.utils.WordPieceTokenizer
-import korlibs.io.lang.format
+import korlibs.util.format
 import kotlin.math.floor
 import kotlin.random.Random
 

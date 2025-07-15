@@ -10,7 +10,7 @@ package com.kotlinnlp.simplednn.core.embeddings
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
-import korlibs.io.lang.format
+import korlibs.util.format
 import kotlinx.serialization.Contextual
 import kotlin.random.Random
 

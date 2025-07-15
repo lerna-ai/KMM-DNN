@@ -11,7 +11,7 @@ import com.kotlinnlp.simplednn.core.layers.models.recurrent.LayersWindow
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLayer
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * A structure of stacked layers used in recurrent networks, in which the output array of a layer references the input

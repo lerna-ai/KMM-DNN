@@ -12,7 +12,6 @@ import com.kotlinnlp.simplednn.core.layers.LayerParameters
 import com.kotlinnlp.simplednn.core.layers.Layer
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import korlibs.io.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
@@ -60,8 +59,8 @@ internal class DeltaRNNForwardHelper<InputNDArrayType : NDArray<InputNDArrayType
    */
   override fun forward(contributions: LayerParameters) {
 
-    assert (this.layer.inputArray.values is DenseNDArray) {
-      "Forwarding with contributions requires the input to be dense."
+    if (this.layer.inputArray.values !is DenseNDArray) {
+      throw AssertionError("Forwarding with contributions requires the input to be dense.")
     }
 
     contributions as DeltaRNNLayerParameters

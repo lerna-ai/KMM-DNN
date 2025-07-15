@@ -62,11 +62,11 @@ open class SoftmaxBase : ActivationFunction {
    * @param out the NDArray in which the result is written
    */
   override fun dfOptimized(fxArray: DenseNDArray, out: DenseNDArray) {
-
+    val ones = DenseNDArrayFactory.ones(shape = Shape(fxArray.length, fxArray.length))
     for (i in 0 until fxArray.length) {
       for (j in i until fxArray.length) {
-
-        out[i, j] = if (i == j) fxArray[i] * (1.0 - fxArray[j]) else - fxArray[i] * fxArray[j]
+        //1.0 - fxArray[j] was not working when running wasmJsBrowserTest for the new KMM compiler
+        out[i, j] = if (i == j) fxArray[i] * (ones[j] - fxArray[j]) else - fxArray[i] * fxArray[j]
 
         if (i != j) {
           out[j, i] = out[i, j]

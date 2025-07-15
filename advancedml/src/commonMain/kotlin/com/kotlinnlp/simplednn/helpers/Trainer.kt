@@ -9,7 +9,7 @@ package com.kotlinnlp.simplednn.helpers
 
 import com.kotlinnlp.simplednn.core.optimizer.ParamsOptimizer
 import com.kotlinnlp.utils.*
-import korlibs.io.lang.format
+import korlibs.util.format
 
 /**
  * The trainer of a neural model.
