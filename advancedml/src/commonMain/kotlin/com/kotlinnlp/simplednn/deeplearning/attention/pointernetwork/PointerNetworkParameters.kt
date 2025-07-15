@@ -9,7 +9,6 @@ package com.kotlinnlp.simplednn.deeplearning.attention.pointernetwork
 
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters
-import java.io.Serializable
 
 /**
  * The parameters of the [PointerNetworkProcessor].
@@ -17,10 +16,11 @@ import java.io.Serializable
  * @property mergeParams the parameters of the merge network
  * @property attentionParams the parameters of the attention structure
  */
+
 class PointerNetworkParameters(
   val mergeParams: StackedLayersParameters,
   val attentionParams: AttentionMechanismLayerParameters
-) : Serializable {
+) {
 
   companion object {
 

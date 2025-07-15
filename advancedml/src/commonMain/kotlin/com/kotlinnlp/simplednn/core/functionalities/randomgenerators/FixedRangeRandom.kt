@@ -7,7 +7,8 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.randomgenerators
 
-import java.util.*
+import kotlin.random.Random
+
 
 /**
  * A generator of random numbers uniformly distributed in a closed range centered in 0.0 with a given radius.
@@ -34,7 +35,7 @@ class FixedRangeRandom(
   /**
    * A random numbers generator with a uniform distribution.
    */
-  private val rndGenerator = if (this.enablePseudoRandom) Random(this.seed) else Random()
+  private val rndGenerator = if (this.enablePseudoRandom) Random(this.seed) else Random(Random.nextInt())
 
   /**
    * @return a random value uniformly distributed in in the range [-[radius], [radius]]

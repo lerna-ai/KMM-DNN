@@ -8,14 +8,14 @@
 package com.kotlinnlp.simplednn.deeplearning.birnn.deepbirnn
 
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNParameters
-import java.io.Serializable
 
 /**
  * The DeepBiRNNParameters contains the parameters of all its stacked BiRNN.
  *
  * @property paramsPerBiRNN an array of [BiRNNParameters]
  */
-class DeepBiRNNParameters(val paramsPerBiRNN: List<BiRNNParameters>) : Serializable {
+
+class DeepBiRNNParameters(val paramsPerBiRNN: List<BiRNNParameters>)  {
 
   companion object {
 

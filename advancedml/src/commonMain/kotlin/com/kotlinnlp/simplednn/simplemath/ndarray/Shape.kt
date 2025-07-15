@@ -7,12 +7,12 @@
 
 package com.kotlinnlp.simplednn.simplemath.ndarray
 
-import java.io.Serializable
 
 /**
  * The shape of an bi-dimensional NDArray containing its dimensions (first and second).
  */
-data class Shape(val dim1: Int, val dim2: Int = 1) : Serializable {
+@kotlinx.serialization.Serializable
+data class Shape(val dim1: Int, val dim2: Int = 1) {
 
   companion object {
 

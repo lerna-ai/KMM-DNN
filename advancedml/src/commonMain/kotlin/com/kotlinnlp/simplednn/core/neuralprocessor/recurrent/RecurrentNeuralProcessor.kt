@@ -25,6 +25,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
+import com.soywiz.korio.lang.format
 
 /**
  * The neural processor that acts on networks of stacked-layers with recurrent connections.

@@ -8,7 +8,6 @@
 package com.kotlinnlp.simplednn.core.layers.models
 
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
-import java.io.Serializable
 
 /**
  * The parameters for a linear transformation.
@@ -17,11 +16,12 @@ import java.io.Serializable
  * @property outputSize output size
  * @param sparseInput whether the weights connected to the input are sparse or not (default false)
  */
+@kotlinx.serialization.Serializable
 open class LinearParams(
   val inputSize: Int,
   val outputSize: Int,
   private val sparseInput: Boolean = false
-) : Serializable {
+) {
 
   companion object {
 

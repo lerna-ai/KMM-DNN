@@ -15,10 +15,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.merge.mergeconfig.*
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.lstm.LSTMLayerParameters
-import com.kotlinnlp.utils.Serializer
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+
 
 /**
  * Bidirectional Recursive Neural Network (BiRNN).
@@ -37,6 +34,8 @@ import java.io.Serializable
  * @param weightsInitializer the initializer of the weights (zeros if null, default: Glorot)
  * @param biasesInitializer the initializer of the biases (zeros if null, default: Glorot)
  */
+
+//@kotlinx.serialization.Serializable
 class BiRNN(
   val inputType: LayerType.Input,
   val inputSize: Int,
@@ -46,7 +45,7 @@ class BiRNN(
   outputMergeConfiguration: MergeConfiguration = ConcatMerge(),
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 
@@ -63,7 +62,7 @@ class BiRNN(
      *
      * @return the [BiRNN] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): BiRNN = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): BiRNN = Serializer.deserialize(inputStream)
   }
 
   /**
@@ -156,5 +155,5 @@ class BiRNN(
    *
    * @param outputStream the [OutputStream] in which to write this serialized [BiRNN]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 }

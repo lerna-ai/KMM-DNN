@@ -9,10 +9,7 @@ package com.kotlinnlp.simplednn.core.layers
 
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
-import com.kotlinnlp.utils.Serializer
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+
 
 /**
  * [StackedLayersParameters] contains all the parameters of the layers defined in [layersConfiguration],
@@ -22,11 +19,12 @@ import java.io.Serializable
  * @param weightsInitializer the initializer of the weights (zeros if null, default: Glorot)
  * @param biasesInitializer the initializer of the biases (zeros if null, default: Glorot)
  */
+
 class StackedLayersParameters(
   val layersConfiguration: List<LayerInterface>,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 
@@ -43,7 +41,7 @@ class StackedLayersParameters(
      *
      * @return the [StackedLayersParameters] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): StackedLayersParameters = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): StackedLayersParameters = Serializer.deserialize(inputStream)
   }
 
   /**
@@ -113,7 +111,7 @@ class StackedLayersParameters(
    *
    * @param outputStream the [OutputStream] in which to write this serialized [StackedLayersParameters]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 
   /**
    * @param index a stacked-layer index

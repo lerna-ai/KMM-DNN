@@ -12,7 +12,15 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray
-import org.jblas.DoubleMatrix
+import org.jetbrains.kotlinx.multik.api.mk
+import org.jetbrains.kotlinx.multik.api.ones
+import org.jetbrains.kotlinx.multik.api.rand
+import org.jetbrains.kotlinx.multik.api.zeros
+import org.jetbrains.kotlinx.multik.ndarray.data.D1Array
+import org.jetbrains.kotlinx.multik.ndarray.data.get
+import org.jetbrains.kotlinx.multik.ndarray.data.set
+import org.jetbrains.kotlinx.multik.ndarray.operations.plus
+import org.jetbrains.kotlinx.multik.ndarray.operations.times
 
 /**
  *
@@ -31,7 +39,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    * @return a new empty [DenseNDArray]
    */
   override fun emptyArray(shape: Shape): DenseNDArray =
-    DenseNDArray(DoubleMatrix.zeros(shape.dim1, shape.dim2))
+    DenseNDArray(mk.zeros<Double>(shape.dim1, shape.dim2))
 
   /**
    * Build a new [DenseNDArray] filled with zeros.
@@ -51,7 +59,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    * @return a new [DenseNDArray]
    */
   override fun ones(shape: Shape): DenseNDArray =
-    DenseNDArray(DoubleMatrix.ones(shape.dim1, shape.dim2))
+    DenseNDArray(mk.ones<Double>(shape.dim1, shape.dim2))
 
   /**
    * Build a new diagonal [DenseNDArray] filled with ones.
@@ -65,14 +73,22 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
       (0 until rows).forEach { i -> set(i, i, 1.0) }
     }
 
+  fun eye(size: Int, a: D1Array<Double>): DenseNDArray =
+    this.zeros(Shape(size, size)).apply {
+      (0 until rows).forEach { i -> set(i, i, a[i]) }
+    }
+
   /**
    * @param shape shape
    * @param value the init value
    *
    * @return a new [DenseNDArray] filled with the given value
    */
-  override fun fill(shape: Shape, value: Double): DenseNDArray =
-    DenseNDArray(DoubleMatrix.zeros(shape.dim1, shape.dim2).fill(value))
+  override fun fill(shape: Shape, value: Double): DenseNDArray {
+    var temp = mk.zeros<Double>(shape.dim1, shape.dim2)
+    temp+=value
+    return DenseNDArray(temp)
+  }
 
   /**
    * Build a new [DenseNDArray] filled with zeros but one with 1.0.
@@ -103,15 +119,15 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    */
   override fun random(shape: Shape, from: Double, to: Double): DenseNDArray {
 
-    val m = DoubleMatrix.rand(shape.dim1, shape.dim2)
+    var m = mk.rand<Double>(shape.dim1, shape.dim2)
     val rangeSize = to - from
 
     if (rangeSize != 1.0) {
-      m.muli(rangeSize)
+      m*=(rangeSize)
     }
 
     if (from != 0.0) {
-      m.addi(from)
+      m+=(from)
     }
 
     return DenseNDArray(m)
@@ -124,9 +140,9 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    */
   fun arrayOf(values: DoubleArray): DenseNDArray {
 
-    val m = DoubleMatrix(values.size, 1)
+    var m = mk.zeros<Double>(values.size, 1)
 
-    values.indices.forEach { i -> m.put(i, values[i]) }
+    values.indices.forEach { i -> m[i, 0] = values[i] }
 
     return DenseNDArray(m)
   }
@@ -140,13 +156,13 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
 
     val dim1 = rows.size
     val dim2 = if (rows.isNotEmpty()) rows[0].size else 0
-    val m = DoubleMatrix(dim1, dim2)
+    var m = mk.zeros<Double>(dim1, dim2)
 
     (0 until dim1 * dim2).forEach { linearIndex ->
       // linear indexing: loop rows before, column by column
       val row = linearIndex % dim1
       val column = linearIndex / dim1
-      m.put(linearIndex, rows[row][column])
+      m[row, column] = rows[row][column]
     }
 
     return DenseNDArray(m)
@@ -161,7 +177,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
 
     val dim1 = rows.size
     val dim2 = if (rows.isNotEmpty()) rows[0].length else 0
-    val m = DoubleMatrix(dim1, dim2)
+    var m = mk.zeros<Double>(dim1, dim2)
 
     require(rows.all { it.length == dim2 }) { "All the rows must have the same length. "}
 
@@ -169,7 +185,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
       // linear indexing: loop rows before, column by column
       val row = linearIndex % dim1
       val column = linearIndex / dim1
-      m.put(linearIndex, rows[row][column])
+      m[row, column] = rows[row][column]
     }
 
     return DenseNDArray(m)
@@ -184,7 +200,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
 
     val dim1 = if (columns.isNotEmpty()) columns[0].length else 0
     val dim2 = columns.size
-    val m = DoubleMatrix(dim1, dim2)
+    var m = mk.zeros<Double>(dim1, dim2)
 
     require(columns.all { it.length == dim1 }) { "All the columns must have the same length. "}
 
@@ -192,7 +208,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
       // linear indexing: loop rows before, column by column
       val row = linearIndex % dim1
       val column = linearIndex / dim1
-      m.put(linearIndex, columns[column][row])
+      m[row, column] = columns[column][row]
     }
 
     return DenseNDArray(m)

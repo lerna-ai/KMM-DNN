@@ -11,6 +11,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.Indices
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
 import com.kotlinnlp.simplednn.simplemath.ndarray.SparseEntry
+import com.soywiz.korio.lang.format
 
 /**
  *

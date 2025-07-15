@@ -9,7 +9,6 @@ package com.kotlinnlp.simplednn.core.layers
 
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
-import java.io.Serializable
 
 /**
  * The parameters of a layer
@@ -19,12 +18,13 @@ import java.io.Serializable
  * @param weightsInitializer the initializer of the weights (zeros if null)
  * @param biasesInitializer the initializer of the biases (zeros if null)
  */
+@kotlinx.serialization.Serializable
 abstract class LayerParameters(
   val inputSize: Int,
   val outputSize: Int,
   private val weightsInitializer: Initializer?,
   private val biasesInitializer: Initializer?
-) : Serializable {
+) {
 
   companion object {
 

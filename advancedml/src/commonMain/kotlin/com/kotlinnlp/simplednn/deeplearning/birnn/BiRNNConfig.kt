@@ -9,7 +9,7 @@ package com.kotlinnlp.simplednn.deeplearning.birnn
 
 import com.kotlinnlp.simplednn.core.functionalities.activations.ActivationFunction
 import com.kotlinnlp.simplednn.core.layers.LayerType
-import java.io.Serializable
+import com.soywiz.korio.lang.format
 
 /**
  * The configuration of a BiRNN.
@@ -18,11 +18,12 @@ import java.io.Serializable
  * @param hiddenActivation the hidden activation function of the BiRNN used to encode tokens
  * @param numberOfLayers number of stacked BiRNNs (default 1)
  */
+@kotlinx.serialization.Serializable
 data class BiRNNConfig(
   val connectionType: LayerType.Connection,
   val hiddenActivation: ActivationFunction?,
   val numberOfLayers: Int = 1
-) : Serializable {
+)  {
 
   companion object {
 
@@ -38,7 +39,7 @@ data class BiRNNConfig(
    */
   override fun toString(): String = "%s - %s - %s".format(
     this.connectionType,
-    if (this.hiddenActivation != null) this.hiddenActivation::class.simpleName else null,
+    (if (this.hiddenActivation != null) this.hiddenActivation::class.simpleName else null)!!,
     this.numberOfLayers
   )
 }

@@ -7,7 +7,6 @@
 
 package com.kotlinnlp.simplednn.core.layers
 
-import java.io.Serializable
 import com.kotlinnlp.simplednn.core.functionalities.activations.ActivationFunction
 
 /**
@@ -18,12 +17,13 @@ import com.kotlinnlp.simplednn.core.functionalities.activations.ActivationFuncti
  * @property connectionType the type of connection with the interface before (meaningless in case of input interface)
  * @property activationFunction the activation function (meaningless if this is an input interface)
  */
+@kotlinx.serialization.Serializable
 data class LayerInterface(
   val sizes: List<Int>,
   val type: LayerType.Input = LayerType.Input.Dense,
   val connectionType: LayerType.Connection? = null,
   val activationFunction: ActivationFunction? = null
-) : Serializable {
+) {
 
   /**
    * Build a [LayerInterface] with a unique array (not the input of a Merge layer).

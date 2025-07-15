@@ -13,7 +13,6 @@ import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayerParameters
-import java.io.Serializable
 
 /**
  * The parameters of the multi-head attention network.
@@ -32,7 +31,7 @@ class MultiHeadAttentionParameters(
   val numOfHeads: Int,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 

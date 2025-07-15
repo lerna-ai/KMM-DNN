@@ -10,12 +10,12 @@ package com.kotlinnlp.simplednn.simplemath.ndarray
 import com.kotlinnlp.simplednn.core.functionalities.randomgenerators.RandomGenerator
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray
-import java.io.Serializable
 
 /**
  *
  */
-interface NDArray<SelfType : NDArray<SelfType>> : Serializable {
+
+interface NDArray<SelfType : NDArray<SelfType>> {
 
   /**
    *

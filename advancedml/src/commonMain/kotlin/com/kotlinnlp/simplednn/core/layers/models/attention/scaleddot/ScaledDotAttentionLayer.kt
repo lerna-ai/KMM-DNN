@@ -14,7 +14,8 @@ import com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayMask
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
-import java.lang.Math.random
+import com.soywiz.korio.lang.format
+import kotlin.random.Random
 
 /**
  * The Scaled-Dot Attention Layer structure.
@@ -127,7 +128,7 @@ internal class ScaledDotAttentionLayer(
 
       val activeIndices: List<Int> = this.inputArrays.indices
         .asSequence()
-        .map { it to random() }
+        .map { it to Random.nextInt() }
         .filter { it.second >= this.attentionDropout }
         .map { it.first }
         .toList()

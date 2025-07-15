@@ -7,6 +7,8 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.activations
 
+import kotlin.math.exp
+
 /**
  * CeLU(x) = max(0, x) + min(0, α ∗ (exp(x / α) − 1)))
  *
@@ -42,7 +44,7 @@ class CeLU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 0.0) x else this.alpha * (Math.exp(x / this.alpha) - 1.0)
+  override fun f(x: Double): Double = if (x > 0.0) x else this.alpha * (exp(x / this.alpha) - 1.0)
 
   /**
    * Optimized derivative of the CeLU function, calculated respect to the input already activated.

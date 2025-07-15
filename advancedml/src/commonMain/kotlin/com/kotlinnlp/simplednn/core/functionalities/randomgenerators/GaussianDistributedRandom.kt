@@ -7,8 +7,10 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.randomgenerators
 
-import java.util.*
+import kotlin.math.ln
 import kotlin.math.sqrt
+import kotlin.random.Random
+
 
 /**
  * A generator of random numbers with a Gaussian distribution.
@@ -35,10 +37,21 @@ class GaussianDistributedRandom(
   /**
    * A random numbers generator with a uniform distribution.
    */
-  private val rndGenerator = if (enablePseudoRandom) Random(seed) else Random()
+  private val rndGenerator = if (enablePseudoRandom) Random(seed) else Random(Random.nextInt())
 
   /**
    * @return a random value generated following a Gaussian distribution
    */
-  override fun next(): Double = rndGenerator.nextGaussian() * sqrt(variance)
+  override fun next(): Double {
+    return gaussRandom() * sqrt(variance)
+  }
+
+  private fun gaussRandom(): Double {
+    val u: Double = 2 * rndGenerator.nextDouble() - 1.0
+    val v: Double = 2 * rndGenerator.nextDouble() - 1.0
+    val r = u * u + v * v
+    if (r == 0.0) return 0.0 else if (r > 1) return gaussRandom()
+    val c: Double = sqrt(-2 * ln(r) / r)
+    return u * c
+  }
 }

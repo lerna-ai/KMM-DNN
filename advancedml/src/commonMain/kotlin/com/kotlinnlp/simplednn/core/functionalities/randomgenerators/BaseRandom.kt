@@ -7,7 +7,8 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.randomgenerators
 
-import java.util.*
+import kotlin.random.Random
+
 
 /**
  * A generator of random numbers uniformly distributed in the range [0.0, 1.0].
@@ -29,7 +30,7 @@ class BaseRandom(val enablePseudoRandom: Boolean = true, val seed: Long = 743) :
   /**
    * A random numbers generator with a uniform distribution.
    */
-  private val rndGenerator = if (this.enablePseudoRandom) Random(this.seed) else Random()
+  private val rndGenerator = if (this.enablePseudoRandom) Random(this.seed) else Random(Random.nextInt())
 
   /**
    * @return a random value uniformly distributed in in the range [0.0, 1.0]

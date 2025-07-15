@@ -7,6 +7,8 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.activations
 
+import kotlin.math.exp
+
 /**
  * SELU(x) = scale ∗ (max(0, x) + min(0, α ∗ (exp(x) − 1)))
  *
@@ -46,7 +48,7 @@ class SeLU(val scale: Double = 1.05070099, val alpha: Double = 1.67326324) : Sca
    */
   override fun f(x: Double): Double = when {
     x > 0.0 -> this.scale * x
-    else -> this.scale * this.alpha * (Math.exp(x) - 1.0)
+    else -> this.scale * this.alpha * (exp(x) - 1.0)
   }
 
   /**

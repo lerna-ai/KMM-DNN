@@ -62,7 +62,7 @@ object GenericNeuralNetwork {
     }
 
     return StackedLayersParameters(
-      layersConfiguration = *layersConfiguration.toTypedArray(),
+      layersConfiguration = layersConfiguration.toTypedArray(),
       weightsInitializer = weightsInitializer,
       biasesInitializer = biasesInitializer)
   }

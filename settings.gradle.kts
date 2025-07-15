@@ -4,18 +4,6 @@ pluginManagement {
 		google()
 		gradlePluginPortal()
 		mavenCentral()
-		mavenLocal()
-		maven {
-			url = uri("https://jcenter.bintray.com/")
-		}
-
-		maven {
-			url = uri("https://jitpack.io")
-		}
-
-		maven {
-			url = uri("https://repo.maven.apache.org/maven2/")
-		}
 	}
 	buildscript {
 		repositories {

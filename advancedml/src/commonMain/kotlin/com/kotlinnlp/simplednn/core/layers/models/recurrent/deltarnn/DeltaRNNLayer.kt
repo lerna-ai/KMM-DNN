@@ -78,7 +78,7 @@ internal class DeltaRNNLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
     get() = try {
       this._relevanceSupport
 
-    } catch (e: UninitializedPropertyAccessException) {
+    } catch (e: Exception) {
       this._relevanceSupport = DeltaRNNRelevanceSupport(outputSize = this.outputArray.size)
       this._relevanceSupport
     }

@@ -12,7 +12,8 @@ import com.kotlinnlp.simplednn.core.functionalities.activations.ReLU
 import com.kotlinnlp.simplednn.core.functionalities.activations.Sigmoid
 import com.kotlinnlp.simplednn.core.functionalities.randomgenerators.FixedRangeRandom
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import java.util.*
+import kotlin.math.sqrt
+import kotlin.random.Random
 
 /**
  * An initializer of dense arrays with the 'Glorot Initialization', as explained by Xavier Glorot.
@@ -64,7 +65,7 @@ class GlorotInitializer(
   override fun initialize(array: DenseNDArray) {
 
     val randomGenerator = FixedRangeRandom(
-      radius = this.gain * Math.sqrt(6.0 / (array.rows + array.columns)),
+      radius = this.gain * sqrt(6.0 / (array.rows + array.columns)),
       enablePseudoRandom = this.enablePseudoRandom,
       seed = this.seedGenerator.nextLong())
 

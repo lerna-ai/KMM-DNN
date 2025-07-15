@@ -8,7 +8,6 @@
 package com.kotlinnlp.simplednn.deeplearning.birnn
 
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
-import java.io.Serializable
 
 /**
  * The BiRNNParameters contains the parameter of its sub-networks (leftToRightNetwork, rightToLeftNetwork).
@@ -17,11 +16,12 @@ import java.io.Serializable
  * @property rightToLeft network parameters of the right-to-left recurrent neural network
  * @property merge network parameters of the merge output network
  */
+
 class BiRNNParameters(
   val leftToRight: StackedLayersParameters,
   val rightToLeft: StackedLayersParameters,
   val merge: StackedLayersParameters
-) : Serializable {
+) {
 
   companion object {
 

@@ -13,10 +13,7 @@ import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
 import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
-import com.kotlinnlp.utils.Serializer
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+
 
 /**
  * The model of the [MultiTaskNetwork].
@@ -29,6 +26,7 @@ import java.io.Serializable
  * @param weightsInitializer the initializer of the weights (zeros if null, default: Glorot)
  * @param biasesInitializer the initializer of the biases (zeros if null, default: Glorot)
  */
+
 class MultiTaskNetworkModel(
   val inputSize: Int,
   val inputType: LayerType.Input = LayerType.Input.Dense,
@@ -37,7 +35,7 @@ class MultiTaskNetworkModel(
   val outputConfigurations: List<MultiTaskNetworkConfig>,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 
@@ -54,7 +52,7 @@ class MultiTaskNetworkModel(
      *
      * @return the [MultiTaskNetworkModel] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): MultiTaskNetworkModel = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): MultiTaskNetworkModel = Serializer.deserialize(inputStream)
   }
 
   /**
@@ -92,5 +90,5 @@ class MultiTaskNetworkModel(
    *
    * @param outputStream the [OutputStream] in which to write this serialized [MultiTaskNetworkModel]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 }

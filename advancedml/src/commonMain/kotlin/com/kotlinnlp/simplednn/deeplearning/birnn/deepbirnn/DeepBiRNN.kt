@@ -13,10 +13,7 @@ import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN
 import com.kotlinnlp.simplednn.core.layers.models.merge.mergeconfig.ConcatMerge
-import com.kotlinnlp.utils.Serializer
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+import com.soywiz.korio.lang.format
 import kotlin.math.roundToInt
 
 /**
@@ -30,7 +27,8 @@ import kotlin.math.roundToInt
  *
  * @property levels the list of BiRNNs
  */
-class DeepBiRNN(val levels: List<BiRNN>) : Serializable {
+
+class DeepBiRNN(val levels: List<BiRNN>) {
 
   /**
    * @property levels the list of BiRNNs
@@ -52,7 +50,7 @@ class DeepBiRNN(val levels: List<BiRNN>) : Serializable {
      *
      * @return the [DeepBiRNN] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): DeepBiRNN = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): DeepBiRNN = Serializer.deserialize(inputStream)
 
     /**
      * Build a DeepBiRNN stacking more BiRNNs.
@@ -166,7 +164,7 @@ class DeepBiRNN(val levels: List<BiRNN>) : Serializable {
    *
    * @param outputStream the [OutputStream] in which to write this serialized [DeepBiRNN]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 
   /**
    * @return a boolean indicating if the input-output size of the levels are compatible

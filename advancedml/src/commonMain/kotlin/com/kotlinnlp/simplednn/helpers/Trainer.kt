@@ -8,8 +8,9 @@
 package com.kotlinnlp.simplednn.helpers
 
 import com.kotlinnlp.simplednn.core.optimizer.ParamsOptimizer
-import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
+//import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
 import com.kotlinnlp.utils.*
+import com.soywiz.korio.lang.format
 
 /**
  * The trainer of a neural model.
@@ -118,12 +119,12 @@ abstract class Trainer<ExampleType : Any>(
   protected open fun trainEpoch() {
 
     val examplesIterator: Iterator<ExampleType> = this.buildExamplesIterator()
-    val progress: ProgressIndicatorBar? =
-      if (this.examples is Collection<*>) ProgressIndicatorBar(this.examples.size) else null
+//    val progress: ProgressIndicatorBar? =
+//      if (this.examples is Collection<*>) ProgressIndicatorBar(this.examples.size) else null
 
     while (examplesIterator.hasNext()) {
 
-      if (this.verbose) progress?.tick()
+//      if (this.verbose) progress?.tick()
 
       if (this.counter.exampleCount % this.batchSize == 0) // A new batch starts
         this.newBatch()

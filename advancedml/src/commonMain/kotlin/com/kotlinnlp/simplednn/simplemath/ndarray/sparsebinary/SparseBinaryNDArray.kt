@@ -45,12 +45,12 @@ class SparseBinaryNDArray(
     /**
      * The iterator of the map entries by row index (rowIndex, rowActiveIndices)
      */
-    private val rowsIterator = this@SparseBinaryNDArray.activeIndicesByRow.toSortedMap().iterator()
+    private val rowsIterator = sortMap(this@SparseBinaryNDArray.activeIndicesByRow.toMutableMap()).iterator()
 
     /**
      * The iterator of the map entries by column index (columnIndex, columnActiveIndices)
      */
-    private val columnsIterator = this@SparseBinaryNDArray.activeIndicesByColumn.toSortedMap().iterator()
+    private val columnsIterator = sortMap(this@SparseBinaryNDArray.activeIndicesByColumn.toMutableMap()).iterator()
 
     /**
      * The map entry (rowIndex, rowActiveIndices) of the current row
@@ -167,6 +167,12 @@ class SparseBinaryNDArray(
    * The mask representing the active indices of this [SparseBinaryNDArray].
    */
   val mask: NDArrayMask get() = this.buildMask()
+
+  private fun sortMap(map:MutableMap<Int, VectorIndices?>): MutableMap<Int, VectorIndices?>{
+    val sortedMap: MutableMap<Int, VectorIndices?> = LinkedHashMap()
+    map.keys.sorted().forEach { sortedMap[it] = map[it]!! }
+    return sortedMap
+  }
 
   /**
    * @return the mask representing the active indices of this [SparseBinaryNDArray]

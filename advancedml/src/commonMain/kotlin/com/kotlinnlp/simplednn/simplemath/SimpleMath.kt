@@ -10,10 +10,11 @@ package com.kotlinnlp.simplednn.simplemath
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
-import kotlin.math.log10
-import kotlin.math.max
-import kotlin.math.pow
-import kotlin.math.exp
+import kotlin.math.*
+//import kotlin.math.log10
+//import kotlin.math.max
+//import kotlin.math.pow
+//import kotlin.math.exp
 
 /**
  * Equals within tolerance.
@@ -65,7 +66,7 @@ fun concatVectorsV(vararg vectors: DenseNDArray): DenseNDArray {
 
   require(vectors.all { it.isVector && it.columns == 1 })
 
-  val array = DenseNDArrayFactory.zeros(Shape(vectors.sumBy { it.length }))
+  val array = DenseNDArrayFactory.zeros(Shape(vectors.sumOf { it.length }))
 
   var i = 0
 
@@ -132,7 +133,7 @@ fun sedSimilarity(a: DenseNDArray, b: DenseNDArray): Double {
 
   require(a.shape == b.shape)
 
-  val exp: Double = (0 until a.length).sumByDouble { i -> complexityExp(a[i], b[i]) }
+  val exp: Double = (0 until a.length).sumOf { i -> complexityExp(a[i], b[i]) }
 
   return 2.0 - 10.0.pow(exp)
 }
@@ -161,7 +162,7 @@ fun exp(a: DenseNDArray): DenseNDArray {
  *
  * @return the logarithm
  */
-fun safeLog(value: Double, eps: Double = 1.0e-08): Double = Math.log(if (value >= eps) value else eps)
+fun safeLog(value: Double, eps: Double = 1.0e-08): Double = ln(if (value >= eps) value else eps)
 
 /**
  * Calculate the SED complexity exponent component of two vectors of the i-th dimension if [a] and [b] are the values of

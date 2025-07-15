@@ -297,7 +297,7 @@ open class AugmentedArray<NDArrayType : NDArray<NDArrayType>>(size: Int) : Activ
 
     try {
       clonedArray.assignValues(this._values)
-    } catch (e: UninitializedPropertyAccessException) {}
+    } catch (e: Exception) {}
 
     if (this.hasActivation) {
 

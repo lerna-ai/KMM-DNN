@@ -58,7 +58,7 @@ sealed class GradientClipping {
     override fun clip(paramsErrors: ParamsErrorsList) {
 
       val totalNorm: Double = if (this.normType == Double.POSITIVE_INFINITY)
-        paramsErrors.map { it.values.abs().max() }.max()!!
+        paramsErrors.map { it.values.abs().max() }.maxOrNull()!!
       else {
         paramsErrors.map { it.values.abs().pow(this.normType).sum() }.sum().pow(1.0 / this.normType)
       }

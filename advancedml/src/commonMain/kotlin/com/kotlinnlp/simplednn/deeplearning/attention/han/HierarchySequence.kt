@@ -15,8 +15,8 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
  *
  * It contains a list of [AugmentedArray]s as input sequence of the lowest level of a [HANEncoder].
  */
-class HierarchySequence<NDArrayType: NDArray<NDArrayType>>(vararg arrays: NDArrayType)
-  : HierarchyItem, ArrayList<NDArrayType>(arrays.size) {
+class HierarchySequence<NDArrayType: NDArray<NDArrayType>>(delegate: ArrayList<NDArrayType>, vararg arrays: NDArrayType)
+  : HierarchyItem,  MutableList<NDArrayType> by delegate{
 
   init {
     arrays.forEach {

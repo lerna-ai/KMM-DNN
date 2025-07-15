@@ -8,13 +8,13 @@
 package com.kotlinnlp.simplednn.core.functionalities.activations
 
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import java.io.Serializable
 
 /**
  * ActivationsFunction can either be used through an [com.kotlinnlp.simplednn.core.arrays.ActivableArray],
  * or through the activation of a [com.kotlinnlp.simplednn.core.layers.Layer]
  */
-interface ActivationFunction : Serializable {
+
+interface ActivationFunction {
 
   companion object {
 

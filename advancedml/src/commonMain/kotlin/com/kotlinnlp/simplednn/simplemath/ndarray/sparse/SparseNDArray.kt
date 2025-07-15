@@ -13,6 +13,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.*
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
+import com.soywiz.korio.lang.format
 
 /**
  *
@@ -343,7 +344,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun sum(): Double = this.values.indices.sumByDouble { i -> this.values[i] }
+  override fun sum(): Double = this.values.indices.sumOf { i -> this.values[i] }
 
   /**
    *
@@ -609,7 +610,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
       b.columns == 1 -> {
         // n-dim array (dot) column vector
         this.zeros()
-        this.values = DoubleArray(size = a.rows, init = { i -> b.activeIndicesByRow.keys.sumByDouble { a[i, it] } })
+        this.values = DoubleArray(size = a.rows, init = { i -> b.activeIndicesByRow.keys.sumOf { a[i, it] } })
         this.rowIndices = IntArray(size = a.rows, init = { it })
         this.colIndices = IntArray(size = a.rows, init = { 0 })
 
@@ -948,12 +949,12 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    * @return the maximum value of this NDArray
    **/
-  override fun max(): Double = this.values.max()!!
+  override fun max(): Double = this.values.maxOrNull()!!
 
   /**
    * @return the minimum value of this NDArray
    **/
-  override fun min(): Double = this.values.min()!!
+  override fun min(): Double = this.values.minOrNull()!!
 
   /**
    * Get the index of the highest value eventually skipping the element at the given [exceptIndex] when it is >= 0.

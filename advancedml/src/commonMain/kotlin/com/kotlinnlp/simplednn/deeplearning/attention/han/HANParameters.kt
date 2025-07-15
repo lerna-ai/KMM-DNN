@@ -10,7 +10,6 @@ package com.kotlinnlp.simplednn.deeplearning.attention.han
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNNParameters
-import java.io.Serializable
 
 /**
  * The parameters of the Hierarchical Attention Networks.
@@ -19,11 +18,12 @@ import java.io.Serializable
  * @property attentionNetworks a list containing the parameters of the AttentionNetworks of the HAN
  * @property outputStackedLayers the parameters of the output Feedforward network
  */
+
 class HANParameters(
   val biRNNs: List<BiRNNParameters>,
   val attentionNetworks: List<AttentionNetworkParameters>,
   val outputStackedLayers: StackedLayersParameters
-) : Serializable {
+) {
 
   companion object {
 

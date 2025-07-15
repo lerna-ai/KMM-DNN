@@ -7,6 +7,8 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.activations
 
+import kotlin.math.exp
+
 /**
  *
  * The ELU activation function acts like a [ReLU] if x is positive,
@@ -43,7 +45,7 @@ class ELU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 0) x else this.alpha * (Math.exp(x) - 1.0)
+  override fun f(x: Double): Double = if (x > 0) x else this.alpha * (exp(x) - 1.0)
 
   /**
    * Optimized derivative of the ELU function, calculated respect to the input already activated.

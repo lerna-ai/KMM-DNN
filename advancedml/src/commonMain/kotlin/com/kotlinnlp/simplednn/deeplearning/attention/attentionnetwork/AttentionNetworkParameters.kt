@@ -14,7 +14,6 @@ import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters
-import java.io.Serializable
 
 /**
  * The parameters of the Attention Network.
@@ -25,13 +24,14 @@ import java.io.Serializable
  * @param weightsInitializer the initializer of the transform weights (zeros if null, default: Glorot)
  * @param biasesInitializer the initializer of the transform biases (zeros if null, default: Glorot)
  */
+
 class AttentionNetworkParameters(
   val inputSize: Int,
   val attentionSize: Int,
   sparseInput: Boolean = false,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 

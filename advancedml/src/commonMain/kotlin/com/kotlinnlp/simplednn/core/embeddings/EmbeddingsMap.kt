@@ -10,11 +10,9 @@ package com.kotlinnlp.simplednn.core.embeddings
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
-import com.kotlinnlp.utils.Serializer
-import com.kotlinnlp.utils.getLinesCount
-import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
-import java.io.*
-import java.util.*
+import com.soywiz.korio.lang.format
+import kotlinx.serialization.Contextual
+import kotlin.random.Random
 
 /**
  * A map of generic keys to Embeddings.
@@ -24,11 +22,12 @@ import java.util.*
  * @param pseudoRandomDropout a Boolean indicating if embeddings must be dropped out with pseudo random probability
  *                            (default = true)
  */
+@kotlinx.serialization.Serializable
 open class EmbeddingsMap<T>(
   val size: Int,
   private val initializer: Initializer? = GlorotInitializer(),
   private val pseudoRandomDropout: Boolean = true
-) : Serializable {
+) {
 
   companion object {
 
@@ -45,7 +44,7 @@ open class EmbeddingsMap<T>(
      *
      * @return the [EmbeddingsMap] read from [inputStream] and decoded
      */
-    fun <T>load(inputStream: InputStream): EmbeddingsMap<T> = Serializer.deserialize(inputStream)
+//    fun <T>load(inputStream: InputStream): EmbeddingsMap<T> = Serializer.deserialize(inputStream)
 
     /**
      * Load an [EmbeddingsMap] with [String] keys from file.
@@ -62,57 +61,57 @@ open class EmbeddingsMap<T>(
      *
      * @return an [EmbeddingsMap] of [String]s loaded from the given file
      */
-    fun load(filename: String,
-             pseudoRandomDropout: Boolean = true,
-             initializer: Initializer? = GlorotInitializer(),
-             verbose: Boolean = true): EmbeddingsMap<String> {
-
-      val progress: ProgressIndicatorBar? = if (verbose)
-        ProgressIndicatorBar(total = getLinesCount(filename) - 1)
-      else
-        null
-
-      val firstLine: String = readFirstLine(filename)
-      val firstLineSplit: List<String> = firstLine.split(" ")
-
-      val count: Int = firstLineSplit[0].toInt()
-      val size: Int = firstLineSplit[1].toInt()
-
-      val embeddingsMap = EmbeddingsMap<String>(
-        size = size,
-        pseudoRandomDropout = pseudoRandomDropout,
-        initializer = initializer)
-
-      forEachDataLine(filename) { key, vector ->
-        embeddingsMap.set(key = key, embedding = ParamsArray(vector))
-        progress?.tick()
-      }
-
-      require(embeddingsMap.count == count) {
-        "Invalid file: wrong number of declared embeddings (%d != %d).".format(embeddingsMap.count, count)
-      }
-
-      return embeddingsMap
-    }
+//    fun load(filename: String,
+//             pseudoRandomDropout: Boolean = true,
+//             initializer: Initializer? = GlorotInitializer(),
+//             verbose: Boolean = true): EmbeddingsMap<String> {
+//
+//      val progress: ProgressIndicatorBar? = if (verbose)
+//        ProgressIndicatorBar(total = getLinesCount(filename) - 1)
+//      else
+//        null
+//
+//      val firstLine: String = readFirstLine(filename)
+//      val firstLineSplit: List<String> = firstLine.split(" ")
+//
+//      val count: Int = firstLineSplit[0].toInt()
+//      val size: Int = firstLineSplit[1].toInt()
+//
+//      val embeddingsMap = EmbeddingsMap<String>(
+//        size = size,
+//        pseudoRandomDropout = pseudoRandomDropout,
+//        initializer = initializer)
+//
+//      forEachDataLine(filename) { key, vector ->
+//        embeddingsMap.set(key = key, embedding = ParamsArray(vector))
+//        progress?.tick()
+//      }
+//
+//      require(embeddingsMap.count == count) {
+//        "Invalid file: wrong number of declared embeddings (%d != %d).".format(embeddingsMap.count, count)
+//      }
+//
+//      return embeddingsMap
+//    }
 
     /**
      * @param filename the name of a file
      *
      * @return the first line of the given file
      */
-    private fun readFirstLine(filename: String): String {
-
-      val reader: InputStreamReader = File(filename).reader()
-      val firstLine = StringBuffer()
-      var char: Char = reader.read().toChar()
-
-      while (char != '\n') {
-        firstLine.append(char)
-        char = reader.read().toChar()
-      }
-
-      return firstLine.toString()
-    }
+//    private fun readFirstLine(filename: String): String {
+//
+//      val reader: InputStreamReader = File(filename).reader()
+//      val firstLine = StringBuffer()
+//      var char: Char = reader.read().toChar()
+//
+//      while (char != '\n') {
+//        firstLine.append(char)
+//        char = reader.read().toChar()
+//      }
+//
+//      return firstLine.toString()
+//    }
 
     /**
      * Loop the data lines of the given file.
@@ -120,28 +119,28 @@ open class EmbeddingsMap<T>(
      * @param filename the input filename
      * @param callback the callback called for each line, passing it the key and the vector of the line
      */
-    private fun forEachDataLine(filename: String,
-                                callback: (key: String, vector: DoubleArray) -> Unit) {
-
-      var isFirstLine = true
-
-      File(filename).forEachLine { line ->
-
-        if (isFirstLine) {
-          isFirstLine = false
-
-        } else {
-
-          val vector: DoubleArray = line
-            .trimEnd() // remove trailing whitespaces
-            .substringAfter(' ')
-            .split(" ")
-            .let { DoubleArray(size = it.size, init = { i -> it[i].toDouble() }) }
-
-          callback(line.substringBefore(' '), vector)
-        }
-      }
-    }
+//    private fun forEachDataLine(filename: String,
+//                                callback: (key: String, vector: DoubleArray) -> Unit) {
+//
+//      var isFirstLine = true
+//
+//      File(filename).forEachLine { line ->
+//
+//        if (isFirstLine) {
+//          isFirstLine = false
+//
+//        } else {
+//
+//          val vector: DoubleArray = line
+//            .trimEnd() // remove trailing whitespaces
+//            .substringAfter(' ')
+//            .split(" ")
+//            .let { DoubleArray(size = it.size, init = { i -> it[i].toDouble() }) }
+//
+//          callback(line.substringBefore(' '), vector)
+//        }
+//      }
+//    }
 
     /**
      * Load an [EmbeddingsMap] with [String] keys from the given [elements] set.
@@ -153,17 +152,17 @@ open class EmbeddingsMap<T>(
      *
      * @return an [EmbeddingsMap] of [String]s
      */
-    fun fromSet(elements: Set<String>,
-                size: Int,
-                initializer: Initializer? = GlorotInitializer(),
-                pseudoRandomDropout: Boolean = true) =
-      EmbeddingsMap<String>(
-        size = size,
-        initializer = initializer,
-        pseudoRandomDropout = pseudoRandomDropout
-      ).apply {
-        elements.forEach { embeddingKey -> set(embeddingKey) }
-      }
+//    fun fromSet(elements: Set<String>,
+//                size: Int,
+//                initializer: Initializer? = GlorotInitializer(),
+//                pseudoRandomDropout: Boolean = true) =
+//      EmbeddingsMap<String>(
+//        size = size,
+//        initializer = initializer,
+//        pseudoRandomDropout = pseudoRandomDropout
+//      ).apply {
+//        elements.forEach { embeddingKey -> set(embeddingKey) }
+//      }
 
     /**
      * Export the embeddings map writing its entries to a file with the given [filename].
@@ -176,30 +175,30 @@ open class EmbeddingsMap<T>(
      * @param filename the output filename
      * @param digits precision specifier
      */
-    fun EmbeddingsMap<String>.dump(filename: String, digits: Int) {
-
-      File(filename).printWriter().use { out ->
-
-        out.println("%d %d".format(this.count, this.size))
-
-        this.embeddings.forEach { (key, value) ->
-          out.print(key)
-          out.println(value.toString(digits = digits))
-          out.flush()
-        }
-      }
-    }
+//    fun EmbeddingsMap<String>.dump(filename: String, digits: Int) {
+//
+//      File(filename).printWriter().use { out ->
+//
+//        out.println("%d %d".format(this.count, this.size))
+//
+//        this.embeddings.forEach { (key, value) ->
+//          out.print(key)
+//          out.println(value.toString(digits = digits))
+//          out.flush()
+//        }
+//      }
+//    }
   }
 
   /**
    * The number of embeddings in this [EmbeddingsMap] (excluding the [unknownEmbedding] and the [nullEmbedding]).
    */
-  val count: Int get() = this.embeddings.size
+//  val count: Int get() = this.embeddings.size
 
   /**
    * The set of keys.
    */
-  val keys: Set<T> get() = this.embeddings.keys.toSet()
+//  val keys: Set<T> get() = this.embeddings.keys.toSet()
 
   /**
    * The Unknown Embedding.
@@ -219,14 +218,15 @@ open class EmbeddingsMap<T>(
   /**
    * The random generator used to decide if an embedding must be dropped out.
    */
-  private val dropoutRandomGenerator = if (this.pseudoRandomDropout) Random(743) else Random()
+  @Contextual
+  private val dropoutRandomGenerator = if (this.pseudoRandomDropout) Random(743) else Random(Random.nextInt())
 
   /**
    * Serialize this [EmbeddingsMap] and write it to an output stream.
    *
    * @param outputStream the [OutputStream] in which to write this serialized [EmbeddingsMap]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 
   /**
    * Associate a new embedding to the given [key].
@@ -241,7 +241,7 @@ open class EmbeddingsMap<T>(
    */
   fun set(key: T, embedding: ParamsArray? = null): ParamsArray {
 
-    require(key !in this.embeddings) { "Embedding with key '%s' already set.".format(key) }
+    require(key !in this.embeddings) { "Embedding with key '%s' already set.".format(key!!) }
     require(embedding == null || embedding.values.length == this.size) {
       "Embedding size not compatible (%d != %d).".format(embedding!!.values.length, this.size)
     }
@@ -347,7 +347,7 @@ open class EmbeddingsMap<T>(
    *
    * @return a [Boolean] indicating if the key is already associated to an embedding
    */
-  operator fun contains(key: T): Boolean = key in this.embeddings
+//  operator fun contains(key: T): Boolean = key in this.embeddings
 
   /**
    * Build a new embedding with randomly initialized values.
@@ -368,14 +368,14 @@ open class EmbeddingsMap<T>(
    *
    * @return a string representation of the embedding values, concatenating the elements with the space character.
    */
-  private fun ParamsArray.toString(digits: Int): String {
-
-    val sb = StringBuilder()
-
-    (0 until this.values.length).forEach {
-      sb.append(" ").append("%.${digits}f".format(this.values[it]))
-    }
-
-    return sb.toString()
-  }
+//  private fun ParamsArray.toString(digits: Int): String {
+//
+//    val sb = StringBuilder()
+//
+//    (0 until this.values.length).forEach {
+//      sb.append(" ").append("%.${digits}f".format(this.values[it]))
+//    }
+//
+//    return sb.toString()
+//  }
 }

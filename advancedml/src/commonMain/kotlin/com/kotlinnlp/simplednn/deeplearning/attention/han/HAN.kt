@@ -15,10 +15,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN
-import com.kotlinnlp.utils.Serializer
-import java.io.InputStream
-import java.io.OutputStream
-import java.io.Serializable
+import com.soywiz.korio.lang.format
 import kotlin.math.roundToInt
 
 /**
@@ -38,6 +35,7 @@ import kotlin.math.roundToInt
  * @param weightsInitializer the initializer of the weights (zeros if null, default: Glorot)
  * @param biasesInitializer the initializer of the biases (zeros if null, default: Glorot)
  */
+
 class HAN(
   val hierarchySize: Int = 2,
   val inputSize: Int,
@@ -50,7 +48,7 @@ class HAN(
   val gainFactors: List<Double> = List(size = hierarchySize, init = { i -> if (i == 0) 2.0 else 1.0 }),
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
-) : Serializable {
+) {
 
   companion object {
 
@@ -67,7 +65,7 @@ class HAN(
      *
      * @return the [HAN] read from [inputStream] and decoded
      */
-    fun load(inputStream: InputStream): HAN = Serializer.deserialize(inputStream)
+//    fun load(inputStream: InputStream): HAN = Serializer.deserialize(inputStream)
   }
 
   /**
@@ -147,7 +145,7 @@ class HAN(
    *
    * @param outputStream the [OutputStream] in which to write this serialized [HAN]
    */
-  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
+//  fun dump(outputStream: OutputStream) = Serializer.serialize(this, outputStream)
 
   /**
    * @param levelIndex a level index of the hierarchy

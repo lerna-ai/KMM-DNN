@@ -7,7 +7,7 @@
 
 package com.kotlinnlp.simplednn.helpers
 
-import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
+//import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
 
 /**
  * A helper which evaluates a neural model with a list of examples.
@@ -32,8 +32,8 @@ abstract class Evaluator<ExampleType : Any, StatsType: Statistics>(
    */
   open fun evaluate(): StatsType {
 
-    val progress: ProgressIndicatorBar? =
-      if (this.examples is Collection<*>) ProgressIndicatorBar(this.examples.size) else null
+//    val progress: ProgressIndicatorBar? =
+//      if (this.examples is Collection<*>) ProgressIndicatorBar(this.examples.size) else null
 
     this.stats.reset()
 
@@ -41,7 +41,7 @@ abstract class Evaluator<ExampleType : Any, StatsType: Statistics>(
 
       this.evaluate(it)
 
-      if (this.verbose) progress?.tick()
+//      if (this.verbose) progress?.tick()
     }
 
     return this.stats

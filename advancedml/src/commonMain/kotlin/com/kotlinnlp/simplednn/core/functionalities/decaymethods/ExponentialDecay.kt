@@ -7,6 +7,9 @@
 
 package com.kotlinnlp.simplednn.core.functionalities.decaymethods
 
+import kotlin.math.exp
+import kotlin.math.ln
+
 /**
  * ExponentialDecay defines an exponential decay depending on the time step
  * => LR = exp((iterations - t) * log(LR) + log(LRfinal))
@@ -36,8 +39,8 @@ class ExponentialDecay(
    */
   override fun update(learningRate: Double, timeStep: Int): Double {
     return if (learningRate > this.finalLearningRate && timeStep > 1) {
-      Math.exp(
-        ((this.totalIterations - timeStep) * Math.log(learningRate) + Math.log(this.finalLearningRate))
+      exp(
+        ((this.totalIterations - timeStep) * ln(learningRate) + ln(this.finalLearningRate))
           /
           (this.totalIterations - timeStep + 1))
     } else {

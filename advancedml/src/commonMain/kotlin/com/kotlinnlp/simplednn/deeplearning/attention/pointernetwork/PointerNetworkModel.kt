@@ -15,7 +15,6 @@ import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.attention.attentionmechanism.AttentionMechanismLayerParameters
 import com.kotlinnlp.simplednn.core.layers.models.merge.mergeconfig.*
-import java.io.Serializable
 
 
 /**
@@ -35,7 +34,7 @@ class PointerNetworkModel(
   mergeConfig: MergeConfiguration,
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = null
-) : Serializable {
+) {
 
   companion object {
 

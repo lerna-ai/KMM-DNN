@@ -344,16 +344,28 @@ class HANEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
    * @return a [HierarchyItem] containing input errors on the lowest level
    */
   private fun buildInputErrorsHierarchyItem(levelIndex: Int, groupIndex: Int, copy: Boolean): HierarchyItem {
-
-    return if (levelIndex == (this.model.hierarchySize - 1))
-      HierarchySequence(
-        *this.usedEncodersPerLevel[levelIndex][groupIndex].getInputErrors(copy = copy).toTypedArray()
+    if (levelIndex == (this.model.hierarchySize - 1)) {
+      val temp =this.usedEncodersPerLevel[levelIndex][groupIndex].getInputErrors(copy = copy)
+        .toTypedArray()
+      return HierarchySequence(
+        ArrayList(
+          temp.size
+        ),
+        *temp
       )
-    else
-      HierarchyGroup(*Array(
+    } else {
+      val temp = Array(
         size = this.usedEncodersPerLevel[levelIndex][groupIndex].getInputErrors(copy = false).size,
-        init = { i -> this.buildInputErrorsHierarchyItem(levelIndex = levelIndex + 1, groupIndex = i, copy = copy) }
-      ))
+        init = { i ->
+          this.buildInputErrorsHierarchyItem(
+            levelIndex = levelIndex + 1,
+            groupIndex = i,
+            copy = copy
+          )
+        }
+      )
+      return HierarchyGroup(ArrayList(temp.size), *temp)
+    }
   }
 
   /**
@@ -371,21 +383,25 @@ class HANEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
 
     val importanceScores: DenseNDArray =
       this.usedAttentionNetworksPerLevel[levelIndex][groupIndex].getImportanceScore(copy = false)
-
-    return if (levelIndex == (this.model.hierarchySize - 1))
-      HierarchySequence(
-        importanceScores.prod(refScore)
+    if (levelIndex == (this.model.hierarchySize - 1)) {
+      val temp = importanceScores.prod(refScore)
+      return HierarchySequence(
+        ArrayList(temp.length),
+        temp
       )
 
-    else
-      HierarchyGroup(*Array(
+    } else {
+      val temp = Array(
         size = importanceScores.length,
         init = { i ->
           this.buildImportanceScoreHierarchyItem(
             levelIndex = levelIndex + 1,
             groupIndex = i,
-            refScore = importanceScores[i])
+            refScore = importanceScores[i]
+          )
         }
-      ))
+      )
+      return HierarchyGroup(ArrayList(temp.size), *temp)
+    }
   }
 }

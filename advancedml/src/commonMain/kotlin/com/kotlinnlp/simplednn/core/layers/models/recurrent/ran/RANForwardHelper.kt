@@ -13,6 +13,7 @@ import com.kotlinnlp.simplednn.core.layers.models.LinearParams
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLinearParams
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
+import com.soywiz.korio.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
