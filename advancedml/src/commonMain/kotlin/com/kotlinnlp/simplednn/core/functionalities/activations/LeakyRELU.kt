@@ -13,7 +13,7 @@ package com.kotlinnlp.simplednn.core.functionalities.activations
  * @property slope defines the decreasing rate for the negative values. Defaults to 0.01
  *
  */
-class LeakyRELU(val slope: Double = 0.01) : ScalarActivationFunction {
+class LeakyRELU(val slope: Float = 0.01f) : ScalarActivationFunction {
 
   companion object {
 
@@ -38,7 +38,7 @@ class LeakyRELU(val slope: Double = 0.01) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x <= 0.0) this.slope * x else x
+  override fun f(x: Float): Float = if (x <= 0.0) this.slope * x else x
 
   /**
    * Optimized derivative of the LeakyReLU function, calculated respect to the input already activated.
@@ -47,5 +47,5 @@ class LeakyRELU(val slope: Double = 0.01) : ScalarActivationFunction {
    *
    * @return the LeakyReLU derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if (fx > 0.0) 1.0 else this.slope
+  override fun dfOptimized(fx: Float): Float = if (fx > 0.0) 1.0f else this.slope
 }

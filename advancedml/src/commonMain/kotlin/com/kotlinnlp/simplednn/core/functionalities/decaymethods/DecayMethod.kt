@@ -21,5 +21,5 @@ interface DecayMethod {
    *
    * @return the updated learning rate
    */
-  fun update(learningRate: Double, timeStep: Int): Double
+  fun update(learningRate: Float, timeStep: Int): Float
 }

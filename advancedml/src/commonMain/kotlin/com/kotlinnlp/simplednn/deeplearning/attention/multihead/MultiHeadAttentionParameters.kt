@@ -13,6 +13,8 @@ import com.kotlinnlp.simplednn.core.layers.LayerInterface
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.core.layers.models.attention.scaleddot.ScaledDotAttentionLayerParameters
+import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
+import org.jetbrains.kotlinx.multik.ndarray.data.D2Array
 
 /**
  * The parameters of the multi-head attention network.
@@ -68,4 +70,21 @@ class MultiHeadAttentionParameters(
     weightsInitializer = weightsInitializer,
     biasesInitializer = biasesInitializer
   )
+
+  fun getParams(): List<Pair<List<D2Array<Float>>, List<D2Array<Float>>>> {
+    val params = mutableListOf<Pair<List<D2Array<Float>>, List<D2Array<Float>>>>()
+    params.addAll(attention.map { Pair(it.weightsList.map { it.values.storage },
+      it.biasesList.map { it.values.storage }) })
+    params.addAll(merge.getParams())
+    return params
+  }
+
+  fun setParams(params: List<Pair<List<D2Array<Float>>, List<D2Array<Float>>>>) {
+    var i = 0
+    attention.forEach { layer ->
+      layer.setParams(params[i].first, params[i].second)
+      i++
+    }
+    merge.setParams(params.subList(i, params.size))
+  }
 }

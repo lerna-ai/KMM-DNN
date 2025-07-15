@@ -55,7 +55,7 @@ internal class BiaffineBackwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
     return List(
       size = this.layer.params.outputSize,
       init = { i ->
-        val gwxi: Double = gy[i]
+        val gwxi: Float = gy[i]
 
         when (x2) {
           is DenseNDArray -> x2.prod(gwxi)

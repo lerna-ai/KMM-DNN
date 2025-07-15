@@ -27,8 +27,8 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray
  * @property regularization a parameters regularization method
  */
 class AdaGradMethod(
-  val learningRate: Double = 0.01,
-  val epsilon: Double = 1.0E-8,
+  val learningRate: Float = 0.01f,
+  val epsilon: Float = 1.0E-8f,
   regularization: ParamsRegularization? = null
 ) : UpdateMethod<AdaGradStructure>(regularization) {
 

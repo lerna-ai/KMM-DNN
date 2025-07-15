@@ -36,8 +36,8 @@ internal class TPRLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   inputType: LayerType.Input,
   override val params: TPRLayerParameters,
   layersWindow: LayersWindow,
-  dropout: Double,
-  val q: Double
+  dropout: Float,
+  val q: Float
 ) : RecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

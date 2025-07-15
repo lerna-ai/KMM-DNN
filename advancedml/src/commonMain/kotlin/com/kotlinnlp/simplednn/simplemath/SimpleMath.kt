@@ -19,13 +19,13 @@ import kotlin.math.*
 /**
  * Equals within tolerance.
  *
- * @param a a [Double] number
- * @param b a [Double] number
+ * @param a a [Float] number
+ * @param b a [Float] number
  * @param tolerance it defines the range [[b] - [tolerance], [b] + [tolerance]]
  *
  * @return a [Boolean] which indicates if [a] is equal to [b] within the [tolerance]
  */
-fun equals(a: Double, b: Double, tolerance: Double = 1.0e-04): Boolean {
+fun equals(a: Float, b: Float, tolerance: Float = 1.0e-04f): Boolean {
 
   val lower = b - tolerance
   val upper = b + tolerance
@@ -36,14 +36,14 @@ fun equals(a: Double, b: Double, tolerance: Double = 1.0e-04): Boolean {
 /**
  * Equals within tolerance.
  *
- * @param a an array of [Double] numbers
- * @param b an array of [Double] numbers
+ * @param a an array of [Float] numbers
+ * @param b an array of [Float] numbers
  * @param tolerance it defines the range [elm - [tolerance], elm + [tolerance]]
  *
  * @return a [Boolean] which indicates if all the elements of [a] are equal to the
  * corresponding elements of [b] within the [tolerance]
  */
-fun equals(a: DoubleArray, b: DoubleArray, tolerance: Double = 1.0e-04): Boolean =
+fun equals(a: FloatArray, b: FloatArray, tolerance: Float = 1.0e-04f): Boolean =
   a.zip(b).all { equals(it.first, it.second, tolerance = tolerance) }
 
 /**
@@ -105,13 +105,13 @@ fun List<DenseNDArray>.copy(): List<DenseNDArray> = this.map { it.copy() }
  *
  * @return the cosine similarity of the two arrays
  */
-fun cosineSimilarity(a: DenseNDArray, b: DenseNDArray): Double {
+fun cosineSimilarity(a: DenseNDArray, b: DenseNDArray): Float {
 
   require(a.shape.dim2 == 1 && b.shape.dim2 == 1) {
     "Cosine similarity can only be calculated for one-dimensional vertical arrays."
   }
 
-  return maxOf(0.0, a.t.dot(b)[0])
+  return maxOf(0.0f, a.t.dot(b)[0])
 }
 
 /**
@@ -129,13 +129,13 @@ fun cosineSimilarity(a: DenseNDArray, b: DenseNDArray): Double {
  *
  * @return the SED similarity of the two arrays
  */
-fun sedSimilarity(a: DenseNDArray, b: DenseNDArray): Double {
+fun sedSimilarity(a: DenseNDArray, b: DenseNDArray): Float {
 
   require(a.shape == b.shape)
 
-  val exp: Double = (0 until a.length).sumOf { i -> complexityExp(a[i], b[i]) }
+  val exp: Float = (0 until a.length).sumOf { i -> complexityExp(a[i], b[i]).toDouble() }.toFloat()
 
-  return 2.0 - 10.0.pow(exp)
+  return 2.0f - 10.0f.pow(exp)
 }
 
 /**
@@ -162,7 +162,7 @@ fun exp(a: DenseNDArray): DenseNDArray {
  *
  * @return the logarithm
  */
-fun safeLog(value: Double, eps: Double = 1.0e-08): Double = ln(if (value >= eps) value else eps)
+fun safeLog(value: Float, eps: Float = 1.0e-08f): Float = ln(if (value >= eps) value else eps)
 
 /**
  * Calculate the SED complexity exponent component of two vectors of the i-th dimension if [a] and [b] are the values of
@@ -173,17 +173,17 @@ fun safeLog(value: Double, eps: Double = 1.0e-08): Double = ln(if (value >= eps)
  *
  * @return the SED complexity exponent component of the i-th dimension of the vectors
  */
-private fun complexityExp(a: Double, b: Double): Double =
-  0.5 * (negShannonEntropy(a) + negShannonEntropy(b)) - negShannonEntropy(0.5 * (a + b))
+private fun complexityExp(a: Float, b: Float): Float =
+  0.5f * (negShannonEntropy(a) + negShannonEntropy(b)) - negShannonEntropy(0.5f * (a + b))
 
 /**
- * Apply the negative Shannon's entropy with base 10 (H_10) to a given double number.
+ * Apply the negative Shannon's entropy with base 10 (H_10) to a given float number.
  *
  * Shannon's Entropy:
  *  H_a(x) = - x * log_a(x)
  *
- * @param x a double number
+ * @param x a float number
  *
  * @return the Shannon's entropy of the given number
  */
-private fun negShannonEntropy(x: Double): Double = x * log10(max(1.0e-16, x)) // limited to avoid overflow errors
+private fun negShannonEntropy(x: Float): Float = x * log10(max(1.0e-16f, x)) // limited to avoid overflow errors

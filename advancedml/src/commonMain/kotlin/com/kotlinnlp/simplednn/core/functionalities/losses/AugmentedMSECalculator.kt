@@ -16,16 +16,16 @@ import kotlin.math.exp
  * @property pi pi (0.1 by default)
  * @property c c (10 by default)
  */
-class AugmentedMSECalculator(val pi: Double = 0.1, val c: Double = 10.0) : LossCalculator {
+class AugmentedMSECalculator(val pi: Float = 0.1f, val c: Float = 10.0f) : LossCalculator {
 
   /**
    *
    */
-  enum class InjectedErrorStrength(internal val weight: Double) {
-    NONE(0.0),
-    SOFT(0.01),
-    MEDIUM(0.1),
-    HARD(1.0)
+  enum class InjectedErrorStrength(internal val weight: Float) {
+    NONE(0.0f),
+    SOFT(0.01f),
+    MEDIUM(0.1f),
+    HARD(1.0f)
   }
 
   /**
@@ -36,12 +36,12 @@ class AugmentedMSECalculator(val pi: Double = 0.1, val c: Double = 10.0) : LossC
   /**
    *
    */
-  private val isLossPartitionDisabled: Boolean = pi == 0.0
+  private val isLossPartitionDisabled: Boolean = pi == 0.0f
 
   /**
    *
    */
-  private val lossPartition: Double = 1.0 - pi
+  private val lossPartition: Float = 1.0f - pi
 
   /**
    * Calculate the loss between an output and its gold.
@@ -55,17 +55,17 @@ class AugmentedMSECalculator(val pi: Double = 0.1, val c: Double = 10.0) : LossC
 
     return if (this.isLossPartitionDisabled) {
 
-      output.sub(outputGold).assignPow(2.0).assignProd(0.5)
+      output.sub(outputGold).assignPow(2.0f).assignProd(0.5f)
 
     } else {
-      val lossContribution = outputGold.sub(output).assignPow(2.0)
-      val injectedContribution = output.prod(this.calculateRegularization()).assignPow(2.0)
+      val lossContribution = outputGold.sub(output).assignPow(2.0f)
+      val injectedContribution = output.prod(this.calculateRegularization()).assignPow(2.0f)
 
       // 0.5 * ((1 - pi) * (g - o)^2 + pi * (o * reg)^2)
       lossContribution
         .assignProd(this.lossPartition)
         .assignSum(injectedContribution.assignProd(this.pi))
-        .assignProd(0.5)
+        .assignProd(0.5f)
     }
   }
 
@@ -96,5 +96,5 @@ class AugmentedMSECalculator(val pi: Double = 0.1, val c: Double = 10.0) : LossC
   /**
    *
    */
-  private fun calculateRegularization(): Double = 1.0 - exp(-c * this.injectedErrorStrength.weight)
+  private fun calculateRegularization(): Float = 1.0f - exp(-c * this.injectedErrorStrength.weight)
 }

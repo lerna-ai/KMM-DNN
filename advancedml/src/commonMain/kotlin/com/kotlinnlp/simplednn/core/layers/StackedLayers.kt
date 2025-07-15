@@ -26,7 +26,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
  */
 internal open class StackedLayers<InputNDArrayType : NDArray<InputNDArrayType>>(
   val params: StackedLayersParameters,
-  dropouts: List<Double>
+  dropouts: List<Float>
 ) {
 
   /**
@@ -36,7 +36,7 @@ internal open class StackedLayers<InputNDArrayType : NDArray<InputNDArrayType>>(
    * @param params the layers parameters
    * @param dropout the probability of dropout for each stacked layer
    */
-  constructor(params: StackedLayersParameters, dropout: Double): this(
+  constructor(params: StackedLayersParameters, dropout: Float): this(
     params = params,
     dropouts = List(params.numOfLayers) { dropout }
   )
@@ -221,7 +221,7 @@ internal open class StackedLayers<InputNDArrayType : NDArray<InputNDArrayType>>(
    *
    * @return the stacked layers where the output of a layer references the input of the next
    */
-  protected fun buildLayers(dropouts: List<Double>): List<Layer<*>> = this.params.layersConfiguration.let { config ->
+  protected fun buildLayers(dropouts: List<Float>): List<Layer<*>> = this.params.layersConfiguration.let { config ->
 
     require(config.subList(1, config.size).all { it.type == LayerType.Input.Dense }) {
       "The layers except the first must be dense."

@@ -12,7 +12,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerParameters
 import com.kotlinnlp.simplednn.core.layers.Layer
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.assert
+import korlibs.io.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
@@ -47,7 +47,7 @@ internal class DeltaRNNForwardHelper<InputNDArrayType : NDArray<InputNDArrayType
     y.assignProd(p, c)
 
     if (yPrev != null) {
-      y.assignSum(p.reverseSub(1.0).assignProd(yPrev))
+      y.assignSum(p.reverseSub(1.0f).assignProd(yPrev))
     }
 
     this.layer.outputArray.activate()
@@ -97,7 +97,7 @@ internal class DeltaRNNForwardHelper<InputNDArrayType : NDArray<InputNDArrayType
     if (yPrev != null) {
       val yRec: DenseNDArray = contributions.recurrentUnit.biases.values
 
-      yRec.assignValues(p.reverseSub(1.0).assignProd(yPrev))
+      yRec.assignValues(p.reverseSub(1.0f).assignProd(yPrev))
       y.assignSum(yRec)
     }
 
@@ -181,7 +181,7 @@ internal class DeltaRNNForwardHelper<InputNDArrayType : NDArray<InputNDArrayType
 
     val d1: DenseNDArray =  if (wyRec != null) {
       val beta2: DenseNDArray = this.layer.params.beta2.values
-      val halfBc: DenseNDArray = bc.div(2.0) // bc split equally among d1Input and d1Rec
+      val halfBc: DenseNDArray = bc.div(2.0f) // bc split equally among d1Input and d1Rec
       val d1Rec: DenseNDArray = relevanceSupport.d1Rec.values
 
       d1Input.assignProd(beta1, wx).assignSum(halfBc) // d1Input is saved to calculate the relevance later

@@ -9,6 +9,8 @@ package com.kotlinnlp.simplednn.core.layers
 
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
+import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
+import org.jetbrains.kotlinx.multik.ndarray.data.D2Array
 
 /**
  * The parameters of a layer
@@ -38,12 +40,12 @@ abstract class LayerParameters(
   /**
    * The list of weights parameters.
    */
-  internal abstract val weightsList: List<ParamsArray>
+  abstract val weightsList: List<ParamsArray>
 
   /**
    * The list of biases parameters.
    */
-  internal abstract val biasesList: List<ParamsArray>
+  abstract val biasesList: List<ParamsArray>
 
   /**
    * Initialize the values of the parameters with the given [weightsInitializer] and [biasesInitializer].
@@ -60,5 +62,10 @@ abstract class LayerParameters(
     this.biasesInitializer?.let { initializer ->
       this.biasesList.forEach { weight -> initializer.initialize(weight.values) }
     }
+  }
+
+  fun setParams(weights: List<D2Array<Float>>, biases: List<D2Array<Float>>) {
+    this.weightsList.forEachIndexed{ index, weight -> weight.values.assignValues(DenseNDArray(weights[index])) }
+    this.biasesList.forEachIndexed{ index, bias -> bias.values.assignValues(DenseNDArray(biases[index]))}
   }
 }

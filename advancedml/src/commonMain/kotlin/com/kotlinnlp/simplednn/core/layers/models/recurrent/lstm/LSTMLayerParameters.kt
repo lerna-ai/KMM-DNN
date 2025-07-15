@@ -114,5 +114,5 @@ class LSTMLayerParameters(
    * Adding a bias of size 1 to the forget gate improves the general performance of the LSTM.
    * (Greff et al., 2015 and Jozefowicz et al., 2015)
    */
-  fun initForgetGateBiasToOne() = ConstantInitializer(1.0).initialize(this.forgetGate.biases.values)
+  fun initForgetGateBiasToOne() = ConstantInitializer(1.0f).initialize(this.forgetGate.biases.values)
 }

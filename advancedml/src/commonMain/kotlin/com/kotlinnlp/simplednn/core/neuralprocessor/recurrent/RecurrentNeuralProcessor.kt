@@ -25,7 +25,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The neural processor that acts on networks of stacked-layers with recurrent connections.
@@ -38,7 +38,7 @@ import com.soywiz.korio.lang.format
  */
 class RecurrentNeuralProcessor<InputNDArrayType : NDArray<InputNDArrayType>>(
   val model: StackedLayersParameters,
-  private val dropouts: List<Double>,
+  private val dropouts: List<Float>,
   override val propagateToInput: Boolean,
   private val paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector(),
   override val id: Int = 0
@@ -61,7 +61,7 @@ class RecurrentNeuralProcessor<InputNDArrayType : NDArray<InputNDArrayType>>(
    */
   constructor(
     model: StackedLayersParameters,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     propagateToInput: Boolean,
     paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector(),
     id: Int = 0

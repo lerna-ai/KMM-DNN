@@ -29,7 +29,7 @@ internal class FeedforwardLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: FeedforwardLayerParameters,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : Layer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

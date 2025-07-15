@@ -23,10 +23,10 @@ import kotlin.math.sqrt
  * @property regularization a parameters regularization method
  */
 class RADAMMethod(
-  stepSize: Double = 0.001,
-  beta1: Double = 0.9,
-  beta2: Double = 0.999,
-  epsilon: Double = 1.0E-8,
+  stepSize: Float = 0.001f,
+  beta1: Float = 0.9f,
+  beta2: Float = 0.999f,
+  epsilon: Float = 1.0E-8f,
   regularization: ParamsRegularization? = null
 ) : ADAMMethod(
   stepSize = stepSize,
@@ -52,22 +52,22 @@ class RADAMMethod(
   /**
    * The maximum length of the approximated SMA.
    */
-  private val roMax: Double = 2.0 / (1 - this.beta2) - 1.0
+  private val roMax: Float = 2.0f / (1 - this.beta2) - 1.0f
 
   /**
    * @return the `alpha` coefficient
    */
-  override fun calcAlpha(): Double {
+  override fun calcAlpha(): Float {
 
-    val b1T: Double = this.beta1.pow(this.timeStep)
-    val b2T: Double = this.beta2.pow(this.timeStep)
-    val ro: Double = this.roMax - 2.0 * this.timeStep * b2T / (1.0 - b2T)
+    val b1T: Float = this.beta1.pow(this.timeStep)
+    val b2T: Float = this.beta2.pow(this.timeStep)
+    val ro: Float = this.roMax - 2.0f * this.timeStep * b2T / (1.0f - b2T)
 
-    val rect: Double = if (ro > 4.0)
-      sqrt((ro - 4.0) * (ro - 2.0) * this.roMax / ((this.roMax - 4.0) * (this.roMax - 2.0) * ro))
+    val rect: Float = if (ro > 4.0)
+      sqrt((ro - 4.0f) * (ro - 2.0f) * this.roMax / ((this.roMax - 4.0f) * (this.roMax - 2.0f) * ro))
     else
-      1.0
+      1.0f
 
-    return this.stepSize * rect * sqrt(1.0 - b2T) / (1.0 - b1T)
+    return this.stepSize * rect * sqrt(1.0f - b2T) / (1.0f - b1T)
   }
 }

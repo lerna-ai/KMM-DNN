@@ -13,7 +13,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 /**
  * An initializer of dense arrays with random values.
  *
- * @param randomGenerator a generator of random double numbers
+ * @param randomGenerator a generator of random float numbers
  */
 class RandomInitializer(val randomGenerator: RandomGenerator) : Initializer {
 

@@ -27,10 +27,10 @@ internal class CosineForwardHelper (override val layer: CosineLayer) : ForwardHe
 
     val dotProduct = this.layer.inputArray1.values.t.dot(this.layer.inputArray2.values)[0]
 
-    var input1Norm = 0.0
-    var input2Norm = 0.0
+    var input1Norm = 0.0f
+    var input2Norm = 0.0f
 
-    val outputScore = DoubleArray(1)
+    val outputScore = FloatArray(1)
 
     (0 until this.layer.inputArray1.values.length).forEach { i ->
       input1Norm += this.layer.inputArray1.values[i] * this.layer.inputArray1.values[i]

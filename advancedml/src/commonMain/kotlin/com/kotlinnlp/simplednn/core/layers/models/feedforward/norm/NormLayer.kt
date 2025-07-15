@@ -36,7 +36,7 @@ internal class NormLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray = outputArray,
   params = params,
   activationFunction = null,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   companion object {
@@ -44,7 +44,7 @@ internal class NormLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
     /**
      * Avoid underflow errors.
      */
-    internal const val EPS = 1.0e-5
+    internal const val EPS = 1.0e-5f
   }
 
   /**
@@ -55,7 +55,7 @@ internal class NormLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   /**
    * Support for the standard deviation of the input array.
    */
-  internal var stdDev: Double = 0.0
+  internal var stdDev: Float = 0.0f
 
   /**
    * Support for the standard deviation of the input array.
@@ -65,7 +65,7 @@ internal class NormLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   /**
    * Support for the variance of the input array.
    */
-  internal var v: Double = 0.0
+  internal var v: Float = 0.0f
 
   /**
    * The helper which executes the forward.

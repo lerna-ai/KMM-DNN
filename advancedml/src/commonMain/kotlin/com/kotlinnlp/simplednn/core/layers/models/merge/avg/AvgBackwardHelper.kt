@@ -39,7 +39,7 @@ internal class AvgBackwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
   private fun assignLayerGradients() {
 
     val gy: DenseNDArray = this.layer.outputArray.errors
-    val gx: DenseNDArray = gy.div(this.layer.inputArrays.size.toDouble())
+    val gx: DenseNDArray = gy.div(this.layer.inputArrays.size.toFloat())
 
     this.layer.inputArrays.forEach { x ->
       x.assignErrors(gx)

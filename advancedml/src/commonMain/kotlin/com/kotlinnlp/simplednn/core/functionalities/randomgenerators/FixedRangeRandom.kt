@@ -18,7 +18,7 @@ import kotlin.random.Random
  * @property seed seed used for the pseudo-random generation
  */
 class FixedRangeRandom(
-  val radius: Double = 0.01,
+  val radius: Float = 0.01f,
   val enablePseudoRandom: Boolean = true,
   val seed: Long = 743
 ) : RandomGenerator {
@@ -40,5 +40,5 @@ class FixedRangeRandom(
   /**
    * @return a random value uniformly distributed in in the range [-[radius], [radius]]
    */
-  override fun next(): Double = (2.0 * this.rndGenerator.nextDouble() * this.radius) - this.radius
+  override fun next(): Float = (2.0f * this.rndGenerator.nextFloat() * this.radius) - this.radius
 }

@@ -20,7 +20,7 @@ import kotlin.random.Random
  * @property seed seed used for the pseudo-random generation
  */
 class GaussianDistributedRandom(
-  val variance: Double = 1.0,
+  val variance: Float = 1.0f,
   val enablePseudoRandom: Boolean = true,
   val seed: Long = 1
 ) : RandomGenerator {
@@ -42,16 +42,16 @@ class GaussianDistributedRandom(
   /**
    * @return a random value generated following a Gaussian distribution
    */
-  override fun next(): Double {
+  override fun next(): Float {
     return gaussRandom() * sqrt(variance)
   }
 
-  private fun gaussRandom(): Double {
-    val u: Double = 2 * rndGenerator.nextDouble() - 1.0
-    val v: Double = 2 * rndGenerator.nextDouble() - 1.0
+  private fun gaussRandom(): Float {
+    val u: Float = 2 * rndGenerator.nextFloat() - 1.0f
+    val v: Float = 2 * rndGenerator.nextFloat() - 1.0f
     val r = u * u + v * v
-    if (r == 0.0) return 0.0 else if (r > 1) return gaussRandom()
-    val c: Double = sqrt(-2 * ln(r) / r)
+    if (r == 0.0f) return 0.0f else if (r > 1) return gaussRandom()
+    val c: Float = sqrt(-2 * ln(r) / r)
     return u * c
   }
 }

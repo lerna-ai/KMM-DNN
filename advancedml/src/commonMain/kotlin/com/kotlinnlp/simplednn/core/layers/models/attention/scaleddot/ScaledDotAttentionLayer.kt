@@ -14,7 +14,7 @@ import com.kotlinnlp.simplednn.core.layers.helpers.RelevanceHelper
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayMask
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlin.random.Random
 
 /**
@@ -27,14 +27,14 @@ import kotlin.random.Random
 internal class ScaledDotAttentionLayer(
   val inputArrays: List<AugmentedArray<DenseNDArray>>,
   override val params: ScaledDotAttentionLayerParameters,
-  private val attentionDropout: Double = 0.0
+  private val attentionDropout: Float = 0.0f
 ) : Layer<DenseNDArray>(
   inputArray = inputArrays[0],
   inputType = LayerType.Input.Dense,
   outputArray = AugmentedArray(inputArrays.size),
   params = params,
   activationFunction = null,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   /**
@@ -128,7 +128,7 @@ internal class ScaledDotAttentionLayer(
 
       val activeIndices: List<Int> = this.inputArrays.indices
         .asSequence()
-        .map { it to Random.nextDouble() }
+        .map { it to Random.nextFloat() }
         .filter { it.second >= this.attentionDropout }
         .map { it.first }
         .toList()

@@ -33,10 +33,10 @@ internal class DeltaRNNRelevanceHelper(
 
     val previousStateExists: Boolean = this.layer.layersWindow.getPrevState() != null
 
-    val halfOutputRelevance: DenseNDArray = this.layer.outputArray.relevance.div(2.0)
+    val halfOutputRelevance: DenseNDArray = this.layer.outputArray.relevance.div(2.0f)
 
     val candidateRelevance: DenseNDArray = if (previousStateExists)
-      this.getInputPartition(contributions).div(2.0)
+      this.getInputPartition(contributions).div(2.0f)
     else
     // if there isn't a previous state, all the output relevance is assigned to the candidate
     // partition (p * c), half to the partition array and half to the candidate array
@@ -66,7 +66,7 @@ internal class DeltaRNNRelevanceHelper(
     val bp: DenseNDArray = this.layer.params.recurrentUnit.biases.values
     val bc: DenseNDArray = this.layer.params.feedforwardUnit.biases.values
     val beta1: DenseNDArray = this.layer.params.beta1.values
-    val d1Bc: DenseNDArray = if (previousStateExists) bc.div(2.0) else bc
+    val d1Bc: DenseNDArray = if (previousStateExists) bc.div(2.0f) else bc
     // if there is a recurrent contribution bc is divided equally among d1Input and d1Rec, otherwise it is all assigned
     // to d1Input
 
@@ -92,7 +92,7 @@ internal class DeltaRNNRelevanceHelper(
         // the product by 'alpha' is not included during the calculation of the relevance
         // ('alpha' doesn't depend on variables of interest)
         y = this.layer.wx.values,
-        yRelevance = relevanceSupport.d2.relevance.div(2.0),
+        yRelevance = relevanceSupport.d2.relevance.div(2.0f),
         contributions = wxContrib // w (dot) x
       )
 
@@ -119,7 +119,7 @@ internal class DeltaRNNRelevanceHelper(
 
     val wyRecContrib: DenseNDArray = contributions.recurrentUnit.weights.values
 
-    val halfBc: DenseNDArray = this.layer.params.feedforwardUnit.biases.values.div(2.0)
+    val halfBc: DenseNDArray = this.layer.params.feedforwardUnit.biases.values.div(2.0f)
     val beta2: DenseNDArray = this.layer.params.beta2.values
 
     val relevanceSupport: DeltaRNNRelevanceSupport = this.layer.relevanceSupport
@@ -136,11 +136,11 @@ internal class DeltaRNNRelevanceHelper(
       // the product by 'alpha' is not included during the calculation of the relevance
       // ('alpha' doesn't depend on variables of interest)
       y = this.layer.wyRec.values,
-      yRelevance = relevanceSupport.d2.relevance.div(2.0),
+      yRelevance = relevanceSupport.d2.relevance.div(2.0f),
       contributions = wyRecContrib // wyRec (dot) yPrev
     )
 
-    prevStateOutput.assignRelevance(this.getRecurrentPartition(contributions).div(2.0))
+    prevStateOutput.assignRelevance(this.getRecurrentPartition(contributions).div(2.0f))
     prevStateOutput.relevance.assignSum(d1RecRelevance).assignSum(d2RecRelevance)
   }
 
@@ -245,10 +245,10 @@ internal class DeltaRNNRelevanceHelper(
    */
   private fun DenseNDArray.partialAssignSum(a: DenseNDArray): DenseNDArray {
 
-    val aPart: DenseNDArray = a.div(this.columns.toDouble())
+    val aPart: DenseNDArray = a.div(this.columns.toFloat())
 
     for (i in 0 until this.rows) {
-      val aPartI: Double = aPart[i]
+      val aPartI: Float = aPart[i]
 
       for (j in 0 until this.columns) {
         this[i, j] += aPartI

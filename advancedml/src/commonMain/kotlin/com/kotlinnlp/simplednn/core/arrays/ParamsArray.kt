@@ -21,7 +21,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArrayFactory
-import com.soywiz.korio.util.UUID
+import korlibs.io.util.UUID
 import kotlinx.serialization.Contextual
 
 
@@ -55,7 +55,7 @@ class ParamsArray(
    *
    * @return a new params array
    */
-  constructor(values: DoubleArray,
+  constructor(values: FloatArray,
               defaultErrorsType: ErrorsType = ErrorsType.Dense) : this(
     values = DenseNDArrayFactory.arrayOf(values),
     defaultErrorsType = defaultErrorsType
@@ -69,7 +69,7 @@ class ParamsArray(
    *
    * @return a new params array
    */
-  constructor(values: List<DoubleArray>,
+  constructor(values: List<FloatArray>,
               defaultErrorsType: ErrorsType = ErrorsType.Dense) : this(
     values = DenseNDArrayFactory.arrayOf(values),
     defaultErrorsType = defaultErrorsType

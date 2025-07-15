@@ -16,7 +16,7 @@ import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator
 import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsList
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The neural processor that acts on networks of stacked-layers, performing operations through with mini-batches.
@@ -28,7 +28,7 @@ import com.soywiz.korio.lang.format
  */
 class BatchFeedforwardProcessor<InputNDArrayType: NDArray<InputNDArrayType>>(
   val model: StackedLayersParameters,
-  dropouts: List<Double>,
+  dropouts: List<Float>,
   override val propagateToInput: Boolean,
   override val id: Int = 0
 ) : NeuralProcessor<
@@ -46,7 +46,7 @@ class BatchFeedforwardProcessor<InputNDArrayType: NDArray<InputNDArrayType>>(
    * @param propagateToInput whether to propagate the errors to the input during the [backward]
    * @param id an identification number useful to track a specific processor
    */
-  constructor(model: StackedLayersParameters, dropout: Double = 0.0, propagateToInput: Boolean, id: Int = 0): this(
+  constructor(model: StackedLayersParameters, dropout: Float = 0.0f, propagateToInput: Boolean, id: Int = 0): this(
     model = model,
     dropouts = List(model.numOfLayers) { dropout },
     propagateToInput = propagateToInput,

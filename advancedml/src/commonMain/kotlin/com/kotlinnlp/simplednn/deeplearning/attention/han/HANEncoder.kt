@@ -38,10 +38,10 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 class HANEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
   val model: HAN,
   override val propagateToInput: Boolean,
-  biRNNDropout: Double = 0.0,
-  attentionDropout: Double = 0.0,
-  outputDropout: Double = 0.0,
-  private val mePropK: Double? = null,
+  biRNNDropout: Float = 0.0f,
+  attentionDropout: Float = 0.0f,
+  outputDropout: Float = 0.0f,
+  private val mePropK: Float? = null,
   override val id: Int = 0
 ) : NeuralProcessor<
   HierarchyItem, // InputType
@@ -172,7 +172,7 @@ class HANEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
    * @return the importance scores of the input sequences, grouped with the same hierarchy as the given input
    */
   fun getInputImportanceScores(): HierarchyItem {
-    return this.buildImportanceScoreHierarchyItem(levelIndex = 0, groupIndex = 0, refScore = 1.0)
+    return this.buildImportanceScoreHierarchyItem(levelIndex = 0, groupIndex = 0, refScore = 1.0f)
   }
 
   /**
@@ -379,7 +379,7 @@ class HANEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
    *
    * @return a [HierarchyItem] containing the importance score on the lowest level
    */
-  private fun buildImportanceScoreHierarchyItem(levelIndex: Int, groupIndex: Int, refScore: Double): HierarchyItem {
+  private fun buildImportanceScoreHierarchyItem(levelIndex: Int, groupIndex: Int, refScore: Float): HierarchyItem {
 
     val importanceScores: DenseNDArray =
       this.usedAttentionNetworksPerLevel[levelIndex][groupIndex].getImportanceScore(copy = false)

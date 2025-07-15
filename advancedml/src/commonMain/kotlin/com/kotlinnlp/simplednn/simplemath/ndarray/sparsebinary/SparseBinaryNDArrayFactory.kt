@@ -61,7 +61,7 @@ object SparseBinaryNDArrayFactory : NDArrayFactory<SparseBinaryNDArray> {
    *
    * @return a new [SparseBinaryNDArray]
    */
-  override fun fill(shape: Shape, value: Double): SparseBinaryNDArray {
+  override fun fill(shape: Shape, value: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -86,7 +86,7 @@ object SparseBinaryNDArrayFactory : NDArrayFactory<SparseBinaryNDArray> {
    *
    * @return a new [SparseBinaryNDArray] filled with random values
    */
-  override fun random(shape: Shape, from: Double, to: Double): SparseBinaryNDArray {
+  override fun random(shape: Shape, from: Float, to: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 

@@ -33,7 +33,7 @@ internal class BatchNormLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray = AugmentedArray(1),
   params = params,
   activationFunction = null,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   /**

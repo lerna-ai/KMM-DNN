@@ -53,6 +53,6 @@ internal class HighwayForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>
 
     this.layer.transformGate.activate()
 
-    y.assignProd(tGate, inputUnit).assignSum(tGate.reverseSub(1.0).assignProd(x as DenseNDArray))
+    y.assignProd(tGate, inputUnit).assignSum(tGate.reverseSub(1.0f).assignProd(x as DenseNDArray))
   }
 }

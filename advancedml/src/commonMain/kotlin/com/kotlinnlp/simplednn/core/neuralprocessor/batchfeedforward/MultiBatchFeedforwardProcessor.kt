@@ -26,7 +26,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
  */
 class MultiBatchFeedforwardProcessor<InputNDArrayType: NDArray<InputNDArrayType>>(
   val model: List<StackedLayersParameters>,
-  dropouts: List<List<Double>>,
+  dropouts: List<List<Float>>,
   override val propagateToInput: Boolean,
   override val id: Int = 0
 ) : NeuralProcessor<
@@ -46,7 +46,7 @@ class MultiBatchFeedforwardProcessor<InputNDArrayType: NDArray<InputNDArrayType>
    */
   constructor(
     model: List<StackedLayersParameters>,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     propagateToInput: Boolean,
     id: Int = 0
   ): this(

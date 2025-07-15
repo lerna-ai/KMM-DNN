@@ -8,7 +8,7 @@
 package com.kotlinnlp.simplednn.helpers
 
 import com.kotlinnlp.utils.stats.MetricCounter
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlin.properties.Delegates
 
 /**
@@ -31,7 +31,7 @@ abstract class Statistics {
      */
     override fun reset() {
 
-      this.accuracy = 0.0
+      this.accuracy = 0.0f
 
       this.metric.reset()
     }
@@ -42,7 +42,7 @@ abstract class Statistics {
   /**
    * The overall accuracy of the model validated, in the range [0.0, 1.0].
    */
-  var accuracy: Double by Delegates.observable(0.0) { _, _, newValue -> require(newValue in 0.0 .. 1.0) }
+  var accuracy: Float by Delegates.observable(0.0f) { _, _, newValue -> require(newValue in 0.0f .. 1.0f) }
 
   /**
    * Reset the metrics.

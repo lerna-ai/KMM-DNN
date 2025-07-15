@@ -37,7 +37,7 @@ internal class AvgForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
 
       (1 until arrays.size).forEach { i -> this.layer.outputArray.values.assignSum(arrays[i].values) }
 
-      this.layer.outputArray.values.assignDiv(arrays.size.toDouble())
+      this.layer.outputArray.values.assignDiv(arrays.size.toFloat())
     }
   }
 }

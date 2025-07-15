@@ -19,17 +19,17 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
  *
  * @return the errors of the given prediction
  */
-fun getErrorsByHingeLoss(prediction: DenseNDArray, goldIndex: Int, marginThreshold: Double = 1.0): DenseNDArray {
+fun getErrorsByHingeLoss(prediction: DenseNDArray, goldIndex: Int, marginThreshold: Float = 1.0f): DenseNDArray {
 
   val errors: DenseNDArray = DenseNDArrayFactory.zeros(prediction.shape)
 
   val highestScoringIncorrectIndex: Int = prediction.argMaxIndex(exceptIndex = goldIndex)
 
-  val margin: Double = prediction[goldIndex] - prediction[highestScoringIncorrectIndex]
+  val margin: Float = prediction[goldIndex] - prediction[highestScoringIncorrectIndex]
 
   if (margin < marginThreshold) {
-    errors[goldIndex] = -1.0
-    errors[highestScoringIncorrectIndex] = 1.0
+    errors[goldIndex] = -1.0f
+    errors[highestScoringIncorrectIndex] = 1.0f
   }
 
   return errors

@@ -20,7 +20,7 @@ import kotlin.math.exp
  *
  */
 
-class SeLU(val scale: Double = 1.05070099, val alpha: Double = 1.67326324) : ScalarActivationFunction {
+class SeLU(val scale: Float = 1.05070099f, val alpha: Float = 1.67326324f) : ScalarActivationFunction {
 
   companion object {
 
@@ -46,9 +46,9 @@ class SeLU(val scale: Double = 1.05070099, val alpha: Double = 1.67326324) : Sca
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = when {
+  override fun f(x: Float): Float = when {
     x > 0.0 -> this.scale * x
-    else -> this.scale * this.alpha * (exp(x) - 1.0)
+    else -> this.scale * this.alpha * (exp(x) - 1.0f)
   }
 
   /**
@@ -58,7 +58,7 @@ class SeLU(val scale: Double = 1.05070099, val alpha: Double = 1.67326324) : Sca
    *
    * @return the SeLU derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = when {
+  override fun dfOptimized(fx: Float): Float = when {
     fx > 0.0 -> this.scale
     else -> fx + (this.scale * this.alpha)
   }

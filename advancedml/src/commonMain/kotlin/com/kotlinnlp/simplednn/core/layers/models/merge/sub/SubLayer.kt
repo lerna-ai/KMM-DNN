@@ -33,7 +33,7 @@ internal class SubLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray = outputArray,
   params = params,
   activationFunction = null,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   init { this.checkInputSize() }

@@ -24,11 +24,11 @@ import com.kotlinnlp.utils.ItemsPool
  */
 class HANEncodersPool<InputNDArrayType : NDArray<InputNDArrayType>>(
   val model: HAN,
-  private val biRNNDropout: Double = 0.0,
-  private val attentionDropout: Double = 0.0,
-  private val outputDropout: Double = 0.0,
+  private val biRNNDropout: Float = 0.0f,
+  private val attentionDropout: Float = 0.0f,
+  private val outputDropout: Float = 0.0f,
   private val propagateToInput: Boolean,
-  private val mePropK: Double? = null
+  private val mePropK: Float? = null
 ) : ItemsPool<HANEncoder<InputNDArrayType>>() {
 
   /**

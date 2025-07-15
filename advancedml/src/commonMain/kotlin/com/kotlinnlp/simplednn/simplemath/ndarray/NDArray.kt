@@ -144,7 +144,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun assignValues(n: Double): SelfType
+  fun assignValues(n: Float): SelfType
 
   /**
    *
@@ -159,12 +159,12 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun sum(): Double
+  fun sum(): Float
 
   /**
    *
    */
-  fun sum(n: Double): SelfType
+  fun sum(n: Float): SelfType
 
   /**
    *
@@ -184,7 +184,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun assignSum(n: Double): SelfType
+  fun assignSum(n: Float): SelfType
 
   /**
    *
@@ -194,7 +194,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun assignSum(a: SelfType, n: Double): SelfType
+  fun assignSum(a: SelfType, n: Float): SelfType
 
   /**
    *
@@ -204,7 +204,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun sub(n: Double): SelfType
+  fun sub(n: Float): SelfType
 
   /**
    *
@@ -214,7 +214,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    * In-place subtraction by number
    */
-  fun assignSub(n: Double): SelfType
+  fun assignSub(n: Float): SelfType
 
   /**
    *
@@ -224,7 +224,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun reverseSub(n: Double): SelfType
+  fun reverseSub(n: Float): SelfType
 
   /**
    *
@@ -246,7 +246,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun prod(n: Double): SelfType
+  fun prod(n: Float): SelfType
 
   /**
    *
@@ -256,17 +256,17 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun prod(n: Double, mask: NDArrayMask): SparseNDArray
+  fun prod(n: Float, mask: NDArrayMask): SparseNDArray
 
   /**
    *
    */
-  fun assignProd(n: Double): SelfType
+  fun assignProd(n: Float): SelfType
 
   /**
    *
    */
-  fun assignProd(n: Double, mask: NDArrayMask): SelfType
+  fun assignProd(n: Float, mask: NDArrayMask): SelfType
 
   /**
    *
@@ -276,7 +276,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun assignProd(a: SelfType, n: Double): SelfType
+  fun assignProd(a: SelfType, n: Float): SelfType
 
   /**
    *
@@ -286,7 +286,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun div(n: Double): SelfType
+  fun div(n: Float): SelfType
 
   /**
    *
@@ -301,7 +301,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun assignDiv(n: Double): SelfType
+  fun assignDiv(n: Float): SelfType
 
   /**
    *
@@ -316,17 +316,17 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun avg(): Double
+  fun avg(): Float
 
   /**
    *
    */
-  fun max(): Double
+  fun max(): Float
 
   /**
    *
    */
-  fun min(): Double
+  fun min(): Float
 
   /**
    * Sign function
@@ -361,7 +361,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return a new [NDArray] containing the values of this to the power of [power]
    */
-  fun pow(power: Double): SelfType
+  fun pow(power: Float): SelfType
 
   /**
    * In-place power.
@@ -370,7 +370,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return this [NDArray] to the power of [power]
    */
-  fun assignPow(power: Double): SelfType
+  fun assignPow(power: Float): SelfType
 
   /**
    * Natural exponential.
@@ -419,7 +419,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return the norm
    */
-  fun norm(): Double
+  fun norm(): Float
 
   /**
    * Normalize an array with the L1 distance.
@@ -428,10 +428,10 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    */
   fun normalize(): SelfType {
 
-    val norm: Double = this.norm()
+    val norm: Float = this.norm()
 
     @Suppress("UNCHECKED_CAST")
-    return if (norm != 0.0) this.div(norm) else this as SelfType
+    return if (norm != 0.0f) this.div(norm) else this as SelfType
   }
 
   /**
@@ -439,7 +439,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return the euclidean norm
    */
-  fun norm2(): Double
+  fun norm2(): Float
 
   /**
    * Normalize an array with the Euclidean norm.
@@ -448,10 +448,10 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    */
   fun normalize2(): SelfType {
 
-    val norm2: Double = this.norm2()
+    val norm2: Float = this.norm2()
 
     @Suppress("UNCHECKED_CAST")
-    return if (norm2 != 0.0) this.div(norm2) else this as SelfType
+    return if (norm2 != 0.0f) this.div(norm2) else this as SelfType
   }
 
   /**
@@ -479,7 +479,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return a new NDArray with the values of the current one rounded to Int
    */
-  fun roundInt(threshold: Double = 0.5): SelfType
+  fun roundInt(threshold: Float = 0.5f): SelfType
 
   /**
    * Round values to Int in-place
@@ -488,7 +488,7 @@ interface NDArray<SelfType : NDArray<SelfType>> {
    *
    * @return this NDArray
    */
-  fun assignRoundInt(threshold: Double = 0.5): SelfType
+  fun assignRoundInt(threshold: Float = 0.5f): SelfType
 
   /**
    *
@@ -520,12 +520,12 @@ interface NDArray<SelfType : NDArray<SelfType>> {
   /**
    *
    */
-  fun equals(a: SelfType, tolerance: Double = 1.0e-04): Boolean
+  fun equals(a: SelfType, tolerance: Float = 1.0e-04f): Boolean
 
   /**
    *
    */
-  fun equals(a: Any, tolerance: Double = 1.0e-04): Boolean {
+  fun equals(a: Any, tolerance: Float = 1.0e-04f): Boolean {
     @Suppress("UNCHECKED_CAST")
     return a::class.isInstance(this) && this.equals(a as SelfType, tolerance)
   }

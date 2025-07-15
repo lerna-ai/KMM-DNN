@@ -16,28 +16,28 @@ import kotlin.math.ln
  * @param predictions the predictions
  * @param goldIndex the index of the gold item in the predictions
  */
-class NegativeLogProbability(private val predictions: List<Double>, private val goldIndex: Int) {
+class NegativeLogProbability(private val predictions: List<Float>, private val goldIndex: Int) {
 
   /**
    * The sum of the exponentials.
    */
-  private val sumExp: Double by lazy { this.predictions.map { exp(it) }.sum() }
+  private val sumExp: Float by lazy { this.predictions.map { exp(it) }.sum() }
 
   /**
    * @return the loss
    */
-  fun f(): Double = -this.predictions[this.goldIndex] + ln(this.sumExp)
+  fun f(): Float = -this.predictions[this.goldIndex] + ln(this.sumExp)
 
   /**
    * @return the gradients
    */
-  fun df(): List<Double> {
+  fun df(): List<Float> {
 
-    val c = 1.0 / this.sumExp
+    val c = 1.0f / this.sumExp
 
     return this.predictions.mapIndexed { i, xi ->
       if (i == this.goldIndex)
-        c * exp(xi) - 1.0
+        c * exp(xi) - 1.0f
       else
         c * exp(xi)
     }

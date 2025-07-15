@@ -23,7 +23,7 @@ import org.jetbrains.kotlinx.multik.api.math.log
 import org.jetbrains.kotlinx.multik.ndarray.data.D2Array
 import org.jetbrains.kotlinx.multik.ndarray.data.get
 import org.jetbrains.kotlinx.multik.ndarray.data.set
-import org.jetbrains.kotlinx.multik.ndarray.operations.toDoubleArray
+import org.jetbrains.kotlinx.multik.ndarray.operations.toFloatArray
 import org.jetbrains.kotlinx.multik.api.stat.abs
 import org.jetbrains.kotlinx.multik.api.mk
 import org.jetbrains.kotlinx.multik.api.ones
@@ -43,7 +43,7 @@ import kotlin.math.*
  */
 //@kotlinx.serialization.Serializable
 
-class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray> {
+class DenseNDArray(var storage: D2Array<Float>) : NDArray<DenseNDArray> {
 
   companion object {
 
@@ -88,9 +88,9 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
     if (this.isVector) {
       (0 until this.length)
         .asSequence()
-        .filter { this[it] != 0.0 }
+        .filter { this[it] != 0.0f }
         .forEach {
-          if (this[it] == 1.0 && !isOneHot)
+          if (this[it] == 1.0f && !isOneHot)
             isOneHot = true
           else
             return false
@@ -124,25 +124,25 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override operator fun get(i: Int): Double = this.storage[i%this.rows,i/this.rows]
+  override operator fun get(i: Int): Float = this.storage[i%this.rows,i/this.rows]
 
   /**
    *
    */
-  override operator fun get(i: Int, j: Int): Double = this.storage[i, j]
+  override operator fun get(i: Int, j: Int): Float = this.storage[i, j]
 
   /**
    *
    */
   override operator fun set(i: Int, value: Number) {
-    this.storage[i%this.rows, i/this.rows] = value.toDouble()
+    this.storage[i%this.rows, i/this.rows] = value.toFloat()
   }
 
   /**
    *
    */
   override operator fun set(i: Int, j: Int, value: Number) {
-    this.storage[i, j] = value.toDouble()
+    this.storage[i, j] = value.toFloat()
   }
 
   /**
@@ -154,7 +154,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun getRow(i: Int): DenseNDArray {
     val values = this.storage[i]
-    return DenseNDArrayFactory.arrayOf(listOf(values.toDoubleArray()))
+    return DenseNDArrayFactory.arrayOf(listOf(values.toFloatArray()))
   }
 
   /**
@@ -166,7 +166,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun getColumn(i: Int): DenseNDArray {
     val values = this.storage[0..this.rows-1,i]
-    return DenseNDArrayFactory.arrayOf(values.toDoubleArray())
+    return DenseNDArrayFactory.arrayOf(values.toFloatArray())
   }
 
   /**
@@ -180,14 +180,14 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   override fun getRange(a: Int, b: Int): DenseNDArray {
     require(this.shape.dim2 == 1)
     val values = this.storage[a..b-1,0]
-    return DenseNDArrayFactory.arrayOf(values.toDoubleArray())
+    return DenseNDArrayFactory.arrayOf(values.toFloatArray())
   }
 
   /**
    * Returns a list containing the results of applying the given [transform] function
    * to each element in the original collection.
    */
-  inline fun map(transform: (Double) -> Double): DenseNDArray {
+  inline fun map(transform: (Float) -> Float): DenseNDArray {
     return this.mapTo(DenseNDArrayFactory.zeros(this.shape), transform)
   }
 
@@ -195,7 +195,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    * Applies the given [transform] function to each element of the original collection
    * and appends the results to the given [destination].
    */
-  inline fun mapTo(destination: DenseNDArray, transform: (Double) -> Double): DenseNDArray {
+  inline fun mapTo(destination: DenseNDArray, transform: (Float) -> Float): DenseNDArray {
 
     (0 until destination.length).forEach { i -> destination[i] = transform(this[i]) }
 
@@ -236,8 +236,8 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignValues(n: Double): DenseNDArray {
-    this.storage = mk.zeros<Double>(this.rows, this.columns).plus(n)
+  override fun assignValues(n: Float): DenseNDArray {
+    this.storage = mk.zeros<Float>(this.rows, this.columns).plus(n)
     return this
   }
 
@@ -341,12 +341,12 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun sum(): Double = this.storage.sum()
+  override fun sum(): Float = this.storage.sum()
 
   /**
    *
    */
-  override fun sum(n: Double): DenseNDArray = DenseNDArray(this.storage.plus(n))
+  override fun sum(n: Float): DenseNDArray = DenseNDArray(this.storage.plus(n))
 
   /**
    *
@@ -428,7 +428,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignSum(n: Double): DenseNDArray {
+  override fun assignSum(n: Float): DenseNDArray {
     this.storage = this.storage.plus(n)
     return this
   }
@@ -476,7 +476,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignSum(a: DenseNDArray, n: Double): DenseNDArray {
+  override fun assignSum(a: DenseNDArray, n: Float): DenseNDArray {
     this.storage = a.storage.plus(n)
     return this
   }
@@ -524,7 +524,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun sub(n: Double): DenseNDArray = DenseNDArray(this.storage.minus(n))
+  override fun sub(n: Float): DenseNDArray = DenseNDArray(this.storage.minus(n))
 
   /**
    *
@@ -544,7 +544,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    * In-place subtraction by number
    */
-  override fun assignSub(n: Double): DenseNDArray {
+  override fun assignSub(n: Float): DenseNDArray {
     this.storage = this.storage.minus(n)
     return this
   }
@@ -585,7 +585,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun reverseSub(n: Double): DenseNDArray{
+  override fun reverseSub(n: Float): DenseNDArray{
 //    val temp = DenseNDArrayFactory.emptyArray(this.shape)
 //    for (i in 0 until this.rows)
 //      for (j in 0 until this.columns)
@@ -725,7 +725,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
       b.columns == 1 -> // n-dim array (dot) column vector
         //for (j in b.activeIndicesByRow.keys) {
           for (i in 0 until a.rows) {
-            this.storage[i,0] = b.activeIndicesByRow.keys.sumOf { a[i, it] }
+            this.storage[i,0] = b.activeIndicesByRow.keys.sumOf { a[i, it].toDouble() }.toFloat()
           }
        // }
       else -> // n-dim array (dot) n-dim array
@@ -786,7 +786,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun prod(n: Double): DenseNDArray = DenseNDArray(this.storage.times(n))
+  override fun prod(n: Float): DenseNDArray = DenseNDArray(this.storage.times(n))
 
   /**
    *
@@ -834,9 +834,9 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun prod(n: Double, mask: NDArrayMask): SparseNDArray {
+  override fun prod(n: Float, mask: NDArrayMask): SparseNDArray {
 
-    val values = DoubleArray(size = mask.size, init = { this.storage[mask.dim1[it], mask.dim2[it]] * n })
+    val values = FloatArray(size = mask.size, init = { this.storage[mask.dim1[it], mask.dim2[it]] * n })
 
     return SparseNDArray(shape = this.shape, values = values, rows = mask.dim1, columns = mask.dim2)
   }
@@ -844,7 +844,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignProd(n: Double): DenseNDArray {
+  override fun assignProd(n: Float): DenseNDArray {
     this.storage = this.storage.times(n)
     return this
   }
@@ -852,7 +852,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignProd(n: Double, mask: NDArrayMask): DenseNDArray {
+  override fun assignProd(n: Float, mask: NDArrayMask): DenseNDArray {
 
     for (index in 0 until mask.size) {
       this.storage[mask.dim1[index], mask.dim2[index]] = this.storage[mask.dim1[index], mask.dim2[index]] * n
@@ -864,7 +864,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignProd(a: DenseNDArray, n: Double): DenseNDArray {
+  override fun assignProd(a: DenseNDArray, n: Float): DenseNDArray {
     this.storage = a.storage.times(n)
     return this
   }
@@ -924,7 +924,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   private fun assignProd(a: SparseNDArray): DenseNDArray {
 
-    val newValues: List<Pair<Indices, Double>> = a.map { (indices, value) ->
+    val newValues: List<Pair<Indices, Float>> = a.map { (indices, value) ->
       Pair(indices, value * this[indices.first, indices.second])
     }
 
@@ -940,7 +940,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   private fun assignProd(a: SparseBinaryNDArray): DenseNDArray {
 
-    val values: List<Pair<Indices, Double>> = a.map { indices -> Pair(indices, this[indices.first, indices.second]) }
+    val values: List<Pair<Indices, Float>> = a.map { indices -> Pair(indices, this[indices.first, indices.second]) }
 
     this.zeros()
 
@@ -952,7 +952,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun div(n: Double): DenseNDArray = DenseNDArray(this.storage.div(n))
+  override fun div(n: Float): DenseNDArray = DenseNDArray(this.storage.div(n))
 
   /**
    *
@@ -972,7 +972,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
 
     return SparseNDArray(
       shape = this.shape.copy(),
-      values = DoubleArray(size = a.values.size, init = { i -> this[a.rowIndices[i], a.colIndices[i]] / a.values[i]}),
+      values = FloatArray(size = a.values.size, init = { i -> this[a.rowIndices[i], a.colIndices[i]] / a.values[i]}),
       rows = a.rowIndices.copyOf(),
       columns = a.colIndices.copyOf()
     )
@@ -981,7 +981,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun assignDiv(n: Double): DenseNDArray {
+  override fun assignDiv(n: Float): DenseNDArray {
     this.storage = this.storage.div(n)
     return this
   }
@@ -998,17 +998,17 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  override fun avg(): Double = this.storage.average()
+  override fun avg(): Float = this.storage.average().toFloat()
 
   /**
    * @return the maximum value of this NDArray
    **/
-  override fun max(): Double = this.storage.max()!!
+  override fun max(): Float = this.storage.max()!!
 
   /**
    * @return the minimum value of this NDArray
    **/
-  override fun min(): Double = this.storage.min()!!
+  override fun min(): Float = this.storage.min()!!
 
   /**
    *
@@ -1024,7 +1024,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
     val temp = DenseNDArrayFactory.emptyArray(this.shape)
     for (i in 0 until this.rows)
       for (j in 0 until this.columns)
-        temp.storage[i, j] = if(this.storage[i,j]>0.0) 1.0 else if(this.storage[i,j]<0.0) -1.0 else 0.0
+        temp.storage[i, j] = if(this.storage[i,j]>0.0f) 1.0f else if(this.storage[i,j]<0.0f) -1.0f else 0.0f
     return temp
   }
 
@@ -1037,7 +1037,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
     val temp = DenseNDArrayFactory.emptyArray(this.shape)
     for (i in 0 until this.rows)
       for (j in 0 until this.columns)
-        temp.storage[i,j] = if(this.storage[i,j]>=0.0) 1.0 else -1.0
+        temp.storage[i,j] = if(this.storage[i,j]>=0.0) 1.0f else -1.0f
     return temp
   }
   /**
@@ -1070,7 +1070,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun sqrt(mask: NDArrayMask): SparseNDArray {
 
-    val values = DoubleArray(size = mask.size, init = { sqrt(this.storage[mask.dim1[it], mask.dim2[it]]) })
+    val values = FloatArray(size = mask.size, init = { sqrt(this.storage[mask.dim1[it], mask.dim2[it]]) })
 
     return SparseNDArray(shape = this.shape, values = values, rows = mask.dim1, columns = mask.dim2)
   }
@@ -1082,7 +1082,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return a new [DenseNDArray] containing the values of this to the power of [power]
    */
-  override fun pow(power: Double): DenseNDArray {
+  override fun pow(power: Float): DenseNDArray {
     val temp = DenseNDArrayFactory.emptyArray(this.shape)
     for (i in 0 until this.rows)
       for (j in 0 until this.columns)
@@ -1096,7 +1096,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return this [DenseNDArray] to the power of [power]
    */
-  override fun assignPow(power: Double): DenseNDArray {
+  override fun assignPow(power: Float): DenseNDArray {
     for (i in 0 until this.rows)
       for (j in 0 until this.columns)
         this.storage[i, j] = this.storage[i, j].pow(power)
@@ -1127,9 +1127,9 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun log10(): DenseNDArray {
 
-    require((0 until this.length).all { i -> this[i] != 0.0 })
+    require((0 until this.length).all { i -> this[i] != 0.0f })
 
-    return DenseNDArray(this.storage.log()/ ln(10.0))
+    return DenseNDArray(this.storage.log()/ ln(10.0f))
   }
 
   /**
@@ -1139,9 +1139,9 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun assignLog10(): DenseNDArray {
 
-    require((0 until this.length).all { i -> this[i] != 0.0 })
+    require((0 until this.length).all { i -> this[i] != 0.0f })
 
-    this.storage = this.storage.log() / ln(10.0)
+    this.storage = this.storage.log() / ln(10.0f)
 
     return this
   }
@@ -1153,7 +1153,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun ln(): DenseNDArray {
 
-    require((0 until this.length).all { i -> this[i] != 0.0 })
+    require((0 until this.length).all { i -> this[i] != 0.0f })
 
     return DenseNDArray(this.storage.log())
   }
@@ -1165,7 +1165,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   override fun assignLn(): DenseNDArray {
 
-    require((0 until this.length).all { i -> this[i] != 0.0 })
+    require((0 until this.length).all { i -> this[i] != 0.0f })
 
     this.storage = this.storage.log()
 
@@ -1177,15 +1177,15 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return the norm
    */
-  override fun norm(): Double = linalg.norm(this.storage, Norm.N1)
+  override fun norm(): Float = linalg.norm(this.storage, Norm.N1)
 
   /**
    * The Euclidean norm of this DenseNDArray.
    *
    * @return the euclidean norm
    */
-  override fun norm2(): Double =
-    linalg.norm(this.storage, Norm.Fro)//.distance2(DoubleMatrix.zeros(this.shape.dim1, shape.dim2))
+  override fun norm2(): Float =
+    linalg.norm(this.storage, Norm.Fro)//.distance2(FloatMatrix.zeros(this.shape.dim1, shape.dim2))
 
   /**
    * Compute the singular-value decomposition of this DenseNDArray (below called A).
@@ -1208,7 +1208,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   fun sparseSVD(): Triple<DenseNDArray, DenseNDArray, DenseNDArray> {
 
-    //val usv: Array<DoubleMatrix> = Singular.sparseSVD(this.storage)
+    //val usv: Array<FloatMatrix> = Singular.sparseSVD(this.storage)
     return fullSVD()
     //return Triple(DenseNDArray(usv[0]), DenseNDArray(usv[1]), DenseNDArray(usv[2]))
   }
@@ -1223,7 +1223,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   override fun argMaxIndex(exceptIndex: Int): Int {
 
     var maxIndex: Int = -1
-    var maxValue: Double? = null
+    var maxValue: Float? = null
 
     (0 until this.length).forEach { i ->
 
@@ -1251,7 +1251,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   override fun argMaxIndex(exceptIndices: Set<Int>): Int {
 
     var maxIndex: Int = -1
-    var maxValue: Double? = null
+    var maxValue: Float? = null
 
     (0 until this.length).forEach { i ->
 
@@ -1276,7 +1276,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return a new DenseNDArray with the values of the current one rounded to Int
    */
-  override fun roundInt(threshold: Double): DenseNDArray {
+  override fun roundInt(threshold: Float): DenseNDArray {
 
     val out = DenseNDArrayFactory.emptyArray(this.shape)
 
@@ -1298,7 +1298,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return this DenseNDArray
    */
-  override fun assignRoundInt(threshold: Double): DenseNDArray {
+  override fun assignRoundInt(threshold: Float): DenseNDArray {
 
 
     (0 until this.rows * this.columns).forEach { linearIndex ->
@@ -1315,17 +1315,17 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    * Computes the additive inverse of this nd-array.
    */
-  operator fun unaryMinus() = this.prod(-1.0)
+  operator fun unaryMinus() = this.prod(-1.0f)
 
   /**
    * Returns the value if this nd-array is a scalar (or 1-element vector/matrix/...).
    */
-  fun toScalar(): Double? = if (this.length == 1) this[0] else null
+  fun toScalar(): Float? = if (this.length == 1) this[0] else null
 
   /**
    * Returns the value if this nd-array is a scalar (or 1-element vector/matrix/...), otherwise throws an exception.
    */
-  fun expectScalar(): Double = this.toScalar() ?: throw IllegalStateException("${toString()} is not a scalar")
+  fun expectScalar(): Float = this.toScalar() ?: throw IllegalStateException("${toString()} is not a scalar")
 
   /**
    *
@@ -1448,7 +1448,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    *
    * @return a Boolean which indicates if a is equal to be within the tolerance
    */
-  override fun equals(a: DenseNDArray, tolerance: Double): Boolean {
+  override fun equals(a: DenseNDArray, tolerance: Float): Boolean {
     require(this.shape == a.shape)
 
     return (0 until this.length).all { equals(this[it], a[it], tolerance) }
@@ -1474,7 +1474,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
    */
   fun maskBy(mask: NDArrayMask): SparseNDArray = SparseNDArray(
     shape = this.shape,
-    values = DoubleArray(size = mask.size, init = { i -> this.storage[mask.dim1[i], mask.dim2[i]] }),
+    values = FloatArray(size = mask.size, init = { i -> this.storage[mask.dim1[i], mask.dim2[i]] }),
     rows = mask.dim1,
     columns = mask.dim2
   )
@@ -1482,7 +1482,7 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
   /**
    *
    */
-  fun toDoubleArray(): DoubleArray = this.storage.toDoubleArray()
+  fun toFloatArray(): FloatArray = this.storage.toFloatArray()
 
   /**
    * @param reverse whether to sort in descending order
@@ -1493,20 +1493,20 @@ class DenseNDArray(private var storage: D2Array<Double>) : NDArray<DenseNDArray>
 
     require(this.isVector) { "Operation supported only by vectors." }
 
-    val doubleArray = this.storage.data
-    val comparator = Comparator(IndexedDoubleValue::compareTo)
-    val indexedValues = Array(doubleArray.size) { IndexedDoubleValue(it, this[it]) }
+    val floatArray = this.storage.data
+    val comparator = Comparator(IndexedFloatValue::compareTo)
+    val indexedValues = Array(floatArray.size) { IndexedFloatValue(it, this[it]) }
 
     indexedValues.sortWith(if (reverse) comparator.reversed() else comparator)
-    return IntArray(doubleArray.size) { indexedValues[it].index }
+    return IntArray(floatArray.size) { indexedValues[it].index }
   }
 
   /**
-   * A version of [IndexedValue] specialized to [Double].
+   * A version of [IndexedValue] specialized to [Float].
    */
-  private data class IndexedDoubleValue(val index: Int, val value: Double) : Comparable<IndexedDoubleValue> {
+  private data class IndexedFloatValue(val index: Int, val value: Float) : Comparable<IndexedFloatValue> {
 
-    override fun compareTo(other: IndexedDoubleValue): Int = this.value.compareTo(other.value).let { res ->
+    override fun compareTo(other: IndexedFloatValue): Int = this.value.compareTo(other.value).let { res ->
       return if (res == 0) index.compareTo(other.index) else res
     }
   }

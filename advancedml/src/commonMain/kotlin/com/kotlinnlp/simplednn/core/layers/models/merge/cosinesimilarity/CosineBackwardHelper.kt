@@ -37,8 +37,8 @@ internal class CosineBackwardHelper(override val layer: CosineLayer) : BackwardH
   private fun assignLayerGradients() {
 
     val gy: DenseNDArray = this.layer.outputArray.errors
-    val input1Errors = DenseNDArrayFactory.fill(this.layer.inputArray1.values.shape, 0.0)
-    val input2Errors = DenseNDArrayFactory.fill(this.layer.inputArray2.values.shape, 0.0)
+    val input1Errors = DenseNDArrayFactory.fill(this.layer.inputArray1.values.shape, 0.0f)
+    val input2Errors = DenseNDArrayFactory.fill(this.layer.inputArray2.values.shape, 0.0f)
     val normProd = this.layer.input1Norm * this.layer.input2Norm
 
     (0 until this.layer.inputArray1.values.length).forEach { i ->

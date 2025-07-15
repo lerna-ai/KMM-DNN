@@ -48,11 +48,11 @@ internal class DistanceBackwardHelper(override val layer: DistanceLayer) : Backw
     (0 until this.layer.inputArray1.values.length).forEach { i ->
 
       when {
-        this.layer.inputArray1.values[i] > this.layer.inputArray2.values[i] -> input1Errors[i] *= -1.0
-        this.layer.inputArray1.values[i] < this.layer.inputArray2.values[i] -> input2Errors[i] *= -1.0
+        this.layer.inputArray1.values[i] > this.layer.inputArray2.values[i] -> input1Errors[i] *= -1.0f
+        this.layer.inputArray1.values[i] < this.layer.inputArray2.values[i] -> input2Errors[i] *= -1.0f
         else -> {
-          input1Errors[i] = 0.0
-          input2Errors[i] = 0.0
+          input1Errors[i] = 0.0f
+          input2Errors[i] = 0.0f
         }
       }
 

@@ -41,7 +41,7 @@ internal class AttentionLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray = AugmentedArray(values = DenseNDArrayFactory.zeros(Shape(inputArrays.first().size))),
   params = params,
   activationFunction = activation,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   /**

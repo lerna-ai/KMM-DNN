@@ -13,7 +13,7 @@ import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
 import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN
 import com.kotlinnlp.simplednn.core.layers.models.merge.mergeconfig.ConcatMerge
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlin.math.roundToInt
 
 /**
@@ -75,9 +75,9 @@ class DeepBiRNN(val levels: List<BiRNN>) {
                        recurrentConnectionType: LayerType.Connection,
                        hiddenActivation: ActivationFunction?,
                        numberOfLevels: Int,
-                       gainFactors: List<Double> = List(
+                       gainFactors: List<Float> = List(
                          size = numberOfLevels,
-                         init = { i -> if (i == 0) 2.0 else 1.0 }),
+                         init = { i -> if (i == 0) 2.0f else 1.0f }),
                        weightsInitializer: Initializer? = GlorotInitializer(),
                        biasesInitializer: Initializer? = null): DeepBiRNN {
 
@@ -128,7 +128,7 @@ class DeepBiRNN(val levels: List<BiRNN>) {
      *
      * @return the output size of a BiRNN level
      */
-    private fun getBiRNNOutputSize(inputSize: Int, gain: Double): Int {
+    private fun getBiRNNOutputSize(inputSize: Int, gain: Float): Int {
 
       val roughOutputSize: Int = (gain * inputSize).roundToInt()
 

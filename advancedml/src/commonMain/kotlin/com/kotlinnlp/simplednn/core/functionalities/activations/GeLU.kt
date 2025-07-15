@@ -33,7 +33,7 @@ object GeLU : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = 0.5 * x * (1.0 + tanh(sqrt(2.0/PI) * (x + 0.044715 * x.pow(3.0))))
+  override fun f(x: Float): Float = 0.5f * x * (1.0f + tanh(sqrt(2.0/PI).toFloat() * (x + 0.044715f * x.pow(3.0f))))
 
   /**
    * Derivative of the GeLU function, calculated in [x].
@@ -42,13 +42,13 @@ object GeLU : ScalarActivationFunction {
    *
    * @return the GeLU derivative calculated in x
    */
-  override fun df(x: Double): Double {
+  override fun df(x: Float): Float {
 
-    val x3 = x.pow(3.0)
-    val a = 0.0356774 * x3 + 0.797885 * x
-    val sech = 1.0 / cosh(a)
+    val x3 = x.pow(3.0f)
+    val a = 0.0356774f * x3 + 0.797885f * x
+    val sech = 1.0f / cosh(a)
 
-    return 0.5 * tanh(a) + (0.0535161 * x3 + 0.398942 * x) * sech * sech + 0.5
+    return 0.5f * tanh(a) + (0.0535161f * x3 + 0.398942f * x) * sech * sech + 0.5f
   }
 
   /**
@@ -70,6 +70,6 @@ object GeLU : ScalarActivationFunction {
   /**
    * Optimized derivative not available.
    */
-  override fun dfOptimized(fx: Double): Double =
+  override fun dfOptimized(fx: Float): Float =
     throw NotImplementedError("Optimized derivative not available for GeLU")
 }

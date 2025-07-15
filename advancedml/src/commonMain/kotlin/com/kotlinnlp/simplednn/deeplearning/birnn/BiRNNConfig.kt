@@ -9,7 +9,7 @@ package com.kotlinnlp.simplednn.deeplearning.birnn
 
 import com.kotlinnlp.simplednn.core.functionalities.activations.ActivationFunction
 import com.kotlinnlp.simplednn.core.layers.LayerType
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The configuration of a BiRNN.

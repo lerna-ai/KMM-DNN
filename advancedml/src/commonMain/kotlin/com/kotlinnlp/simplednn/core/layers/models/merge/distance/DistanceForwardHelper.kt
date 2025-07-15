@@ -26,11 +26,11 @@ internal class DistanceForwardHelper(override val layer: DistanceLayer) : Forwar
   override fun forward() {
 
     val diffVector : DenseNDArray = DenseNDArrayFactory.fromNDArray(this.layer.inputArray1.values)
-    var sum = 0.0
-    val outputScore = DoubleArray(1)
+    var sum = 0.0f
+    val outputScore = FloatArray(1)
 
     diffVector.assignSub(this.layer.inputArray2.values)
-    diffVector.toDoubleArray().forEach { element -> sum += abs(element) }
+    diffVector.toFloatArray().forEach { element -> sum += abs(element) }
 
     outputScore[0] = exp(-sum)
 

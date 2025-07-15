@@ -35,7 +35,7 @@ internal class BiaffineLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: BiaffineLayerParameters,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : MergeLayer<InputNDArrayType>(
   inputArrays = listOf(inputArray1, inputArray2),
   inputType = inputType,
@@ -55,7 +55,7 @@ internal class BiaffineLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   constructor(
     params: BiaffineLayerParameters,
     activationFunction: ActivationFunction? = null,
-    dropout: Double
+    dropout: Float
   ): this(
     inputArray1 = AugmentedArray<InputNDArrayType>(size = params.inputSize1),
     inputArray2 = AugmentedArray<InputNDArrayType>(size = params.inputSize2),

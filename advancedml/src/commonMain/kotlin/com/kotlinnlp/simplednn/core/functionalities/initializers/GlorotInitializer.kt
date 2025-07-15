@@ -27,7 +27,7 @@ import kotlin.random.Random
  * @param seed seed used for the pseudo-random (default = 743)
  */
 class GlorotInitializer(
-  private val gain: Double = 1.0,
+  private val gain: Float = 1.0f,
   private val enablePseudoRandom: Boolean = true,
   private val seed: Long = 743
 ) : Initializer {
@@ -45,10 +45,10 @@ class GlorotInitializer(
      *
      * @return the gain to apply to a [GlorotInitializer] in relation to the given [activationFunction]
      */
-    fun getGain(activationFunction: ActivationFunction?): Double = when (activationFunction) {
-      is ReLU -> 0.5
-      is Sigmoid -> 4.0
-      else -> 1.0
+    fun getGain(activationFunction: ActivationFunction?): Float = when (activationFunction) {
+      is ReLU -> 0.5f
+      is Sigmoid -> 4.0f
+      else -> 1.0f
     }
   }
 
@@ -65,7 +65,7 @@ class GlorotInitializer(
   override fun initialize(array: DenseNDArray) {
 
     val randomGenerator = FixedRangeRandom(
-      radius = this.gain * sqrt(6.0 / (array.rows + array.columns)),
+      radius = this.gain * sqrt(6.0f / (array.rows + array.columns)),
       enablePseudoRandom = this.enablePseudoRandom,
       seed = this.seedGenerator.nextLong())
 

@@ -334,7 +334,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun assignValues(n: Double): SparseBinaryNDArray {
+  override fun assignValues(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -377,14 +377,14 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun sum(): Double {
+  override fun sum(): Float {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun sum(n: Double): SparseBinaryNDArray {
+  override fun sum(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -419,14 +419,14 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun assignSum(n: Double): SparseBinaryNDArray {
+  override fun assignSum(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignSum(a: SparseBinaryNDArray, n: Double): SparseBinaryNDArray {
+  override fun assignSum(a: SparseBinaryNDArray, n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -440,7 +440,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun sub(n: Double): SparseBinaryNDArray {
+  override fun sub(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -457,7 +457,7 @@ class SparseBinaryNDArray(
   /**
    * In-place subtraction by number
    */
-  override fun assignSub(n: Double): SparseBinaryNDArray {
+  override fun assignSub(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -471,7 +471,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun reverseSub(n: Double): SparseBinaryNDArray {
+  override fun reverseSub(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -499,7 +499,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun prod(n: Double): SparseBinaryNDArray {
+  override fun prod(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -513,28 +513,28 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun prod(n: Double, mask: NDArrayMask): SparseNDArray {
+  override fun prod(n: Float, mask: NDArrayMask): SparseNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignProd(n: Double): SparseBinaryNDArray {
+  override fun assignProd(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignProd(n: Double, mask: NDArrayMask): SparseBinaryNDArray {
+  override fun assignProd(n: Float, mask: NDArrayMask): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignProd(a: SparseBinaryNDArray, n: Double): SparseBinaryNDArray {
+  override fun assignProd(a: SparseBinaryNDArray, n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -555,7 +555,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun div(n: Double): SparseBinaryNDArray {
+  override fun div(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -576,7 +576,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun assignDiv(n: Double): SparseBinaryNDArray {
+  override fun assignDiv(n: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -590,21 +590,21 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun avg(): Double {
+  override fun avg(): Float {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun max(): Double {
+  override fun max(): Float {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun min(): Double {
+  override fun min(): Float {
     TODO("not implemented")
   }
 
@@ -656,7 +656,7 @@ class SparseBinaryNDArray(
    *
    * @return a new [SparseBinaryNDArray] containing the values of this to the power of [power]
    */
-  override fun pow(power: Double): SparseBinaryNDArray {
+  override fun pow(power: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -667,7 +667,7 @@ class SparseBinaryNDArray(
    *
    * @return this [SparseBinaryNDArray] to the power of [power]
    */
-  override fun assignPow(power: Double): SparseBinaryNDArray {
+  override fun assignPow(power: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -730,7 +730,7 @@ class SparseBinaryNDArray(
    *
    * @return the norm
    */
-  override fun norm(): Double {
+  override fun norm(): Float {
     TODO("not implemented")
   }
 
@@ -739,7 +739,7 @@ class SparseBinaryNDArray(
    *
    * @return the euclidean norm
    */
-  override fun norm2(): Double {
+  override fun norm2(): Float {
     TODO("not implemented")
   }
 
@@ -772,7 +772,7 @@ class SparseBinaryNDArray(
    *
    * @return a new NDArray with the values of the current one rounded to Int
    */
-  override fun roundInt(threshold: Double): SparseBinaryNDArray {
+  override fun roundInt(threshold: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -783,7 +783,7 @@ class SparseBinaryNDArray(
    *
    * @return this [SparseBinaryNDArray]
    */
-  override fun assignRoundInt(threshold: Double): SparseBinaryNDArray {
+  override fun assignRoundInt(threshold: Float): SparseBinaryNDArray {
     TODO("not implemented")
   }
 
@@ -825,7 +825,7 @@ class SparseBinaryNDArray(
   /**
    *
    */
-  override fun equals(a: SparseBinaryNDArray, tolerance: Double): Boolean {
+  override fun equals(a: SparseBinaryNDArray, tolerance: Float): Boolean {
     TODO("not implemented")
   }
 

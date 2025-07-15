@@ -35,7 +35,7 @@ internal class AttentionMechanismLayer(
   outputArray = AugmentedArray(inputArrays.size),
   params = params,
   activationFunction = activation,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   /**

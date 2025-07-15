@@ -15,9 +15,9 @@ package com.kotlinnlp.simplednn.core.functionalities.decaymethods
  * @property finalLearningRate the final value which the learning rate will reach (must be >= 0)
  */
 class HyperbolicDecay(
-  val decay: Double,
-  val initLearningRate: Double = 0.0,
-  val finalLearningRate: Double = 0.0
+  val decay: Float,
+  val initLearningRate: Float = 0.0f,
+  val finalLearningRate: Float = 0.0f
 ) : DecayMethod {
 
   /**
@@ -33,9 +33,9 @@ class HyperbolicDecay(
    *
    * @return the updated learning rate
    */
-  override fun update(learningRate: Double, timeStep: Int): Double {
+  override fun update(learningRate: Float, timeStep: Int): Float {
     return if (learningRate > this.finalLearningRate && this.decay > 0.0 && timeStep > 1) {
-      this.initLearningRate / (1.0 + this.decay * timeStep)
+      this.initLearningRate / (1.0f + this.decay * timeStep)
     } else {
       learningRate
     }

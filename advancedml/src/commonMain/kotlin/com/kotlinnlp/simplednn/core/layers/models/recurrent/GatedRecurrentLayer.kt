@@ -31,7 +31,7 @@ internal abstract class GatedRecurrentLayer<InputNDArrayType : NDArray<InputNDAr
   params: LayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : RecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

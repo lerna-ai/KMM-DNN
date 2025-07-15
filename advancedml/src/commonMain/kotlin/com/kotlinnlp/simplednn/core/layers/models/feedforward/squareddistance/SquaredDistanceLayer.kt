@@ -28,7 +28,7 @@ internal class SquaredDistanceLayer<InputNDArrayType : NDArray<InputNDArrayType>
   inputType: LayerType.Input,
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: SquaredDistanceLayerParameters,
-  dropout: Double
+  dropout: Float
 ) : Layer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

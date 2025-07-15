@@ -19,8 +19,8 @@ import kotlin.math.ln
  * @property totalIterations total amount of iterations (must be >= 0)
  */
 class ExponentialDecay(
-  val initLearningRate: Double = 0.0,
-  val finalLearningRate: Double = 0.0,
+  val initLearningRate: Float = 0.0f,
+  val finalLearningRate: Float = 0.0f,
   val totalIterations: Int
 ) : DecayMethod {
 
@@ -37,7 +37,7 @@ class ExponentialDecay(
    *
    * @return the updated learning rate
    */
-  override fun update(learningRate: Double, timeStep: Int): Double {
+  override fun update(learningRate: Float, timeStep: Int): Float {
     return if (learningRate > this.finalLearningRate && timeStep > 1) {
       exp(
         ((this.totalIterations - timeStep) * ln(learningRate) + ln(this.finalLearningRate))

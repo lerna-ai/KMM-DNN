@@ -14,7 +14,7 @@ import com.kotlinnlp.simplednn.core.arrays.ParamsArray
  *
  * @param lambda regularization parameter
  */
-class L1Regularization(private val lambda: Double) : ParamsRegularization {
+class L1Regularization(private val lambda: Float) : ParamsRegularization {
 
   /**
    * Apply the regularization to given parameters.

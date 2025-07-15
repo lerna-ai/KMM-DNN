@@ -31,7 +31,7 @@ internal class AffineLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: AffineLayerParameters,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : MergeLayer<InputNDArrayType>(
   inputArrays = inputArrays,
   inputType = inputType,

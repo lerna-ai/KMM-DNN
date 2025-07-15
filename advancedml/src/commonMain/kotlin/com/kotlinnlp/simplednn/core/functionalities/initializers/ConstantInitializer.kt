@@ -14,7 +14,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
  *
  * @param value the initializing value
  */
-class ConstantInitializer(val value: Double) : Initializer {
+class ConstantInitializer(val value: Float) : Initializer {
 
   companion object {
 

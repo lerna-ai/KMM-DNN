@@ -42,7 +42,7 @@ internal class GRUForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
     // y += (1 - p) * yPrev
     if (prevStateLayer != null) {
       val yPrev: DenseNDArray = prevStateLayer.outputArray.values
-      y.assignSum(p.reverseSub(1.0).prod(yPrev))
+      y.assignSum(p.reverseSub(1.0f).prod(yPrev))
     }
   }
 

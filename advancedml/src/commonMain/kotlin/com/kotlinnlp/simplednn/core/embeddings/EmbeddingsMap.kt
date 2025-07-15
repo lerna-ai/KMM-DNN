@@ -10,7 +10,7 @@ package com.kotlinnlp.simplednn.core.embeddings
 import com.kotlinnlp.simplednn.core.arrays.ParamsArray
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlinx.serialization.Contextual
 import kotlin.random.Random
 
@@ -53,7 +53,7 @@ open class EmbeddingsMap<T>(
      * The file must contain one header line and N following data lines:
      *   - The header line must contain the number N of data lines and the size S of the vectors (the same for all),
      *     separated by a space.
-     *   - Each data line must contain the key, followed by S double numbers, each separated by a space.
+     *   - Each data line must contain the key, followed by S float numbers, each separated by a space.
      *
      * @param filename the input filename
      * @param pseudoRandomDropout the pseudoRandomDropout that is propagated to the [EmbeddingsMap] constructor
@@ -121,7 +121,7 @@ open class EmbeddingsMap<T>(
      * @param callback the callback called for each line, passing it the key and the vector of the line
      */
 //    private fun forEachDataLine(filename: String,
-//                                callback: (key: String, vector: DoubleArray) -> Unit) {
+//                                callback: (key: String, vector: FloatArray) -> Unit) {
 //
 //      var isFirstLine = true
 //
@@ -132,11 +132,11 @@ open class EmbeddingsMap<T>(
 //
 //        } else {
 //
-//          val vector: DoubleArray = line
+//          val vector: FloatArray = line
 //            .trimEnd() // remove trailing whitespaces
 //            .substringAfter(' ')
 //            .split(" ")
-//            .let { DoubleArray(size = it.size, init = { i -> it[i].toDouble() }) }
+//            .let { FloatArray(size = it.size, init = { i -> it[i].toFloat() }) }
 //
 //          callback(line.substringBefore(' '), vector)
 //        }
@@ -171,7 +171,7 @@ open class EmbeddingsMap<T>(
      * The file will contain one header line and N following data lines:
      *   - The header line contains the number N of data lines and the size S of the vectors (the same for all),
      *     separated by a space.
-     *   - Each data line contains the key, followed by S double numbers, each separated by a space.
+     *   - Each data line contains the key, followed by S float numbers, each separated by a space.
      *
      * @param filename the output filename
      * @param digits precision specifier
@@ -267,14 +267,14 @@ open class EmbeddingsMap<T>(
    *
    * @return the embedding with the given not-null [key] or [nullEmbedding] or [unknownEmbedding]
    */
-  operator fun get(key: Any?): ParamsArray = this.get(key = key, dropout = 0.0)
+  operator fun get(key: Any?): ParamsArray = this.get(key = key, dropout = 0.0f)
 
   /**
    * @param key the key associated to an embedding
    *
    * @return the embedding with the given [key] or null if it is not present
    */
-  fun getOrNull(key: Any): ParamsArray? = this.get(key = key, dropout = 0.0).let {
+  fun getOrNull(key: Any): ParamsArray? = this.get(key = key, dropout = 0.0f).let {
     if (it == this.unknownEmbedding) null else it
   }
 
@@ -288,7 +288,7 @@ open class EmbeddingsMap<T>(
    *
    * @return the embedding with the given not-null [key] or [nullEmbedding] or [unknownEmbedding]
    */
-  fun get(key: Any?, dropout: Double): ParamsArray {
+  fun get(key: Any?, dropout: Float): ParamsArray {
 
     require(dropout in 0.0 .. 1.0)
 
@@ -313,7 +313,7 @@ open class EmbeddingsMap<T>(
    *
    * @return the embedding with the given not-null [key] or [nullEmbedding] or [unknownEmbedding]
    */
-  fun getOrSet(key: Int?, dropout: Double = 0.0, embedding: ParamsArray? = null): ParamsArray {
+  fun getOrSet(key: Int?, dropout: Float = 0.0f, embedding: ParamsArray? = null): ParamsArray {
 
     require(dropout in 0.0 .. 1.0)
 
@@ -336,7 +336,7 @@ open class EmbeddingsMap<T>(
    *
    * @return the embedding with the given not-null [key] or [nullEmbedding] or [unknownEmbedding]
    */
-  fun getOrSet(key: Any?, dropout: Double = 0.0, action: () -> ParamsArray): ParamsArray {
+  fun getOrSet(key: Any?, dropout: Float = 0.0f, action: () -> ParamsArray): ParamsArray {
 
     require(dropout in 0.0 .. 1.0)
 
@@ -366,7 +366,7 @@ open class EmbeddingsMap<T>(
    *
    * @return a Boolean indicating if an Embedding must be dropped out
    */
-  private fun mustBeDropped(dropout: Double): Boolean = this.dropoutRandomGenerator.nextDouble() < dropout
+  private fun mustBeDropped(dropout: Float): Boolean = this.dropoutRandomGenerator.nextFloat() < dropout
 
   /**
    * @param digits precision specifier

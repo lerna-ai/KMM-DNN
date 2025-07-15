@@ -36,7 +36,7 @@ internal class LSTMLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: LSTMLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

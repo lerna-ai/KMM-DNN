@@ -35,7 +35,7 @@ internal class SimpleRecurrentLayer<InputNDArrayType : NDArray<InputNDArrayType>
   override val params: SimpleRecurrentLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : RecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

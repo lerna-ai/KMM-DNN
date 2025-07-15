@@ -153,9 +153,9 @@ fun String.toByteList(charset: Charset = Charsets.UTF_8) =
  *
  * @return the number with the specified number of decimals
  */
-fun Double.toFixed(numDecimalPlaces: Int): Double {
+fun Float.toFixed(numDecimalPlaces: Int): Float {
 
-  val factor: Double = 10.0.pow(numDecimalPlaces)
+  val factor: Float = 10.0f.pow(numDecimalPlaces)
 
   return (this * factor).roundToLong() / factor
 }

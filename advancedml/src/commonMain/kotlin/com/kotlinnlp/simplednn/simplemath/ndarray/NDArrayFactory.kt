@@ -37,7 +37,7 @@ interface NDArrayFactory<NDArrayType : NDArray<NDArrayType>> {
    *
    * @return a new [NDArrayType]
    */
-  fun ones(shape: Shape): NDArrayType = this.fill(shape = shape, value = 1.0)
+  fun ones(shape: Shape): NDArrayType = this.fill(shape = shape, value = 1.0f)
 
   /**
    * Build a new diagonal [NDArrayType] filled with ones.
@@ -56,7 +56,7 @@ interface NDArrayFactory<NDArrayType : NDArray<NDArrayType>> {
    *
    * @return a new [NDArrayType]
    */
-  fun fill(shape: Shape, value: Double): NDArrayType
+  fun fill(shape: Shape, value: Float): NDArrayType
 
   /**
    * Build a new [NDArrayType] filled with zeros but one with 1.0.
@@ -77,5 +77,5 @@ interface NDArrayFactory<NDArrayType : NDArray<NDArrayType>> {
    *
    * @return a new [NDArrayType] filled with random values
    */
-  fun random(shape: Shape, from: Double = 0.0, to: Double = 1.0): NDArrayType
+  fun random(shape: Shape, from: Float = 0.0f, to: Float = 1.0f): NDArrayType
 }

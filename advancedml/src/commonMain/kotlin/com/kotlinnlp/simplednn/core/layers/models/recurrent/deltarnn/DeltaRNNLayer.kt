@@ -38,7 +38,7 @@ internal class DeltaRNNLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: DeltaRNNLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

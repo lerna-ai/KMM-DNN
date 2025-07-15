@@ -26,7 +26,7 @@ object HardTanh : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 1.0) 1.0 else if (x < -1.0) -1.0 else x
+  override fun f(x: Float): Float = if (x > 1.0) 1.0f else if (x < -1.0) -1.0f else x
 
   /**
    * Optimized derivative of the HardTanh function, calculated respect to the input already activated.
@@ -35,5 +35,5 @@ object HardTanh : ScalarActivationFunction {
    *
    * @return the HardTanh derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if (fx < 1.0 && fx > -1.0) 1.0 else 0.0
+  override fun dfOptimized(fx: Float): Float = if (fx < 1.0 && fx > -1.0) 1.0f else 0.0f
 }

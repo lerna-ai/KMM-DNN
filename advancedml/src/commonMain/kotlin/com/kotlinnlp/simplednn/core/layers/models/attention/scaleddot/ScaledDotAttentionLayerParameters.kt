@@ -48,7 +48,7 @@ class ScaledDotAttentionLayerParameters(
   /**
    * The multiplying factor of the attention calculation.
    */
-  internal val attentionFactor: Double = 1.0 / sqrt(this.attentionSize.toDouble())
+  internal val attentionFactor: Float = 1.0f / sqrt(this.attentionSize.toFloat())
 
   /**
    * The queries trainable parameter.

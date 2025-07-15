@@ -27,8 +27,8 @@ import com.kotlinnlp.simplednn.utils.scheduling.EpochScheduling
  * @property regularization a parameters regularization method
  */
 class MomentumMethod(
-  val learningRate: Double = 0.01,
-  val momentum: Double = 0.9,
+  val learningRate: Float = 0.01f,
+  val momentum: Float = 0.9f,
   val decayMethod: DecayMethod? = null,
   regularization: ParamsRegularization? = null
 ) : EpochScheduling,
@@ -56,7 +56,7 @@ class MomentumMethod(
   /**
    * The 'alpha' coefficient.
    */
-  var alpha: Double = this.learningRate
+  var alpha: Float = this.learningRate
     private set
 
   /**

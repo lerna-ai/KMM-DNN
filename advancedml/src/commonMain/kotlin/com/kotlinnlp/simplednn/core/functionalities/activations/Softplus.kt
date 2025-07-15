@@ -16,7 +16,7 @@ import kotlin.math.ln
  * @property beta defines the decreasing exponential rate for the negative values. Defaults to 1.0
  * @property threshold defines a threshold, for numerical stability (if x > threshold, f(x) = x)
  */
-class Softplus(val beta: Double = 1.0, val threshold: Double = 20.0) : ScalarActivationFunction {
+class Softplus(val beta: Float = 1.0f, val threshold: Float = 20.0f) : ScalarActivationFunction {
 
   companion object {
 
@@ -41,8 +41,8 @@ class Softplus(val beta: Double = 1.0, val threshold: Double = 20.0) : ScalarAct
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = when {
-    x < this.threshold -> 1.0 / this.beta * ln(1.0 + exp(x * this.beta))
+  override fun f(x: Float): Float = when {
+    x < this.threshold -> 1.0f / this.beta * ln(1.0f + exp(x * this.beta))
     else -> x
   }
 
@@ -53,8 +53,8 @@ class Softplus(val beta: Double = 1.0, val threshold: Double = 20.0) : ScalarAct
    *
    * @return the Softplus derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = when {
-    fx < this.threshold -> (exp(this.beta * fx) - 1.0) / (exp(this.beta * fx))
-    else -> 1.0
+  override fun dfOptimized(fx: Float): Float = when {
+    fx < this.threshold -> (exp(this.beta * fx) - 1.0f) / (exp(this.beta * fx))
+    else -> 1.0f
   }
 }

@@ -37,13 +37,13 @@ internal abstract class Layer<InputNDArrayType : NDArray<InputNDArrayType>>(
   open val outputArray: AugmentedArray<DenseNDArray>,
   open val params: LayerParameters,
   val activationFunction: ActivationFunction? = null,
-  val dropout: Double
+  val dropout: Float
 ) {
 
   /**
    * The probability to keep an output value (= no dropout).
    */
-  private val p = 1.0 - this.dropout
+  private val p = 1.0f - this.dropout
 
   /**
    * Support to save the dropout mask.

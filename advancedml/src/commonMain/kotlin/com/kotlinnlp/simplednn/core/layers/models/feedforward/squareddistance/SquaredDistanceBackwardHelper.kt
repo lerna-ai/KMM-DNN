@@ -30,7 +30,7 @@ internal class SquaredDistanceBackwardHelper<InputNDArrayType : NDArray<InputNDA
 
     val gy: DenseNDArray = this.layer.outputArray.errors
 
-    this.layer.bhOut.assignErrors(this.layer.bhOut.valuesNotActivated.assignProd(gy[0] * 2.0))
+    this.layer.bhOut.assignErrors(this.layer.bhOut.valuesNotActivated.assignProd(gy[0] * 2.0f))
 
     this.assignParamsGradients()
 

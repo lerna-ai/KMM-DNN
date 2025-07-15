@@ -13,7 +13,7 @@ import com.kotlinnlp.simplednn.core.neuralprocessor.feedforward.FeedforwardNeura
 import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsList
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * A multi-task network is composed by single input feed-forward layer shared by more networks, each with a own output
@@ -27,8 +27,8 @@ import com.soywiz.korio.lang.format
  */
 class MultiTaskNetwork<InputNDArrayType : NDArray<InputNDArrayType>>(
   val model: MultiTaskNetworkModel,
-  inputDropout: Double = 0.0,
-  outputsDropout: Double = 0.0,
+  inputDropout: Float = 0.0f,
+  outputsDropout: Float = 0.0f,
   override val propagateToInput: Boolean,
   override val id: Int = 0
 ) : NeuralProcessor<

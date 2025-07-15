@@ -9,6 +9,9 @@ package com.kotlinnlp.simplednn.core.layers
 
 import com.kotlinnlp.simplednn.core.functionalities.initializers.GlorotInitializer
 import com.kotlinnlp.simplednn.core.functionalities.initializers.Initializer
+import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
+import korlibs.io.lang.assert
+import org.jetbrains.kotlinx.multik.ndarray.data.D2Array
 
 
 /**
@@ -123,5 +126,23 @@ class StackedLayersParameters(
     require(index >= 0 && index < this.numOfLayers) { "Layer index ($index) out of range ([0, ${numOfLayers - 1}])." }
 
     return this.paramsPerLayer[index] as T
+  }
+
+  /**
+   * Set the parameters of all Layers in the Stacked Model
+   * @param params : Params(Pair of weights, biases in DenseNDArray) for each layer as a List
+   */
+  fun setParams(params: List<Pair<List<D2Array<Float>>, List<D2Array<Float>>>>) {
+    require(params.size == this.numOfLayers) { "Number of layers in the model " +
+            "(${this.numOfLayers}) does not match the number of layers in the " +
+            "given model weights (${params.size})." }
+
+    params.forEachIndexed{index, layerParams -> this.paramsPerLayer[index]
+      .setParams(layerParams.first, layerParams.second)}
+  }
+
+  fun getParams(): List<Pair<List<D2Array<Float>>, List<D2Array<Float>>>> {
+    return this.paramsPerLayer.map { Pair(it.weightsList.map { it.values.storage },
+      it.biasesList.map { it.values.storage }) }
   }
 }

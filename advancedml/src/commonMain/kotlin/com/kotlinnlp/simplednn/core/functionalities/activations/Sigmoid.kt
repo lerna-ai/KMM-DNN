@@ -28,7 +28,7 @@ object Sigmoid : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = 1.0 / (1.0 + exp(-x))
+  override fun f(x: Float): Float = 1.0f / (1.0f + exp(-x))
 
   /**
    * Optimized derivative of the Sigmoid function, calculated respect to the input already activated.
@@ -37,5 +37,5 @@ object Sigmoid : ScalarActivationFunction {
    *
    * @return the Sigmoid derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = fx * (1.0 - fx)
+  override fun dfOptimized(fx: Float): Float = fx * (1.0f - fx)
 }

@@ -23,7 +23,7 @@ import com.kotlinnlp.utils.ItemsPool
 class AttentionNetworksPool<InputNDArrayType : NDArray<InputNDArrayType>>(
   private val model: AttentionNetworkParameters,
   private val inputType: LayerType.Input,
-  private val dropout: Double = 0.0,
+  private val dropout: Float = 0.0f,
   private val propagateToInput: Boolean
 ) : ItemsPool<AttentionNetwork<InputNDArrayType>>() {
 

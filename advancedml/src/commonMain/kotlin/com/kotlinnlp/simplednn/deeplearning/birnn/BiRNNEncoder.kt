@@ -31,8 +31,8 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
  */
 class BiRNNEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
   val network: BiRNN,
-  rnnDropout: Double,
-  mergeDropout: Double,
+  rnnDropout: Float,
+  mergeDropout: Float,
   override val propagateToInput: Boolean,
   override val id: Int = 0
 ) : NeuralProcessor<
@@ -60,7 +60,7 @@ class BiRNNEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
   constructor(
     network: BiRNN,
     propagateToInput: Boolean,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     id: Int = 0
   ): this(
     network = network,

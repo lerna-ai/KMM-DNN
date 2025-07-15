@@ -26,7 +26,7 @@ import com.kotlinnlp.simplednn.utils.scheduling.EpochScheduling
  * @property regularization a parameters regularization method
  */
 class LearningRateMethod(
-  val learningRate: Double,
+  val learningRate: Float,
   val decayMethod: DecayMethod? = null,
   regularization: ParamsRegularization? = null
 ) : EpochScheduling, UpdateMethod<LearningRateStructure>(regularization) {
@@ -52,7 +52,7 @@ class LearningRateMethod(
   /**
    * The 'alpha' coefficient.
    */
-  var alpha: Double = this.learningRate
+  var alpha: Float = this.learningRate
     private set
 
   /**

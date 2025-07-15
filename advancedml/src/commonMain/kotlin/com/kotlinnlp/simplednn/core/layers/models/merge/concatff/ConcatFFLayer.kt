@@ -32,7 +32,7 @@ internal class ConcatFFLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: ConcatFFLayerParameters,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : MergeLayer<InputNDArrayType>(
   inputArrays = inputArrays,
   inputType = inputType,

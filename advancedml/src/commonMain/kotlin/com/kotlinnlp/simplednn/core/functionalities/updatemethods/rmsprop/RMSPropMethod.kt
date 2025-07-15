@@ -30,9 +30,9 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.sparse.SparseNDArray
  *
  */
 class RMSPropMethod(
-  val learningRate: Double = 0.001,
-  val epsilon: Double = 1e-08,
-  val decay: Double = 0.95,
+  val learningRate: Float = 0.001f,
+  val epsilon: Float = 1e-08f,
+  val decay: Float = 0.95f,
   regularization: ParamsRegularization? = null
 ) : UpdateMethod<RMSPropStructure>(regularization) {
 
@@ -68,7 +68,7 @@ class RMSPropMethod(
     val m = supportStructure.secondOrderMoments
     val mask: NDArrayMask = errors.mask
 
-    m.assignProd(this.decay).assignSum(errors.prod(errors).assignProd(1.0 - this.decay))
+    m.assignProd(this.decay).assignSum(errors.prod(errors).assignProd(1.0f - this.decay))
 
     return errors.div(m.sqrt(mask = mask).assignSum(this.epsilon)).assignProd(this.learningRate)
   }
@@ -85,7 +85,7 @@ class RMSPropMethod(
 
     val m = supportStructure.secondOrderMoments
 
-    m.assignProd(this.decay).assignSum(errors.prod(errors).assignProd(1.0 - this.decay))
+    m.assignProd(this.decay).assignSum(errors.prod(errors).assignProd(1.0f - this.decay))
 
     return errors.div(m.sqrt().assignSum(this.epsilon)).assignProd(this.learningRate)
   }

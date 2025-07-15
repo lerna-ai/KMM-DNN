@@ -39,7 +39,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    * @return a new empty [DenseNDArray]
    */
   override fun emptyArray(shape: Shape): DenseNDArray =
-    DenseNDArray(mk.zeros<Double>(shape.dim1, shape.dim2))
+    DenseNDArray(mk.zeros<Float>(shape.dim1, shape.dim2))
 
   /**
    * Build a new [DenseNDArray] filled with zeros.
@@ -59,7 +59,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    * @return a new [DenseNDArray]
    */
   override fun ones(shape: Shape): DenseNDArray =
-    DenseNDArray(mk.ones<Double>(shape.dim1, shape.dim2))
+    DenseNDArray(mk.ones<Float>(shape.dim1, shape.dim2))
 
   /**
    * Build a new diagonal [DenseNDArray] filled with ones.
@@ -73,7 +73,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
       (0 until rows).forEach { i -> set(i, i, 1.0) }
     }
 
-  fun eye(size: Int, a: D1Array<Double>): DenseNDArray =
+  fun eye(size: Int, a: D1Array<Float>): DenseNDArray =
     this.zeros(Shape(size, size)).apply {
       (0 until rows).forEach { i -> set(i, i, a[i]) }
     }
@@ -84,8 +84,8 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    *
    * @return a new [DenseNDArray] filled with the given value
    */
-  override fun fill(shape: Shape, value: Double): DenseNDArray {
-    var temp = mk.zeros<Double>(shape.dim1, shape.dim2)
+  override fun fill(shape: Shape, value: Float): DenseNDArray {
+    var temp = mk.zeros<Float>(shape.dim1, shape.dim2)
     temp+=value
     return DenseNDArray(temp)
   }
@@ -117,16 +117,16 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    *
    * @return a new [DenseNDArray] filled with random values
    */
-  override fun random(shape: Shape, from: Double, to: Double): DenseNDArray {
+  override fun random(shape: Shape, from: Float, to: Float): DenseNDArray {
 
-    var m = mk.rand<Double>(shape.dim1, shape.dim2)
+    var m = mk.rand<Float>(shape.dim1, shape.dim2)
     val rangeSize = to - from
 
-    if (rangeSize != 1.0) {
+    if (rangeSize != 1.0f) {
       m*=(rangeSize)
     }
 
-    if (from != 0.0) {
+    if (from != 0.0f) {
       m+=(from)
     }
 
@@ -134,13 +134,13 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
   }
 
   /**
-   * @param values an array of double numbers
+   * @param values an array of float numbers
    *
    * @return a new column vector filled with the given values
    */
-  fun arrayOf(values: DoubleArray): DenseNDArray {
+  fun arrayOf(values: FloatArray): DenseNDArray {
 
-    var m = mk.zeros<Double>(values.size, 1)
+    var m = mk.zeros<Float>(values.size, 1)
 
     values.indices.forEach { i -> m[i, 0] = values[i] }
 
@@ -148,15 +148,15 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
   }
 
   /**
-   * @param rows rows as arrays of double numbers
+   * @param rows rows as arrays of float numbers
    *
    * @return a new dense array filled by rows with the given values
    */
-  fun arrayOf(rows: List<DoubleArray>): DenseNDArray {
+  fun arrayOf(rows: List<FloatArray>): DenseNDArray {
 
     val dim1 = rows.size
     val dim2 = if (rows.isNotEmpty()) rows[0].size else 0
-    var m = mk.zeros<Double>(dim1, dim2)
+    var m = mk.zeros<Float>(dim1, dim2)
 
     (0 until dim1 * dim2).forEach { linearIndex ->
       // linear indexing: loop rows before, column by column
@@ -177,7 +177,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
 
     val dim1 = rows.size
     val dim2 = if (rows.isNotEmpty()) rows[0].length else 0
-    var m = mk.zeros<Double>(dim1, dim2)
+    var m = mk.zeros<Float>(dim1, dim2)
 
     require(rows.all { it.length == dim2 }) { "All the rows must have the same length. "}
 
@@ -200,7 +200,7 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
 
     val dim1 = if (columns.isNotEmpty()) columns[0].length else 0
     val dim2 = columns.size
-    var m = mk.zeros<Double>(dim1, dim2)
+    var m = mk.zeros<Float>(dim1, dim2)
 
     require(columns.all { it.length == dim1 }) { "All the columns must have the same length. "}
 
@@ -247,5 +247,5 @@ object DenseNDArrayFactory : NDArrayFactory<DenseNDArray> {
    *
    * @return a new [DenseNDArray] filled with the given value
    */
-  fun scalarOf(value: Double) = arrayOf(doubleArrayOf(value))
+  fun scalarOf(value: Float) = arrayOf(floatArrayOf(value))
 }

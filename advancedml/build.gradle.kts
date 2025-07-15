@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
 	kotlin("multiplatform")
 	kotlin("plugin.serialization")
@@ -8,10 +10,14 @@ plugins {
 group = "com.kotlinnlp.simplednn"
 version = "0.0.1"
 
+tasks {
+	withType<KotlinCompile> {
+		kotlinOptions.jvmTarget = "17"
+	}
+}
 kotlin {
-	android {
+	androidTarget {
 		publishLibraryVariants("release", "debug")
-
 	}
 
 	listOf(
@@ -24,7 +30,7 @@ kotlin {
 			embedBitcode("disable")
 		}
 	}
-
+	jvm()
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
@@ -89,7 +95,10 @@ kotlin {
 		}
 	}
 }
-
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
 android {
 	testOptions.unitTests.isIncludeAndroidResources = true
 	namespace = "com.kotlinnlp.simplednn"

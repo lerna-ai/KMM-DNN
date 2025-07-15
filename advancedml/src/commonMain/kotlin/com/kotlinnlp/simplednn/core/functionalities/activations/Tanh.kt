@@ -29,7 +29,7 @@ object Tanh : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = tanh(x)
+  override fun f(x: Float): Float = tanh(x)
 
   /**
    * Optimized derivative of the Tanh function, calculated respect to the input already activated.
@@ -38,5 +38,5 @@ object Tanh : ScalarActivationFunction {
    *
    * @return the Tanh derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = 1.0 - fx.pow(2.0)
+  override fun dfOptimized(fx: Float): Float = 1.0f - fx.pow(2.0f)
 }

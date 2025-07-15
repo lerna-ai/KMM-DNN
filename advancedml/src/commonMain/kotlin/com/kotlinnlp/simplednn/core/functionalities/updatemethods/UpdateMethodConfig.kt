@@ -25,8 +25,8 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class AdaGradConfig(
-    val learningRate: Double = 0.01,
-    val epsilon: Double = 1.0E-8,
+    val learningRate: Float = 0.01f,
+    val epsilon: Float = 1.0E-8f,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
 
@@ -40,10 +40,10 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class ADAMConfig(
-    val stepSize: Double = 0.001,
-    val beta1: Double = 0.9,
-    val beta2: Double = 0.999,
-    val epsilon: Double = 1.0E-8,
+    val stepSize: Float = 0.001f,
+    val beta1: Float = 0.9f,
+    val beta2: Float = 0.999f,
+    val epsilon: Float = 1.0E-8f,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
 
@@ -55,7 +55,7 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class LearningRateConfig(
-    val learningRate: Double,
+    val learningRate: Float,
     val decayMethod: DecayMethod? = null,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
@@ -69,8 +69,8 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class MomentumConfig(
-    val learningRate: Double = 0.01,
-    val momentum: Double = 0.9,
+    val learningRate: Float = 0.01f,
+    val momentum: Float = 0.9f,
     val decayMethod: DecayMethod? = null,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
@@ -84,8 +84,8 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class NesterovMomentumConfig(
-    val learningRate: Double = 0.01,
-    val momentum: Double = 0.9,
+    val learningRate: Float = 0.01f,
+    val momentum: Float = 0.9f,
     val decayMethod: DecayMethod? = null,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
@@ -100,10 +100,10 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class RADAMConfig(
-    val stepSize: Double = 0.001,
-    val beta1: Double = 0.9,
-    val beta2: Double = 0.999,
-    val epsilon: Double = 1.0E-8,
+    val stepSize: Float = 0.001f,
+    val beta1: Float = 0.9f,
+    val beta2: Float = 0.999f,
+    val epsilon: Float = 1.0E-8f,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
 
@@ -116,9 +116,9 @@ sealed class UpdateMethodConfig(val regularization: ParamsRegularization? = null
    * @property regularization a parameters regularization method
    */
   class RMSPropConfig(
-    val learningRate: Double = 0.001,
-    val epsilon: Double = 1e-08,
-    val decay: Double = 0.95,
+    val learningRate: Float = 0.001f,
+    val epsilon: Float = 1e-08f,
+    val decay: Float = 0.95f,
     regularization: ParamsRegularization? = null
   ) : UpdateMethodConfig(regularization)
 }

@@ -18,7 +18,7 @@ object RelevanceUtils {
   /**
    * The stabilizing term used to calculate the relevance
    */
-  private const val relevanceEps: Double = 0.01
+  private const val relevanceEps: Float = 0.01f
 
   /**
    * Calculate the relevance of the Dense array [x] respect of the calculation which produced the Dense array [y].
@@ -42,8 +42,8 @@ object RelevanceUtils {
     for (i in 0 until xLength) {
 
       for (j in 0 until yLength) {
-        val eps: Double = if (y[j] >= 0) relevanceEps else -relevanceEps
-        val epsN: Double = eps / xLength
+        val eps: Float = if (y[j] >= 0) relevanceEps else -relevanceEps
+        val epsN: Float = eps / xLength
 
         relevanceArray[i] += yRelevance[j] * (contributions[j, i] + epsN) / (y[j] + eps)
       }
@@ -74,8 +74,8 @@ object RelevanceUtils {
     for (i in 0 until xLength) {
 
       for (j in 0 until yLength) {
-        val eps: Double = if (y[j] >= 0) relevanceEps else -relevanceEps
-        val epsN: Double = eps / xLength
+        val eps: Float = if (y[j] >= 0) relevanceEps else -relevanceEps
+        val epsN: Float = eps / xLength
 
         relevanceArray[i] += yRelevance[j] * (contributions[j, i]  + epsN) / (y[j] + eps)
       }
@@ -103,7 +103,7 @@ object RelevanceUtils {
     // is needed to calculate eps either for the first partition then the second one
 
     // partition factor = (yContribute1 + eps / n) / (yContribute1 + yContribute2 + eps) [eps avoids divisions by zero]
-    return yRelevance.prod(yContribute1.sum(eps.div(nPartitions.toDouble()))).assignDiv(y.sum(eps))
+    return yRelevance.prod(yContribute1.sum(eps.div(nPartitions.toFloat()))).assignDiv(y.sum(eps))
   }
 
   /**
@@ -122,6 +122,6 @@ object RelevanceUtils {
     val eps: DenseNDArray = yContribute2.nonZeroSign().assignProd(relevanceEps)
 
     // partition factor = (yContribute2 + eps / n) / (yInput + yContribute2 + eps) [eps avoids divisions by zero]
-    return yRelevance.prod(yContribute2.sum(eps.div(nPartitions.toDouble()))).assignDiv(y.sum(eps))
+    return yRelevance.prod(yContribute2.sum(eps.div(nPartitions.toFloat()))).assignDiv(y.sum(eps))
   }
 }

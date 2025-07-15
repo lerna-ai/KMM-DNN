@@ -30,7 +30,7 @@ import com.kotlinnlp.utils.ItemsPool
 class AttentionNetwork<InputNDArrayType: NDArray<InputNDArrayType>>(
   val model: AttentionNetworkParameters,
   val inputType: LayerType.Input,
-  dropout: Double = 0.0,
+  dropout: Float = 0.0f,
   private val propagateToInput: Boolean,
   override val id: Int = 0
 ) : ItemsPool.IDItem {

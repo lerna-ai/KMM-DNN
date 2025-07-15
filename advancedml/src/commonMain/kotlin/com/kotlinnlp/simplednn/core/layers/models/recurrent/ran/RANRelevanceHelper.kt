@@ -29,13 +29,13 @@ internal class RANRelevanceHelper(override val layer: RANLayer<DenseNDArray>) : 
   override fun propagateRelevanceToGates(contributions: LayerParameters) {
 
     val (inputRelevance, recurrentRelevance) = this.getRelevancePartitions(contributions as RANLayerParameters)
-    val halfInputRelevance: DenseNDArray = inputRelevance.assignDiv(2.0)
+    val halfInputRelevance: DenseNDArray = inputRelevance.assignDiv(2.0f)
 
     this.layer.candidate.assignRelevance(halfInputRelevance)
     this.layer.inputGate.assignRelevance(halfInputRelevance)
 
     if (recurrentRelevance != null) {
-      this.layer.forgetGate.assignRelevance(recurrentRelevance.assignDiv(2.0))
+      this.layer.forgetGate.assignRelevance(recurrentRelevance.assignDiv(2.0f))
     }
   }
 
@@ -86,7 +86,7 @@ internal class RANRelevanceHelper(override val layer: RANLayer<DenseNDArray>) : 
 
     val prevStateOutput = this.layer.layersWindow.getPrevState()!!.outputArray
     val (_, recurrentRelevance) = this.getRelevancePartitions(contributions)
-    val halfRecurrentRelevance: DenseNDArray = recurrentRelevance!!.assignDiv(2.0)
+    val halfRecurrentRelevance: DenseNDArray = recurrentRelevance!!.assignDiv(2.0f)
 
     val inputGateRelevance: NDArray<*> = this.layer.inputGate.getRecurrentRelevance(
       contributions = contributions.inputGate,

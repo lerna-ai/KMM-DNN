@@ -28,7 +28,7 @@ internal class NewRecirculationForwardHelper(
    */
   override fun forward() {
 
-    val r: Double = this.layer.lambda
+    val r: Float = this.layer.lambda
     val w: DenseNDArray = this.layer.params.unit.weights.values
     val b: DenseNDArray = this.layer.params.unit.biases.values
     val xR: DenseNDArray = this.layer.realInput.values
@@ -39,7 +39,7 @@ internal class NewRecirculationForwardHelper(
     yR.assignDot(w, xR).assignSum(b)
     this.layer.realOutput.activate()
 
-    // Note of optimization: double transposition of two 1-dim arrays instead of a bigger 2-dim one
+    // Note of optimization: float transposition of two 1-dim arrays instead of a bigger 2-dim one
     xI.assignSum(xR.prod(r), yR.t.dot(w).t.assignProd(1 - r))
 
     yI.assignDot(w, xI).assignSum(b)

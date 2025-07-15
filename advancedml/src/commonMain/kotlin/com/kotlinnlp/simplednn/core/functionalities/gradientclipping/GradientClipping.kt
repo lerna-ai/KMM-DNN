@@ -27,16 +27,16 @@ sealed class GradientClipping {
    * Coefficient is maxNorm divided by n-norm of the overall gradients.
    *
    * @param maxNorm max norm of the gradients
-   * @param normType type of the used p-norm. Can be ``Double.POSITIVE_INFINITY`` for infinity norm (default 2)
+   * @param normType type of the used p-norm. Can be ``Float.POSITIVE_INFINITY`` for infinity norm (default 2)
    */
-  class byNorm(private val maxNorm: Double, private val normType: Double = 2.0) : GradientClipping() {
+  class byNorm(private val maxNorm: Float, private val normType: Float = 2.0f) : GradientClipping() {
 
     companion object {
 
       /**
        * Avoid division by zero.
        */
-      const val eps = 0.0000001
+      const val eps = 0.0000001f
     }
 
     /**
@@ -46,7 +46,7 @@ sealed class GradientClipping {
      * @param maxNorm max norm of the gradients
      * @param normType type of the used p-norm (default 2)
      */
-    constructor(maxNorm: Double, normType: Int = 2) : this(maxNorm, normType.toDouble())
+    constructor(maxNorm: Float, normType: Int = 2) : this(maxNorm, normType.toFloat())
 
     init { require(this.normType > 1) { "Norm type required to be > 1."} }
 
@@ -57,10 +57,10 @@ sealed class GradientClipping {
      */
     override fun clip(paramsErrors: ParamsErrorsList) {
 
-      val totalNorm: Double = if (this.normType == Double.POSITIVE_INFINITY)
+      val totalNorm: Float = if (this.normType == Float.POSITIVE_INFINITY)
         paramsErrors.map { it.values.abs().max() }.maxOrNull()!!
       else {
-        paramsErrors.map { it.values.abs().pow(this.normType).sum() }.sum().pow(1.0 / this.normType)
+        paramsErrors.map { it.values.abs().pow(this.normType).sum() }.sum().pow(1.0f / this.normType)
       }
 
       val clipCoefficient = this.maxNorm / (totalNorm + eps)
@@ -76,7 +76,7 @@ sealed class GradientClipping {
    *
    * @param clipValue the gradients will be clipped at this value
    */
-  class byValue(private val clipValue: Double) : GradientClipping() {
+  class byValue(private val clipValue: Float) : GradientClipping() {
 
     /**
      * Clip the gradients in place.
@@ -88,7 +88,7 @@ sealed class GradientClipping {
       paramsErrors.map {
         for (i in 0 until it.values.rows) {
           for (j in 0 until it.values.columns) {
-            val value = it.values[i, j].toDouble()
+            val value = it.values[i, j].toFloat()
             when {
               value < -clipValue -> it.values[i, j] = -this.clipValue
               value > clipValue -> it.values[i, j] = this.clipValue

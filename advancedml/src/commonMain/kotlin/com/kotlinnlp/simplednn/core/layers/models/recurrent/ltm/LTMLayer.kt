@@ -32,7 +32,7 @@ internal class LTMLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: LTMLayerParameters,
   layersWindow: LayersWindow,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

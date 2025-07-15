@@ -27,7 +27,7 @@ object HardSigmoid: ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 2.5) 1.0 else if (x < -2.5) 0.0 else 0.2 * x + 0.5
+  override fun f(x: Float): Float = if (x > 2.5) 1.0f else if (x < -2.5) 0.0f else 0.2f * x + 0.5f
 
   /**
    * Optimized derivative of the HardSigmoid function, calculated respect to the input already activated.
@@ -36,5 +36,5 @@ object HardSigmoid: ScalarActivationFunction {
    *
    * @return the HardSigmoid derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if ((fx - 0.5) / 0.2 < 2.5 && (fx - 0.5) / 0.2 > -2.5) 0.2 else 0.0
+  override fun dfOptimized(fx: Float): Float = if ((fx - 0.5f) / 0.2f < 2.5 && (fx - 0.5f) / 0.2f > -2.5) 0.2f else 0.0f
 }

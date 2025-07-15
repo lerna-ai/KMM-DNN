@@ -32,8 +32,8 @@ internal class NewRecirculationLayer(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: NewRecirculationLayerParameters,
   activationFunction: ActivationFunction? = Sigmoid,
-  val lambda: Double = 0.75,
-  dropout: Double
+  val lambda: Float = 0.75f,
+  dropout: Float
 ) : Layer<DenseNDArray>(
   inputArray = inputArray,
   inputType = LayerType.Input.Dense,

@@ -185,11 +185,11 @@ open class AugmentedArray<NDArrayType : NDArray<NDArrayType>>(size: Int) : Activ
    * If [errors] are still not initialized a new [NDArray] is created.
    *
    * @param a the first factor, as [DenseNDArray]
-   * @param b the second factor, as Double number
+   * @param b the second factor, as Float number
    *
    * @return the errors of this [AugmentedArray]
    */
-  fun assignErrorsByProd(a: DenseNDArray, b: Double): DenseNDArray {
+  fun assignErrorsByProd(a: DenseNDArray, b: Float): DenseNDArray {
 
     require(a.length == this.size) { "Invalid arrays size" }
 

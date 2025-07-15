@@ -36,7 +36,7 @@ internal class GRULayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: GRULayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

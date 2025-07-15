@@ -19,5 +19,5 @@ interface RandomGenerator {
    *
    * @return a random number
    */
-  fun next(): Double
+  fun next(): Float
 }

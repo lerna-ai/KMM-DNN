@@ -25,7 +25,7 @@ internal class BatchNormForwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
     /**
      * Avoid underflow errors.
      */
-    private const val EPS = 1.0e-5
+    private const val EPS = 1.0e-5f
   }
 
   /**
@@ -58,13 +58,13 @@ internal class BatchNormForwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
 
     this.layer.inputArrays.forEach { input ->
 
-      val diff: DenseNDArray = this.layer.mean.sub(input.values).assignPow(2.0)
+      val diff: DenseNDArray = this.layer.mean.sub(input.values).assignPow(2.0f)
 
       this.layer.stdDev.assignSum(diff)
     }
 
     this.layer.stdDev
-      .assignDiv(this.layer.inputArrays.size.toDouble())
+      .assignDiv(this.layer.inputArrays.size.toFloat())
       .assignSum(EPS)
       .assignSqrt()
   }
@@ -80,6 +80,6 @@ internal class BatchNormForwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
       this.layer.mean.assignSum(it.values)
     }
 
-    this.layer.mean.assignDiv(this.layer.inputArrays.size.toDouble())
+    this.layer.mean.assignDiv(this.layer.inputArrays.size.toFloat())
   }
 }

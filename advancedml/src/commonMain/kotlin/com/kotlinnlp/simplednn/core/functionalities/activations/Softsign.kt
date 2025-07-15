@@ -29,7 +29,7 @@ object Softsign : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = x / (1.0 + abs(x))
+  override fun f(x: Float): Float = x / (1.0f + abs(x))
 
   /**
    * Optimized derivative of the Softsign function, calculated respect to the input already activated.
@@ -38,5 +38,5 @@ object Softsign : ScalarActivationFunction {
    *
    * @return the Softsign derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = (1.0 - abs(fx)).pow(2.0)
+  override fun dfOptimized(fx: Float): Float = (1.0f - abs(fx)).pow(2.0f)
 }

@@ -13,7 +13,7 @@ import com.kotlinnlp.simplednn.core.layers.models.LinearParams
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLinearParams
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.assert
+import korlibs.io.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
@@ -149,8 +149,8 @@ internal class RANForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
     val forGParams: RecurrentLinearParams = this.layer.params.forgetGate
     val bInGBase: DenseNDArray = inGParams.biases.values
     val bForGBase: DenseNDArray = forGParams.biases.values
-    val bInG: DenseNDArray = if (splitBiases) bInGBase.div(2.0) else bInGBase
-    val bForG: DenseNDArray = if (splitBiases) bForGBase.div(2.0) else bForGBase
+    val bInG: DenseNDArray = if (splitBiases) bInGBase.div(2.0f) else bInGBase
+    val bForG: DenseNDArray = if (splitBiases) bForGBase.div(2.0f) else bForGBase
 
     this.forwardGates(contributions = contributions, bInG = bInG, bForG = bForG)
 

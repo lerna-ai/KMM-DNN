@@ -35,5 +35,5 @@ class BaseRandom(val enablePseudoRandom: Boolean = true, val seed: Long = 743) :
   /**
    * @return a random value uniformly distributed in in the range [0.0, 1.0]
    */
-  override fun next(): Double = this.rndGenerator.nextDouble()
+  override fun next(): Float = this.rndGenerator.nextFloat()
 }

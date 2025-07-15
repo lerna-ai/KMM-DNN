@@ -91,6 +91,6 @@ internal class HighwayBackwardHelper<InputNDArrayType : NDArray<InputNDArrayType
     val gxT: DenseNDArray = this.layer.transformGate.getInputErrors(w = this.layer.params.transformGate.weights.values)
     val gy: DenseNDArray = this.layer.outputArray.errors
 
-    this.layer.inputArray.assignErrors(tGate.reverseSub(1.0).assignProd(gy).assignSum(gxIn).assignSum(gxT))
+    this.layer.inputArray.assignErrors(tGate.reverseSub(1.0f).assignProd(gy).assignSum(gxIn).assignSum(gxT))
   }
 }

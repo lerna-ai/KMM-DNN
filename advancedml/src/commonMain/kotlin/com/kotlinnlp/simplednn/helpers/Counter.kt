@@ -14,7 +14,7 @@ internal data class Counter(
   var epoch: Int = 0,
   var batch: Int = 0,
   var exampleCount: Int = 0,
-  var bestAccuracy: Double = 0.0
+  var bestAccuracy: Float = 0.0f
 ) {
 
   /**
@@ -24,7 +24,7 @@ internal data class Counter(
     this.epoch = 0
     this.batch = 0
     this.exampleCount = 0
-    this.bestAccuracy = 0.0
+    this.bestAccuracy = 0.0f
   }
 
   /**

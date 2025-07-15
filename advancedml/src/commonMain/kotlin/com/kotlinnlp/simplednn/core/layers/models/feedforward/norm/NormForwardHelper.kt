@@ -34,8 +34,8 @@ internal class NormForwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
     val b: DenseNDArray = this.layer.params.b.values
 
     val dev: InputNDArrayType = x.sub(x.avg())
-    val v: Double = dev.pow(2.0).avg()
-    val stdDev: Double = sqrt(v + NormLayer.EPS)
+    val v: Float = dev.pow(2.0f).avg()
+    val stdDev: Float = sqrt(v + NormLayer.EPS)
     val devStdDev: InputNDArrayType = dev.div(stdDev)
 
     y.assignValues(devStdDev).assignProd(g).assignSum(b)

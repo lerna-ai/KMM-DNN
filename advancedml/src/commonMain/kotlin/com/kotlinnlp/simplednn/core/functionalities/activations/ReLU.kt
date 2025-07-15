@@ -29,7 +29,7 @@ object ReLU : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x <= 0.0) 0.0 else x
+  override fun f(x: Float): Float = if (x <= 0.0) 0.0f else x
 
   /**
    * Optimized derivative of the ReLU function, calculated respect to the input already activated.
@@ -38,5 +38,5 @@ object ReLU : ScalarActivationFunction {
    *
    * @return the ReLU derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if (fx > 0.0) 1.0 else 0.0
+  override fun dfOptimized(fx: Float): Float = if (fx > 0.0) 1.0f else 0.0f
 }

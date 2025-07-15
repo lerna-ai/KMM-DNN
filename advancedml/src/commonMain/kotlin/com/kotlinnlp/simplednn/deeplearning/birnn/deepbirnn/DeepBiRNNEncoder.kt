@@ -27,8 +27,8 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
  */
 class DeepBiRNNEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
   val network: DeepBiRNN,
-  rnnDropout: Double,
-  mergeDropout: Double,
+  rnnDropout: Float,
+  mergeDropout: Float,
   override val propagateToInput: Boolean,
   override val id: Int = 0
 ): NeuralProcessor<
@@ -52,7 +52,7 @@ class DeepBiRNNEncoder<InputNDArrayType: NDArray<InputNDArrayType>>(
   constructor(
     network: DeepBiRNN,
     propagateToInput: Boolean,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     id: Int = 0
   ): this(
     network = network,

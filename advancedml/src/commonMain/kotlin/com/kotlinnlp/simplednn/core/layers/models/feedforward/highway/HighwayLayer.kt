@@ -31,7 +31,7 @@ internal class HighwayLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   outputArray: AugmentedArray<DenseNDArray>,
   override val params: HighwayLayerParameters,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : Layer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

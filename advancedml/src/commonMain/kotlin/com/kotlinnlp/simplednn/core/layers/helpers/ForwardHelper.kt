@@ -59,7 +59,7 @@ internal abstract class ForwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
       y[j] = 0.0
 
       for (i in 0 until w.columns) {
-        var contribution: Double = w[j, i] * x[i]
+        var contribution: Float = w[j, i] * x[i]
 
         if (b != null) {
           contribution += b[j] / xLength

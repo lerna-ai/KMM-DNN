@@ -80,7 +80,7 @@ internal object LayerFactory {
     inputConfiguration: LayerInterface,
     outputConfiguration: LayerInterface,
     params: LayerParameters,
-    dropout: Double,
+    dropout: Float,
     contextWindow: LayersWindow?
   ): Layer<*> {
 
@@ -140,7 +140,7 @@ internal object LayerFactory {
     inputType: LayerType.Input,
     outputConfiguration: LayerInterface,
     params: LayerParameters,
-    dropout: Double,
+    dropout: Float,
     contextWindow: LayersWindow?
   ): Layer<InputNDArrayType> = LayerFactory(
     inputArrays = inputArrays,
@@ -174,7 +174,7 @@ internal object LayerFactory {
     params: LayerParameters,
     connectionType: LayerType.Connection,
     activationFunction: ActivationFunction?,
-    dropout: Double,
+    dropout: Float,
     contextWindow: LayersWindow?
   ) : Layer<InputNDArrayType> = when (connectionType) {
 
@@ -345,6 +345,6 @@ internal object LayerFactory {
       params = params as TPRLayerParameters,
       dropout = dropout,
       layersWindow = contextWindow!!,
-      q = 0.00001) // TODO
+      q = 0.00001f) // TODO
   }
 }

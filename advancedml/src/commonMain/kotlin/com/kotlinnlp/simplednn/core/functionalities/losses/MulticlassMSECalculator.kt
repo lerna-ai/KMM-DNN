@@ -27,7 +27,7 @@ object MulticlassMSECalculator : MSECalculator() {
 
     val lossDerivative = output.copy()
 
-    (0 until output.length).forEach { i -> if (outputGold[i] == 1.0) lossDerivative[i] = output[i] - 1.0 }
+    (0 until output.length).forEach { i -> if (outputGold[i] == 1.0f) lossDerivative[i] = output[i] - 1.0f }
 
     return lossDerivative
   }

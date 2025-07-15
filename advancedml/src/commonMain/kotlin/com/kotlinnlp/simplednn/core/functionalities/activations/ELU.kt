@@ -19,7 +19,7 @@ import kotlin.math.exp
  *
  * @property alpha defines the decreasing exponential rate for the negative values. It must be positive.
  */
-class ELU(val alpha: Double = 1.0) : ScalarActivationFunction {
+class ELU(val alpha: Float = 1.0f) : ScalarActivationFunction {
 
   companion object {
 
@@ -45,7 +45,7 @@ class ELU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 0) x else this.alpha * (exp(x) - 1.0)
+  override fun f(x: Float): Float = if (x > 0) x else this.alpha * (exp(x) - 1.0f)
 
   /**
    * Optimized derivative of the ELU function, calculated respect to the input already activated.
@@ -54,5 +54,5 @@ class ELU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return the ELU derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if (fx > 0.0) 1.0 else fx + this.alpha
+  override fun dfOptimized(fx: Float): Float = if (fx > 0.0) 1.0f else fx + this.alpha
 }

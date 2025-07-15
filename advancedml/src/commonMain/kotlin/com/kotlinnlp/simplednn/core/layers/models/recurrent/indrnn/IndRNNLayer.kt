@@ -34,7 +34,7 @@ internal class IndRNNLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: IndRNNLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : RecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

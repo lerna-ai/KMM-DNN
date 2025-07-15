@@ -27,8 +27,8 @@ import com.kotlinnlp.simplednn.utils.scheduling.EpochScheduling
  * @property regularization a parameters regularization method
  */
 class NesterovMomentumMethod(
-  val learningRate: Double = 0.01,
-  val momentum: Double = 0.9,
+  val learningRate: Float = 0.01f,
+  val momentum: Float = 0.9f,
   val decayMethod: DecayMethod? = null,
   regularization: ParamsRegularization? = null
 ) : EpochScheduling, UpdateMethod<NesterovMomentumStructure>(regularization) {
@@ -56,7 +56,7 @@ class NesterovMomentumMethod(
   /**
    * The 'alpha' coefficient.
    */
-  var alpha: Double = this.learningRate
+  var alpha: Float = this.learningRate
     private set
 
   /**
@@ -94,6 +94,6 @@ class NesterovMomentumMethod(
 
     v.assignValues(vTmp).assignSum(errors.prod((this.alpha)))
 
-    return v.prod(1.0 + this.momentum).assignSub(vTmp)
+    return v.prod(1.0f + this.momentum).assignSub(vTmp)
   }
 }

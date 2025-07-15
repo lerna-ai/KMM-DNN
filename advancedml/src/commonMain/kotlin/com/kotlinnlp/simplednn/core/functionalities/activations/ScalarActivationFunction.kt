@@ -31,7 +31,7 @@ interface ScalarActivationFunction : ActivationFunction {
    *
    * @return f([x])
    */
-  fun f(x: Double): Double
+  fun f(x: Float): Float
 
   /**
    * Optimized derivative of the activation function, calculated in [fx].
@@ -40,7 +40,7 @@ interface ScalarActivationFunction : ActivationFunction {
    *
    * @return the derivative of f calculated in x
    */
-  fun dfOptimized(fx: Double): Double
+  fun dfOptimized(fx: Float): Float
 
   /**
    * Derivative of the activation function, calculated in [x].
@@ -49,7 +49,7 @@ interface ScalarActivationFunction : ActivationFunction {
    *
    * @return the derivative of f calculated in x
    */
-  fun df(x: Double): Double = this.dfOptimized(this.f(x))
+  fun df(x: Float): Float = this.dfOptimized(this.f(x))
 
   /**
    * Assign to [out] the result of the activation function applied to [array].

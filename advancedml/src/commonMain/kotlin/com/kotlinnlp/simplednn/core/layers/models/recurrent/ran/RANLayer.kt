@@ -36,7 +36,7 @@ internal class RANLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: RANLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

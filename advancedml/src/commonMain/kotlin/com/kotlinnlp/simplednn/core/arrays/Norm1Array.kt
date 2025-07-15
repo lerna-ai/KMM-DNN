@@ -18,7 +18,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.*
 open class Norm1Array<NDArrayType : NDArray<NDArrayType>>(val values: NDArrayType) {
 
   init {
-    require(equals(this.values.sum(), 1.0, tolerance = 1.0e-08)) { "Values sum must be equal to 1.0" }
+    require(equals(this.values.sum(), 1.0f, tolerance = 1.0e-08f)) { "Values sum must be equal to 1.0" }
     require(this.values.columns == 1) { "Values must be a column vector" }
   }
 
@@ -33,7 +33,7 @@ open class Norm1Array<NDArrayType : NDArray<NDArrayType>>(val values: NDArrayTyp
    * @param values values to assign to this [Norm1Array]
    */
   open fun assignValues(values: NDArray<*>) {
-    require(equals(values.sum(), 1.0, tolerance = 1.0e-08)) { "Values sum must be equal to 1.0" }
+    require(equals(values.sum(), 1.0f, tolerance = 1.0e-08f)) { "Values sum must be equal to 1.0" }
 
     this.values.assignValues(values)
   }

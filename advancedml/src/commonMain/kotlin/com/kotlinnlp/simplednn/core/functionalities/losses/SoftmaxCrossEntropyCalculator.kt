@@ -21,7 +21,7 @@ object SoftmaxCrossEntropyCalculator : LossCalculator {
   /**
    * A values threshold to avoid underflow errors.
    */
-  private const val EPS: Double = 1.0e-08
+  private const val EPS: Float = 1.0e-08f
 
   /**
    * Calculate the loss between an output and its gold.

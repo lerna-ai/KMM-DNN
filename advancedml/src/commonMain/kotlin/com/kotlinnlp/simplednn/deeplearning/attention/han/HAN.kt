@@ -15,7 +15,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerType
 import com.kotlinnlp.simplednn.core.layers.StackedLayersParameters
 import com.kotlinnlp.simplednn.deeplearning.attention.attentionnetwork.AttentionNetworkParameters
 import com.kotlinnlp.simplednn.deeplearning.birnn.BiRNN
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlin.math.roundToInt
 
 /**
@@ -45,7 +45,7 @@ class HAN(
   val attentionSize: Int,
   val outputSize: Int,
   val outputActivation: ActivationFunction?,
-  val gainFactors: List<Double> = List(size = hierarchySize, init = { i -> if (i == 0) 2.0 else 1.0 }),
+  val gainFactors: List<Float> = List(size = hierarchySize, init = { i -> if (i == 0) 2.0f else 1.0f }),
   weightsInitializer: Initializer? = GlorotInitializer(),
   biasesInitializer: Initializer? = GlorotInitializer()
 ) {
@@ -184,7 +184,7 @@ class HAN(
    */
   private fun getBiRNNOutputSize(inputSize: Int, levelIndex: Int): Int {
 
-    val gain: Double = this.gainFactors.reversed()[levelIndex]
+    val gain: Float = this.gainFactors.reversed()[levelIndex]
     val roughOutputSize: Int = (gain * inputSize).roundToInt()
 
     return if (roughOutputSize % 2 == 0) roughOutputSize else roughOutputSize + 1

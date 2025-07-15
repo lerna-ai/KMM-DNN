@@ -15,7 +15,7 @@ package com.kotlinnlp.simplednn.core.functionalities.activations
  * @property threshold the threshold of the function
  * @property value the result of threshold function if x <= [threshold]
  */
-class Threshold(val threshold: Double= 0.1, val value: Double = 0.0): ScalarActivationFunction {
+class Threshold(val threshold: Float= 0.1f, val value: Float = 0.0f): ScalarActivationFunction {
 
   companion object {
 
@@ -33,7 +33,7 @@ class Threshold(val threshold: Double= 0.1, val value: Double = 0.0): ScalarActi
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > this.threshold) x else this.value
+  override fun f(x: Float): Float = if (x > this.threshold) x else this.value
 
   /**
    * Optimized derivative of the Threshold function, calculated respect to the input already activated.
@@ -42,5 +42,5 @@ class Threshold(val threshold: Double= 0.1, val value: Double = 0.0): ScalarActi
    *
    * @return the Threshold derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double =  if (fx > this.threshold) 1.0 else this.value
+  override fun dfOptimized(fx: Float): Float =  if (fx > this.threshold) 1.0f else this.value
 }

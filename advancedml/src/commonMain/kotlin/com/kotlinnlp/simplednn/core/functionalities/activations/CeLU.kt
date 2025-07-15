@@ -19,7 +19,7 @@ import kotlin.math.exp
  *           Using default value, the function is identical to ELU.
  *
  */
-class CeLU(val alpha: Double = 1.0) : ScalarActivationFunction {
+class CeLU(val alpha: Float = 1.0f) : ScalarActivationFunction {
 
   companion object {
 
@@ -44,7 +44,7 @@ class CeLU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = if (x > 0.0) x else this.alpha * (exp(x / this.alpha) - 1.0)
+  override fun f(x: Float): Float = if (x > 0.0) x else this.alpha * (exp(x / this.alpha) - 1.0f)
 
   /**
    * Optimized derivative of the CeLU function, calculated respect to the input already activated.
@@ -53,5 +53,5 @@ class CeLU(val alpha: Double = 1.0) : ScalarActivationFunction {
    *
    * @return the CeLU derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = if (fx > 0.0) 1.0 else (fx + this.alpha) / this.alpha
+  override fun dfOptimized(fx: Float): Float = if (fx > 0.0) 1.0f else (fx + this.alpha) / this.alpha
 }

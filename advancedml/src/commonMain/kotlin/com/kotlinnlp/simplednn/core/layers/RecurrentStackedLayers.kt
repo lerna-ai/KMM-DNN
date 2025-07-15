@@ -11,7 +11,7 @@ import com.kotlinnlp.simplednn.core.layers.models.recurrent.LayersWindow
 import com.kotlinnlp.simplednn.core.layers.models.recurrent.RecurrentLayer
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * A structure of stacked layers used in recurrent networks, in which the output array of a layer references the input
@@ -24,7 +24,7 @@ import com.soywiz.korio.lang.format
  */
 internal class RecurrentStackedLayers<InputNDArrayType : NDArray<InputNDArrayType>>(
   params: StackedLayersParameters,
-  dropouts: List<Double>,
+  dropouts: List<Float>,
   val statesWindow: StatesWindow<InputNDArrayType>
 ) : LayersWindow, StackedLayers<InputNDArrayType>(
   params = params,
@@ -42,7 +42,7 @@ internal class RecurrentStackedLayers<InputNDArrayType : NDArray<InputNDArrayTyp
    */
   constructor(
     params: StackedLayersParameters,
-    dropout: Double,
+    dropout: Float,
     statesWindow: StatesWindow<InputNDArrayType>
   ): this(
     params = params,

@@ -31,7 +31,7 @@ internal abstract class RecurrentLayer<InputNDArrayType : NDArray<InputNDArrayTy
   params: LayerParameters,
   val layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : Layer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

@@ -24,7 +24,7 @@ import com.kotlinnlp.utils.ItemsPool
  */
 class FeedforwardNeuralProcessorsPool<InputNDArrayType : NDArray<InputNDArrayType>>(
   private val model: StackedLayersParameters,
-  private val dropouts: List<Double>,
+  private val dropouts: List<Float>,
   private val propagateToInput: Boolean,
   private val paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector()
 ) : ItemsPool<FeedforwardNeuralProcessor<InputNDArrayType>>() {
@@ -41,7 +41,7 @@ class FeedforwardNeuralProcessorsPool<InputNDArrayType : NDArray<InputNDArrayTyp
    */
   constructor(
     model: StackedLayersParameters,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     propagateToInput: Boolean,
     paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector()
   ): this(

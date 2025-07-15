@@ -20,7 +20,7 @@ import kotlin.math.pow
  * @param alpha the forgetting factor (0 < α ≤ 0.5)
  */
 class FOFE(
-  val alpha: Double,
+  val alpha: Float,
   override val id: Int = 0
 ) : NeuralProcessor<
   List<DenseNDArray>, // InputType
@@ -35,7 +35,7 @@ class FOFE(
      * Build a T-order lower triangular matrix.
      * Each row vector of the matrix represents a FOFE code of the partial sequence.
      */
-    private fun buildMatrix(alpha: Double, length: Int): DenseNDArray {
+    private fun buildMatrix(alpha: Float, length: Int): DenseNDArray {
 
       val matrix = DenseNDArrayFactory.zeros(Shape(length, length))
 

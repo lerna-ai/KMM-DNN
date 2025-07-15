@@ -28,7 +28,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
  */
 class FeedforwardNeuralProcessor<InputNDArrayType : NDArray<InputNDArrayType>>(
   val model: StackedLayersParameters,
-  dropouts: List<Double>,
+  dropouts: List<Float>,
   override val propagateToInput: Boolean,
   private val paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector(),
   override val id: Int = 0
@@ -50,7 +50,7 @@ class FeedforwardNeuralProcessor<InputNDArrayType : NDArray<InputNDArrayType>>(
    */
   constructor(
     model: StackedLayersParameters,
-    dropout: Double = 0.0,
+    dropout: Float = 0.0f,
     propagateToInput: Boolean,
     paramsErrorsCollector: ParamsErrorsCollector = ParamsErrorsCollector(),
     id: Int = 0

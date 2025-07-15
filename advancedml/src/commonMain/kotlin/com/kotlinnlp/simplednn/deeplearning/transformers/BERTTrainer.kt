@@ -19,7 +19,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
 import com.kotlinnlp.utils.Shuffler
 import com.kotlinnlp.utils.Timer
 import com.kotlinnlp.utils.WordPieceTokenizer
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 import kotlin.math.floor
 import kotlin.random.Random
 
@@ -39,7 +39,7 @@ import kotlin.random.Random
 class BERTTrainer(
   private val model: BERTModel,
   modelFilename: String,
-  private val termsDropout: Double = 0.15,
+  private val termsDropout: Float = 0.15f,
   private val optimizeEmbeddings: Boolean,
   updateMethod: UpdateMethod<*>,
   examples: Iterable<String>,
@@ -77,7 +77,7 @@ class BERTTrainer(
     /**
      * The special tokens that must not be split with the tokenization.
      */
-    private val SPECIAL_TOKENS: Set<String> = BERTModel.FuncToken.values().map { it.form }.toSet()
+    private val SPECIAL_TOKENS: Set<String> = BERTModel.FuncToken.entries.map { it.form }.toSet()
   }
 
   /**
@@ -102,14 +102,14 @@ class BERTTrainer(
      * Whether this term must be considered as a masked input.
      */
     val isMasked: Boolean =
-      this.form in this@BERTTrainer.model.vocabulary && maskRandom.nextDouble() < this@BERTTrainer.termsDropout
+      this.form in this@BERTTrainer.model.vocabulary && maskRandom.nextFloat() < this@BERTTrainer.termsDropout
 
     /**
      * @return the masked form of this token
      */
     fun getMaskedForm(): String = if (this.isMasked) {
 
-      val prob: Double = replaceRandom.nextDouble()
+      val prob: Float = replaceRandom.nextFloat()
 
       when {
         prob < 0.80 -> BERTModel.FuncToken.MASK.form
@@ -126,7 +126,7 @@ class BERTTrainer(
      */
     private fun getRandomForm(): String {
 
-      val elementId: Int = floor(formRandom.nextDouble() * this@BERTTrainer.model.vocabulary.size).toInt()
+      val elementId: Int = floor(formRandom.nextFloat() * this@BERTTrainer.model.vocabulary.size).toInt()
 
       return this@BERTTrainer.model.vocabulary.getElement(elementId).toString()
     }
@@ -163,7 +163,7 @@ class BERTTrainer(
   /**
    * The losses of the last classifications made.
    */
-  private val lastLosses: MutableList<Double> = mutableListOf()
+  private val lastLosses: MutableList<Float> = mutableListOf()
 
   /**
    * The examples iteration counter.

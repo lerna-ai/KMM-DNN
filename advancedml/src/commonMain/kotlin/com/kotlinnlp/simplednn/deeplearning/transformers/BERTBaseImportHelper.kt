@@ -95,7 +95,7 @@ object BERTBaseImportHelper {
 //
 //    var firstLine = true
 //    var paramName = ""
-//    val values: MutableList<DoubleArray> = mutableListOf()
+//    val values: MutableList<FloatArray> = mutableListOf()
 //
 //    File(filename).forEachLine { line ->
 //
@@ -114,7 +114,7 @@ object BERTBaseImportHelper {
 //          paramsMap[paramName] = DenseNDArrayFactory.arrayOf(values)
 //        }
 //
-//        else -> values.add(line.split("\t").map { it.toDouble() }.toTypedArray().toDoubleArray())
+//        else -> values.add(line.split("\t").map { it.toFloat() }.toTypedArray().toFloatArray())
 //      }
 //    }
 //

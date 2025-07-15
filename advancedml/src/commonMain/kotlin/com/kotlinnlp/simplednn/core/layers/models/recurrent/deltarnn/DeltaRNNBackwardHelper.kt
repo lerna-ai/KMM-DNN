@@ -95,7 +95,7 @@ internal class DeltaRNNBackwardHelper<InputNDArrayType : NDArray<InputNDArrayTyp
     val alpha: DenseNDArray = this.layer.params.alpha.values
     val beta2: DenseNDArray = this.layer.params.beta2.values
 
-    val gRec1: DenseNDArray = pNext.reverseSub(1.0).assignProd(gyNext)
+    val gRec1: DenseNDArray = pNext.reverseSub(1.0f).assignProd(gyNext)
     val gRec2: DenseNDArray = alpha.prod(wxNext).assignSum(beta2).assignProd(gcNext).t.dot(wRec)
 
     return gRec1.assignSum(gRec2)

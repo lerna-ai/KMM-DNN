@@ -15,7 +15,7 @@ package com.kotlinnlp.simplednn.core.functionalities.activations
  *
  * @property lambda defines the lambda value
  */
-class Softshrink(val lambda: Double = 0.5) : ScalarActivationFunction {
+class Softshrink(val lambda: Float = 0.5f) : ScalarActivationFunction {
 
   companion object {
 
@@ -40,10 +40,10 @@ class Softshrink(val lambda: Double = 0.5) : ScalarActivationFunction {
    *
    * @return f([x])
    */
-  override fun f(x: Double): Double = when {
+  override fun f(x: Float): Float = when {
     x > this.lambda -> x - this.lambda
     x < -this.lambda -> x + this.lambda
-    else -> 0.0
+    else -> 0.0f
   }
 
   /**
@@ -53,9 +53,9 @@ class Softshrink(val lambda: Double = 0.5) : ScalarActivationFunction {
    *
    * @return the Softplus derivative calculated in x
    */
-  override fun dfOptimized(fx: Double): Double = when {
-    fx + this.lambda > this.lambda -> 1.0
-    fx - this.lambda < -this.lambda -> 1.0
-    else -> 0.0
+  override fun dfOptimized(fx: Float): Float = when {
+    fx + this.lambda > this.lambda -> 1.0f
+    fx - this.lambda < -this.lambda -> 1.0f
+    else -> 0.0f
   }
 }

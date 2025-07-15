@@ -8,9 +8,8 @@
 package com.kotlinnlp.simplednn.helpers
 
 import com.kotlinnlp.simplednn.core.optimizer.ParamsOptimizer
-//import com.kotlinnlp.utils.progressindicator.ProgressIndicatorBar
 import com.kotlinnlp.utils.*
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The trainer of a neural model.
@@ -138,7 +137,7 @@ abstract class Trainer<ExampleType : Any>(
   /**
    * @return an iterator of examples
    */
-  private fun buildExamplesIterator(): Iterator<ExampleType> =
+  fun buildExamplesIterator(): Iterator<ExampleType> =
     if (this.shuffler != null)
       ShuffledExamplesIterator(if (this.examples is List<ExampleType>) this.examples else this.examples.toList())
     else
@@ -186,8 +185,8 @@ abstract class Trainer<ExampleType : Any>(
 
       this.dumpModel()
 
-      if (this.verbose)
-        println("Model saved to \"${this.modelFilename}\"")
+//      if (this.verbose)
+//        println("Model saved to \"${this.modelFilename}\"")
     }
   }
 
@@ -237,9 +236,9 @@ abstract class Trainer<ExampleType : Any>(
    */
   private fun logTrainingEnd() {
 
-    if (this.verbose) {
-      println("Elapsed time: %s".format(this.timer.formatElapsedTime()))
-    }
+//    if (this.verbose) {
+//      println("Elapsed time: %s".format(this.timer.formatElapsedTime()))
+//    }
   }
 
   /**
@@ -269,7 +268,7 @@ abstract class Trainer<ExampleType : Any>(
 
     if (this.verbose) {
 
-      println("Elapsed time: %s".format(this.timer.formatElapsedTime()))
+      //println("Elapsed time: %s".format(this.timer.formatElapsedTime()))
 
       println("\nStatistics:")
       println(stats)

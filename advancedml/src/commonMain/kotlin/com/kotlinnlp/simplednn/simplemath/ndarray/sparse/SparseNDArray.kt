@@ -13,7 +13,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.*
 import com.kotlinnlp.simplednn.simplemath.ndarray.sparsebinary.SparseBinaryNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArrayFactory
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  *
@@ -31,7 +31,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
     /**
      * Secondary Factory.
      */
-    operator fun invoke(shape: Shape, values: DoubleArray, rows: IntArray, columns: IntArray): SparseNDArray {
+    operator fun invoke(shape: Shape, values: FloatArray, rows: IntArray, columns: IntArray): SparseNDArray {
 
       val array = SparseNDArray(shape = shape)
 
@@ -83,7 +83,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  var values = doubleArrayOf()
+  var values = floatArrayOf()
     private set
 
   /**
@@ -153,14 +153,14 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun get(i: Int): Double {
+  override fun get(i: Int): Float {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun get(i: Int, j: Int): Double {
+  override fun get(i: Int, j: Int): Float {
     TODO("not implemented")
   }
 
@@ -184,7 +184,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
     require(i < this.rows && j < this.columns)
 
     if (value != 0.0) {
-      this.setElement(row = i, col = j, value = value.toDouble())
+      this.setElement(row = i, col = j, value = value.toFloat())
 
     } else {
       TODO("not implemented")
@@ -194,7 +194,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  private fun setElement(row: Int, col: Int, value: Double) {
+  private fun setElement(row: Int, col: Int, value: Float) {
 
     var index = 0
 
@@ -247,7 +247,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    */
   override fun zeros(): SparseNDArray {
-    this.values = doubleArrayOf()
+    this.values = floatArrayOf()
     this.rowIndices = intArrayOf()
     this.colIndices = intArrayOf()
     return this
@@ -273,7 +273,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun assignValues(n: Double): SparseNDArray {
+  override fun assignValues(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -306,7 +306,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  fun assignValues(values: DoubleArray, rowIndices: IntArray, colIndices: IntArray): SparseNDArray {
+  fun assignValues(values: FloatArray, rowIndices: IntArray, colIndices: IntArray): SparseNDArray {
     require(rowIndices.all{ i -> rowIndices[i] in 0 until this.rows}) { "Row index exceeded dim 1" }
     require(colIndices.all{ i -> colIndices[i] in 0 until this.columns}) { "Column index exceeded dim 2" }
 
@@ -334,7 +334,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   private fun assignValues(a: DenseNDArray, mask: NDArrayMask): SparseNDArray {
     require(this.shape == a.shape)
 
-    this.values = DoubleArray(size = mask.size, init = { k -> a[mask.dim1[k], mask.dim2[k]] })
+    this.values = FloatArray(size = mask.size, init = { k -> a[mask.dim1[k], mask.dim2[k]] })
     this.rowIndices = mask.dim1.copyOf()
     this.colIndices = mask.dim2.copyOf()
 
@@ -344,12 +344,12 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun sum(): Double = this.values.indices.sumOf { i -> this.values[i] }
+  override fun sum(): Float  = this.values.indices.sumOf { i -> this.values[i].toDouble() }.toFloat()
 
   /**
    *
    */
-  override fun sum(n: Double): SparseNDArray {
+  override fun sum(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -377,7 +377,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun assignSum(n: Double): SparseNDArray {
+  override fun assignSum(n: Float): SparseNDArray {
 
     this.values.indices.forEach { i ->
       this.values[i] += n
@@ -416,7 +416,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
     val aSize = a.values.size
     val concatSize = thisSize + aSize
 
-    val reducedValues = DoubleArray(size = concatSize)
+    val reducedValues = FloatArray(size = concatSize)
     val reducedRows = IntArray(size = concatSize)
     val reducedCols = IntArray(size = concatSize)
 
@@ -453,7 +453,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun assignSum(a: SparseNDArray, n: Double): SparseNDArray {
+  override fun assignSum(a: SparseNDArray, n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -467,7 +467,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun sub(n: Double): SparseNDArray {
+  override fun sub(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -484,7 +484,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    * In-place subtraction by number
    */
-  override fun assignSub(n: Double): SparseNDArray {
+  override fun assignSub(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -498,7 +498,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun reverseSub(n: Double): SparseNDArray {
+  override fun reverseSub(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -566,7 +566,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
 
     val cols = IntArray(size = resultValuesSize, init = { k -> k / activeRowIndicesSize })
 
-    this.values = DoubleArray(size = resultValuesSize, init = { k -> a.values[k % activeRowIndicesSize] * b[cols[k]] })
+    this.values = FloatArray(size = resultValuesSize, init = { k -> a.values[k % activeRowIndicesSize] * b[cols[k]] })
     this.rowIndices = IntArray(size = resultValuesSize, init = { k -> a.rowIndices[k % activeRowIndicesSize] })
     this.colIndices = cols
 
@@ -588,7 +588,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
 
         val bActiveIndices = b.activeIndicesByColumn.keys
         val valuesCount = bActiveIndices.size * a.rows
-        val values = DoubleArray(size = valuesCount)
+        val values = FloatArray(size = valuesCount)
         val rows = IntArray(size = valuesCount)
         val columns = IntArray(size = valuesCount)
 
@@ -610,7 +610,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
       b.columns == 1 -> {
         // n-dim array (dot) column vector
         this.zeros()
-        this.values = DoubleArray(size = a.rows, init = { i -> b.activeIndicesByRow.keys.sumOf { a[i, it] } })
+        this.values = FloatArray(size = a.rows, init = { i -> b.activeIndicesByRow.keys.sumOf { a[i, it].toDouble() }.toFloat() })
         this.rowIndices = IntArray(size = a.rows, init = { it })
         this.colIndices = IntArray(size = a.rows, init = { 0 })
 
@@ -626,9 +626,9 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun prod(n: Double) = SparseNDArray(
+  override fun prod(n: Float) = SparseNDArray(
     shape = this.shape,
-    values = DoubleArray(size = this.values.size, init = { i -> this.values[i] * n }),
+    values = FloatArray(size = this.values.size, init = { i -> this.values[i] * n }),
     rows = this.rowIndices.copyOf(),
     columns = this.colIndices.copyOf()
   )
@@ -652,7 +652,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
 
     return SparseNDArray(
       shape = this.shape,
-      values = DoubleArray(size = this.values.size, init = { i -> this.values[i] * a.values[i]}),
+      values = FloatArray(size = this.values.size, init = { i -> this.values[i] * a.values[i]}),
       rows = this.rowIndices.copyOf(),
       columns = this.colIndices.copyOf())
   }
@@ -671,7 +671,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
     return if (a.shape == this.shape)
       SparseNDArray(
         shape = this.shape,
-        values = DoubleArray(
+        values = FloatArray(
           size = this.values.size,
           init = { k -> this.values[k] * a[this.rowIndices[k], this.colIndices[k]] }
         ),
@@ -681,7 +681,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
     else
       SparseNDArray(
         shape = this.shape,
-        values = DoubleArray(
+        values = FloatArray(
           size = this.values.size,
           init = { k -> this.values[k] * a[this.rowIndices[k], 0] }
         ),
@@ -692,14 +692,14 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun prod(n: Double, mask: NDArrayMask): SparseNDArray {
+  override fun prod(n: Float, mask: NDArrayMask): SparseNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignProd(n: Double): SparseNDArray {
+  override fun assignProd(n: Float): SparseNDArray {
 
     this.values.indices.forEach { i ->
       this.values[i] *= n
@@ -711,14 +711,14 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun assignProd(n: Double, mask: NDArrayMask): SparseNDArray {
+  override fun assignProd(n: Float, mask: NDArrayMask): SparseNDArray {
     TODO("not implemented")
   }
 
   /**
    *
    */
-  override fun assignProd(a: SparseNDArray, n: Double): SparseNDArray {
+  override fun assignProd(a: SparseNDArray, n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -757,7 +757,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun div(n: Double): SparseNDArray {
+  override fun div(n: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -770,7 +770,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
 
     return SparseNDArray(
       shape = this.shape,
-      values = DoubleArray(size = this.values.size, init = { i -> this.values[i] / a.values[i]}),
+      values = FloatArray(size = this.values.size, init = { i -> this.values[i] / a.values[i]}),
       rows = this.rowIndices.copyOf(),
       columns = this.colIndices.copyOf())
   }
@@ -788,7 +788,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun assignDiv(n: Double): SparseNDArray {
+  override fun assignDiv(n: Float): SparseNDArray {
 
     this.values.indices.forEach { i ->
       this.values[i] /= n
@@ -807,7 +807,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun avg(): Double {
+  override fun avg(): Float {
     TODO("not implemented")
   }
 
@@ -859,7 +859,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return a new [SparseNDArray] containing the values of this to the power of [power]
    */
-  override fun pow(power: Double): SparseNDArray {
+  override fun pow(power: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -870,7 +870,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return this [SparseNDArray] to the power of [power]
    */
-  override fun assignPow(power: Double): SparseNDArray {
+  override fun assignPow(power: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -933,7 +933,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return the norm
    */
-  override fun norm(): Double {
+  override fun norm(): Float {
     TODO("not implemented")
   }
 
@@ -942,19 +942,19 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return the euclidean norm
    */
-  override fun norm2(): Double {
+  override fun norm2(): Float {
     TODO("not implemented")
   }
 
   /**
    * @return the maximum value of this NDArray
    **/
-  override fun max(): Double = this.values.maxOrNull()!!
+  override fun max(): Float = this.values.maxOrNull()!!
 
   /**
    * @return the minimum value of this NDArray
    **/
-  override fun min(): Double = this.values.minOrNull()!!
+  override fun min(): Float = this.values.minOrNull()!!
 
   /**
    * Get the index of the highest value eventually skipping the element at the given [exceptIndex] when it is >= 0.
@@ -985,7 +985,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return a new NDArray with the values of the current one rounded to Int
    */
-  override fun roundInt(threshold: Double): SparseNDArray {
+  override fun roundInt(threshold: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -996,7 +996,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
    *
    * @return this [SparseNDArray]
    */
-  override fun assignRoundInt(threshold: Double): SparseNDArray {
+  override fun assignRoundInt(threshold: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -1038,7 +1038,7 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  override fun equals(a: SparseNDArray, tolerance: Double): Boolean {
+  override fun equals(a: SparseNDArray, tolerance: Float): Boolean {
 
     this.sortValues()
     a.sortValues()
@@ -1142,8 +1142,8 @@ class SparseNDArray(override val shape: Shape) : NDArray<SparseNDArray>, Iterabl
   /**
    *
    */
-  private fun swapArray(array: DoubleArray, i: Int, j: Int) {
-    val tmp: Double = array[i]
+  private fun swapArray(array: FloatArray, i: Int, j: Int) {
+    val tmp: Float = array[i]
     array[i] = array[j]
     array[j] = tmp
   }

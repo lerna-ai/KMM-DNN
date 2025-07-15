@@ -41,6 +41,6 @@ internal class SubBackwardHelper <InputNDArrayType : NDArray<InputNDArrayType>>(
     val gy: DenseNDArray = this.layer.outputArray.errors
 
     this.layer.inputArray1.assignErrors(gy)
-    this.layer.inputArray2.assignErrors(gy.prod(-1.0))
+    this.layer.inputArray2.assignErrors(gy.prod(-1.0f))
   }
 }

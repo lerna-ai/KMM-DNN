@@ -186,13 +186,13 @@ class BERT(
    * @return a new positional encoding for the given position
    */
   private fun buildPositionalEncoding(pos: Int): DenseNDArray = DenseNDArrayFactory.arrayOf(
-    DoubleArray(
+    FloatArray(
       size = this.model.inputSize,
       init = { i ->
         if (i % 2 == 0)
-          sin(pos / 10000.0.pow(i.toDouble() / this.model.inputSize))
+          sin(pos / 10000.0.pow(i.toDouble() / this.model.inputSize)).toFloat()
         else
-          cos(pos / 10000.0.pow(i.toDouble() / this.model.inputSize))
+          cos(pos / 10000.0.pow(i.toDouble() / this.model.inputSize)).toFloat()
       }
     )
   )

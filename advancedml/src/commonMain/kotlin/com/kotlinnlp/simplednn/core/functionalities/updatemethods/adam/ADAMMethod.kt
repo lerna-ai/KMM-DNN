@@ -28,10 +28,10 @@ import kotlin.math.sqrt
  * @property regularization a parameters regularization method
  */
 open class ADAMMethod(
-  val stepSize: Double = 0.001,
-  val beta1: Double = 0.9,
-  val beta2: Double = 0.999,
-  val epsilon: Double = 1.0E-8,
+  val stepSize: Float = 0.001f,
+  val beta1: Float = 0.9f,
+  val beta2: Float = 0.999f,
+  val epsilon: Float = 1.0E-8f,
   regularization: ParamsRegularization? = null
 ) : BatchScheduling, UpdateMethod<ADAMStructure>(regularization) {
 
@@ -88,11 +88,11 @@ open class ADAMMethod(
     val m: DenseNDArray = supportStructure.firstOrderMoments
     val v: DenseNDArray = supportStructure.secondOrderMoments
 
-    val sqrtB2T: Double = sqrt(1.0 - this.beta2.pow(this.timeStep))
-    val alpha: Double = this.calcAlpha()
+    val sqrtB2T: Float = sqrt(1.0f - this.beta2.pow(this.timeStep))
+    val alpha: Float = this.calcAlpha()
 
-    m.assignProd(this.beta1).assignSum(errors.prod(1.0 - this.beta1))
-    v.assignProd(this.beta2).assignSum(errors.prod(errors).assignProd(1.0 - this.beta2))
+    m.assignProd(this.beta1).assignSum(errors.prod(1.0f - this.beta1))
+    v.assignProd(this.beta2).assignSum(errors.prod(errors).assignProd(1.0f - this.beta2))
 
     return m.div(v.sqrt().assignSum(this.epsilon * sqrtB2T)).assignProd(alpha)
   }
@@ -100,6 +100,6 @@ open class ADAMMethod(
   /**
    * @return the `alpha` coefficient
    */
-  protected open fun calcAlpha(): Double =
-    this.stepSize * sqrt(1.0 - this.beta2.pow(this.timeStep)) / (1.0 - this.beta1.pow(this.timeStep))
+  protected open fun calcAlpha(): Float =
+    this.stepSize * sqrt(1.0f - this.beta2.pow(this.timeStep)) / (1.0f - this.beta1.pow(this.timeStep))
 }

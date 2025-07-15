@@ -12,7 +12,7 @@ import com.kotlinnlp.simplednn.core.layers.LayerParameters
 import com.kotlinnlp.simplednn.core.layers.Layer
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArray
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.assert
+import korlibs.io.lang.assert
 
 /**
  * The helper which executes the forward on a [layer].
@@ -64,7 +64,7 @@ internal class SimpleRecurrentForwardHelper<InputNDArrayType : NDArray<InputNDAr
 
     val prevStateLayer: Layer<*>? = this.layer.layersWindow.getPrevState()
     val b: DenseNDArray = this.layer.params.unit.biases.values
-    val bContrib: DenseNDArray = if (prevStateLayer != null) b.div(2.0) else b
+    val bContrib: DenseNDArray = if (prevStateLayer != null) b.div(2.0f) else b
     // if there's a recurrent contribution b is divided equally within the sum
 
     // y = w (dot) x + b ( -> b / 2)

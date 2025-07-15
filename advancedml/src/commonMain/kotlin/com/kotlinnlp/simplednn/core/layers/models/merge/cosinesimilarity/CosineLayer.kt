@@ -30,7 +30,7 @@ internal class CosineLayer(
   outputArray = AugmentedArray(1),
   params = params,
   activationFunction = null,
-  dropout = 0.0
+  dropout = 0.0f
 ) {
 
   init { this.checkInputSize() }
@@ -38,12 +38,12 @@ internal class CosineLayer(
   /**
    * The Euclidean norm of input1
    */
-  var input1Norm = 0.0
+  var input1Norm = 0.0f
 
   /**
    * The Euclidean norm of input2
    */
-  var input2Norm = 0.0
+  var input2Norm = 0.0f
 
   /**
    * The helper which execute the forward.

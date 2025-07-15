@@ -12,7 +12,7 @@ import com.kotlinnlp.simplednn.core.embeddings.EmbeddingsMap
 import com.kotlinnlp.simplednn.core.neuralprocessor.NeuralProcessor
 import com.kotlinnlp.simplednn.core.optimizer.ParamsErrorsAccumulator
 import com.kotlinnlp.simplednn.simplemath.ndarray.dense.DenseNDArray
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The neural processor that manages embeddings in a map.
@@ -22,7 +22,7 @@ import com.soywiz.korio.lang.format
  */
 open class EmbeddingsProcessor<T>(
   private val embeddingsMap: EmbeddingsMap<T>,
-  private val dropout: Double = 0.0
+  private val dropout: Float = 0.0f
 ) : NeuralProcessor<
         List<T>, // InputType
         List<DenseNDArray>, // OutputType
@@ -45,7 +45,7 @@ open class EmbeddingsProcessor<T>(
    */
   private var usedEmbeddings = listOf<ParamsArray>()
 
-  private var embeddingGradients = mutableListOf<Double>()
+  private var embeddingGradients = mutableListOf<Float>()
 
   private var numMultiHotEmbeddings: Int = 0
   /**
@@ -72,14 +72,14 @@ open class EmbeddingsProcessor<T>(
     return this.usedEmbeddings.map { it.values }
   }
 
-  fun forward(categoricalFeature: MutableList<Int>, numericalFeature: MutableMap<Int, Double>, multiHotFeature: MutableMap<Int, Int>): List<DenseNDArray>
+  fun forward(categoricalFeature: MutableList<Int>, numericalFeature: MutableMap<Int, Float>, multiHotFeature: MutableMap<Int, Int>): List<DenseNDArray>
   {
     val categoricalEmbedding = categoricalFeature.map {this.embeddingsMap.get(it, this.dropout).values }
     val numericalEmbedding = mutableListOf<DenseNDArray>()
     numericalFeature.forEach { (key, value) -> numericalEmbedding.add(this.embeddingsMap.get(key, this.dropout).values.prod(value)) }
 
     // total possible values of a multi-hot feature, doesn't matter if they are present in the current example or not
-    val totalMultiHot = multiHotFeature.size.toDouble()
+    val totalMultiHot = multiHotFeature.size.toFloat()
 
     val multiHotEmbedding = mutableListOf<DenseNDArray>()
     multiHotFeature.forEach { (key, value) -> if (value !=0) {multiHotEmbedding.add(this.embeddingsMap.get(key, this.dropout).values)} }
@@ -95,9 +95,9 @@ open class EmbeddingsProcessor<T>(
 
     this.usedEmbeddings = usedKeys.map{this.embeddingsMap.get(it, this.dropout)}
 
-    categoricalFeature.forEach { this.embeddingGradients.add(1.0) }
-    numericalFeature.forEach { (key, value) -> this.embeddingGradients.add(value) }
-    multiHotFeature.forEach { (key, value) -> if (value != 0) {this.embeddingGradients.add(1.0/totalMultiHot) } }
+    categoricalFeature.forEach { this.embeddingGradients.add(1.0f) }
+    numericalFeature.forEach { (_, value) -> this.embeddingGradients.add(value) }
+    multiHotFeature.forEach { (_, value) -> if (value != 0) {this.embeddingGradients.add(1.0f/totalMultiHot) } }
 
 //        println("gradients are ${this.embeddingGradients}")
 //        println("used embeddings are:")

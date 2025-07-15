@@ -7,7 +7,7 @@
 
 package com.kotlinnlp.utils.stats
 
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  * The counter of a metric, that accumulates true and false results, positive and negative.
@@ -37,17 +37,17 @@ class MetricCounter {
   /**
    * The precision statistic.
    */
-  val precision: Double get() = (truePos.toDouble() / (truePos + falsePos)).ifNaN { 0.0 }
+  val precision: Float get() = (truePos.toFloat() / (truePos + falsePos)).ifNaN { 0.0f }
 
   /**
    * The recall statistic.
    */
-  val recall: Double get() = (truePos.toDouble() / relevant).ifNaN { 0.0 }
+  val recall: Float get() = (truePos.toFloat() / relevant).ifNaN { 0.0f }
 
   /**
    * The f1 score statistic.
    */
-  val f1Score: Double get() = (2 * precision * recall / (precision + recall)).ifNaN { 0.0 }
+  val f1Score: Float get() = (2 * precision * recall / (precision + recall)).ifNaN { 0.0f }
 
   /**
    * @return the string representation of the statistic metrics
@@ -69,5 +69,5 @@ class MetricCounter {
    *
    * @return this number if it is not NaN, otherwise the value returned by the [callback]
    */
-  private fun Double.ifNaN(callback: () -> Double): Double = if (this.isNaN()) callback() else this
+  private fun Float.ifNaN(callback: () -> Float): Float = if (this.isNaN()) callback() else this
 }

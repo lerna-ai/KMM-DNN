@@ -11,7 +11,7 @@ import com.kotlinnlp.simplednn.simplemath.ndarray.Indices
 import com.kotlinnlp.simplednn.simplemath.ndarray.NDArrayFactory
 import com.kotlinnlp.simplednn.simplemath.ndarray.Shape
 import com.kotlinnlp.simplednn.simplemath.ndarray.SparseEntry
-import com.soywiz.korio.lang.format
+import korlibs.io.lang.format
 
 /**
  *
@@ -33,7 +33,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
     shape = shape,
     rows = intArrayOf(),
     columns = intArrayOf(),
-    values = doubleArrayOf()
+    values = floatArrayOf()
   )
 
   /**
@@ -53,7 +53,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
    * @return a new [SparseNDArray]
    */
   override fun eye(size: Int): SparseNDArray = this.arrayOf(
-    activeIndicesValues = Array(size) { i -> SparseEntry(Indices(i, i), 1.0) },
+    activeIndicesValues = Array(size) { i -> SparseEntry(Indices(i, i), 1.0f) },
     shape = Shape(size, size))
 
   /**
@@ -64,7 +64,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
    *
    * @return a new [SparseNDArray]
    */
-  override fun fill(shape: Shape, value: Double): SparseNDArray {
+  override fun fill(shape: Shape, value: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -89,7 +89,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
    *
    * @return a new [SparseNDArray] filled with random values
    */
-  override fun random(shape: Shape, from: Double, to: Double): SparseNDArray {
+  override fun random(shape: Shape, from: Float, to: Float): SparseNDArray {
     TODO("not implemented")
   }
 
@@ -98,7 +98,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
    */
   fun arrayOf(activeIndicesValues: Array<SparseEntry>, shape: Shape): SparseNDArray {
 
-    val values = mutableListOf<Double>()
+    val values = mutableListOf<Float>()
     val rows = mutableListOf<Int>()
     val columns = mutableListOf<Int>()
 
@@ -113,7 +113,7 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
         "Indices out of bounds (%d, %d)".format(indices.first, indices.second)
       }
 
-      if (value != 0.0) {
+      if (value != 0.0f) {
         values.add(value)
         rows.add(indices.first)
         columns.add(indices.second)
@@ -124,6 +124,6 @@ object SparseNDArrayFactory : NDArrayFactory<SparseNDArray> {
       shape = shape,
       rows = rows.toIntArray(),
       columns = columns.toIntArray(),
-      values = values.toDoubleArray())
+      values = values.toFloatArray())
   }
 }

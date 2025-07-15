@@ -35,7 +35,7 @@ internal class CFNLayer<InputNDArrayType : NDArray<InputNDArrayType>>(
   override val params: CFNLayerParameters,
   layersWindow: LayersWindow,
   activationFunction: ActivationFunction? = null,
-  dropout: Double
+  dropout: Float
 ) : GatedRecurrentLayer<InputNDArrayType>(
   inputArray = inputArray,
   inputType = inputType,

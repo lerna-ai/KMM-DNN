@@ -21,8 +21,8 @@ import com.kotlinnlp.utils.ItemsPool
  */
 class BiRNNEncodersPool<InputNDArrayType : NDArray<InputNDArrayType>>(
   private val network: BiRNN,
-  private val rnnDropout: Double = 0.0,
-  private val mergeDropout: Double = 0.0,
+  private val rnnDropout: Float = 0.0f,
+  private val mergeDropout: Float = 0.0f,
   private val propagateToInput: Boolean
 ) : ItemsPool<BiRNNEncoder<InputNDArrayType>>() {
 

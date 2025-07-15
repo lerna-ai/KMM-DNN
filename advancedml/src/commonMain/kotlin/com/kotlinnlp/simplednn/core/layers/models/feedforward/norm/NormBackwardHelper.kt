@@ -34,19 +34,19 @@ internal class NormBackwardHelper<InputNDArrayType : NDArray<InputNDArrayType>>(
 
     if (propagateToInput) {
 
-      val n: Double = this.layer.inputArray.size.toDouble()
+      val n: Float = this.layer.inputArray.size.toFloat()
       val g: DenseNDArray = this.layer.params.g.values
-      val v: Double = this.layer.v
+      val v: Float = this.layer.v
       val dev: InputNDArrayType = this.layer.dev
-      val stdDev: Double = this.layer.stdDev
+      val stdDev: Float = this.layer.stdDev
 
       val gyG: DenseNDArray = gy.prod(g)
       val gxDev: DenseNDArray = gyG.div(stdDev)
-      val gxDevXm: Double = -gxDev.sum() / n
+      val gxDevXm: Float = -gxDev.sum() / n
 
-      val gxV: Double = -gyG.assignProd(dev).assignDiv(2.0 * (v + NormLayer.EPS) * stdDev).sum() / n
-      val gxVx: InputNDArrayType = dev.prod(2.0)
-      val gxVxm: Double = -gxVx.sum() / n
+      val gxV: Float = -gyG.assignProd(dev).assignDiv(2.0f * (v + NormLayer.EPS) * stdDev).sum() / n
+      val gxVx: InputNDArrayType = dev.prod(2.0f)
+      val gxVxm: Float = -gxVx.sum() / n
 
       val gx: DenseNDArray = gxDev.assignSum(gxDevXm).assignSum(gxVx.assignSum(gxVxm).assignProd(gxV))
 

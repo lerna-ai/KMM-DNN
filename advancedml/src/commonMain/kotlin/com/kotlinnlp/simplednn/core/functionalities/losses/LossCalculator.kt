@@ -61,9 +61,9 @@ interface LossCalculator {
    * @return the mean loss of the sequence
    */
   fun calculateMeanLoss(outputSequence: List<DenseNDArray>,
-                        outputGoldSequence: List<DenseNDArray>): Double {
+                        outputGoldSequence: List<DenseNDArray>): Float {
 
-    var lossesSum = 0.0
+    var lossesSum = 0.0f
 
     outputSequence.zip(outputGoldSequence).forEach { (output, goldOutput) ->
       lossesSum += this.calculateLoss(output, goldOutput).avg()
